@@ -1,0 +1,149 @@
+from datetime import datetime
+from run import main_loop
+from nbt_func import main_check
+import os, time
+from lib.sugar import timer
+from lib.log_color import log
+import threading
+
+# 用于存储正在进行的线程
+active_threads = {}
+# 获取当前工作目录
+current_directory = os.getcwd()
+uploaded_directory = os.path.join(current_directory, 'uploaded')
+
+
+def check_nbt_files():
+    nbt_files_dict = {}  # 存储玩家名字及对应的 NBT 文件名和修改时间的字典
+
+    # 遍历 uploaded 目录中的所有玩家文件夹
+    for player_folder in os.listdir(uploaded_directory):
+        player_path = os.path.join(uploaded_directory, player_folder)
+
+        # 确保是文件夹
+        if os.path.isdir(player_path):
+            # 查找该玩家文件夹中的所有 NBT 文件
+            nbt_files_info = []
+            nbt_files = [filename for filename in os.listdir(player_path) if filename.endswith('.nbt')]
+
+            for filename in nbt_files:
+                file_path = os.path.join(player_path, filename)
+                # 获取文件的修改时间
+                modification_time = os.path.getmtime(file_path)
+                # 将文件名和修改时间添加到列表中
+                nbt_files_info.append((filename, time.ctime(modification_time)))
+
+            if nbt_files_info:
+                nbt_files_dict[player_folder] = nbt_files_info  # 将玩家名和文件信息添加到字典中
+            else:
+                pass
+
+    return nbt_files_dict  # 返回包含玩家及其 NBT 文件的字典
+
+
+def sync_code_mod_time(code_mod_times, player_name, filename, file_mod_time):
+    # 同步代码修改时间
+    code_mod_times[player_name][filename] = file_mod_time
+    log.info(f"已同步 {filename} 的代码修改时间为: {file_mod_time}")
+
+    
+def check_and_run(player_name, filename, file_mod_time, code_mod_times, inside_check):
+    # 创建唯一的线程标识符
+    thread_id = (player_name, filename)
+    
+    # 检查是否已有线程在运行
+    if thread_id not in active_threads:
+        # 创建并启动新线程
+        thread = threading.Thread(target=main_check, args=(player_name, filename))
+        active_threads[thread_id] = thread
+        thread.start()
+        
+        # 同步代码修改时间
+        sync_code_mod_time(code_mod_times, player_name, filename, file_mod_time)
+        
+        # 线程结束后从活动线程列表中移除
+        thread.join()  # 等待线程完成
+        del active_threads[thread_id]
+    else:
+        print(f"已在运行: {player_name} - {filename}")
+
+
+@timer
+def run_main():
+    nbt_files_dict = check_nbt_files()  # 获取所有 NBT 文件信息
+    previous_nbt_files = nbt_files_dict
+    # log.info(nbt_files_dict)  # 打印 NBT 文件字典
+
+    # 创建一个字典来存储代码修改时间
+    code_mod_times = {player: {file_info[0]: file_info[1] for file_info in files} for player, files in
+                      nbt_files_dict.items()}
+
+    # 第一次循环：同步文件和代码的修改时间
+    for player_name, files in nbt_files_dict.items():
+        for file_info in files:
+            filename = file_info[0]  # 获取文件名
+            file_mod_time = file_info[1]  # 获取文件的修改时间
+
+            # 同步文件修改时间和代码修改时间
+            code_mod_times[player_name][filename] = file_mod_time
+
+    log.info("第一次循环完成，已同步文件和代码的修改时间。")
+    log.info("当前代码修改时间：%s", code_mod_times)  # 使用格式化字符串
+    turn = 0
+    total_count = 0
+    while True:
+        last_count = total_count
+        inside_check = False
+        turn += 1
+        time.sleep(2)  # 每隔 5 秒检查一次
+        nbt_files_dict = check_nbt_files()  # 获取所有 NBT 文件信息
+        total_count = 0
+        for player, nbt_files in nbt_files_dict.items():
+            total_count += len(nbt_files)
+        if total_count != last_count:
+            log.info(f"[变动检查]找到的nbt文件数量[{total_count}]")
+            # previous_nbt_files, inside_check = main_loop(previous_nbt_files, nbt_files_dict)
+        if turn >= 500:
+            turn = 0
+            log.info(f"[活跃提示]找到的nbt文件数量[{total_count}]")
+
+        # 第二次循环：进行比较
+        for player_name, files in nbt_files_dict.items():
+            for file_info in files:
+                filename = file_info[0]  # 获取文件名
+                file_mod_time = file_info[1]  # 获取文件的修改时间
+
+                # 获取对应的代码修改时间
+
+                if player_name not in code_mod_times:
+                    code_mod_times[player_name] = {}
+                    current_time = datetime.now().strftime('%a %b %d %H:%M:%S %Y')
+                    code_mod_times[player_name][filename] = current_time
+                    # main_check(player_name, filename)
+                code_mod_time = code_mod_times[player_name].get(filename)
+
+                # log.info(f"{code_mod_time}, {file_mod_time}")
+                # 比较文件修改时间和代码修改时间
+                if file_mod_time is None:
+                    file_mod_time = 'Fri Nov  8 22:36:21 2024'
+                if code_mod_time is None:
+                    code_mod_time = 'Fri Nov  8 22:36:21 2024'
+
+                file_mod_time_1 = datetime.strptime(file_mod_time, '%a %b %d %H:%M:%S %Y')
+                code_mod_time_1 = datetime.strptime(code_mod_time, '%a %b %d %H:%M:%S %Y')
+
+                if abs((file_mod_time_1 - code_mod_time_1).total_seconds()) < 10:
+                    pass
+                    # log.info(f"{filename} 的修改时间相同，跳过检查。")
+                else:
+                    check_and_run(player_name, filename, file_mod_time, code_mod_times, inside_check)
+
+
+if __name__ == '__main__':
+    while True:
+        try:
+            log.info("启动主线程中")
+            run_main()
+        except Exception as e:
+            log.error(e)
+
