@@ -25,7 +25,7 @@ formatter = colorlog.ColoredFormatter(
 console_handler.setFormatter(formatter)
 
 # 创建一个文件处理器（文件输出）
-log_file_path = 'application.log'  # 日志文件名
+log_file_path = 'logs/application.log'  # 日志文件名
 file_handler = logging.FileHandler(log_file_path)
 file_handler.setLevel(logging.DEBUG)  # 设置文件处理器的日志级别
 file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))  # 设置文件格式

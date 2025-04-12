@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import config
 
 def install(package):         # fix package problem
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
@@ -13,7 +14,6 @@ for package in required_packages:
 
 
 from datetime import datetime
-from run import main_loop
 from nbt_func import main_check
 import os, time
 from lib.sugar import timer
@@ -24,12 +24,12 @@ import threading
 active_threads = {}
 # 获取当前工作目录
 current_directory = os.getcwd()
-uploaded_directory = os.path.join(current_directory, '../schematics/uploaded')
+uploaded_directory = os.path.join(current_directory, config.schematics_path)
 
 
-def check_nbt_files():
+def search_nbt_files():
+
     nbt_files_dict = {}  # 存储玩家名字及对应的 NBT 文件名和修改时间的字典
-
     # 遍历 uploaded 目录中的所有玩家文件夹
     for player_folder in os.listdir(uploaded_directory):
         player_path = os.path.join(uploaded_directory, player_folder)
@@ -85,7 +85,7 @@ def check_and_run(player_name, filename, file_mod_time, code_mod_times, inside_c
 
 @timer
 def run_main():
-    nbt_files_dict = check_nbt_files()  # 获取所有 NBT 文件信息
+    nbt_files_dict = search_nbt_files()  # 获取所有 NBT 文件信息
     previous_nbt_files = nbt_files_dict
     # log.info(nbt_files_dict)  # 打印 NBT 文件字典
 
@@ -111,7 +111,7 @@ def run_main():
         inside_check = False
         turn += 1
         time.sleep(2)  # 每隔 5 秒检查一次
-        nbt_files_dict = check_nbt_files()  # 获取所有 NBT 文件信息
+        nbt_files_dict = search_nbt_files()  # 获取所有 NBT 文件信息
         total_count = 0
         for player, nbt_files in nbt_files_dict.items():
             total_count += len(nbt_files)

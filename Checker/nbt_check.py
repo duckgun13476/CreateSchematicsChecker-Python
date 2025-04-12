@@ -37,6 +37,7 @@ def belt_check(source_path_1):
         return f"传送带异常调整结果：{belt_change_count}"
 
 
+
 if __name__ == '__main__':
     source_path = 'warn/穆糖Official/传送带破区块蓝图.nbt'  # 替换为你的 NBT 文件路径
     print(belt_check(source_path))

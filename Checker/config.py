@@ -1,5 +1,5 @@
+schematics_path = "../schematics/uploaded"  # 蓝图路径
 
-path = "../schematics/uploaded"
 
 
 

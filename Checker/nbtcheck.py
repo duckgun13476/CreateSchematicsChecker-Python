@@ -5,7 +5,6 @@ from lib.sugar import timer
 # 获取当前工作目录
 current_directory = os.getcwd()
 
-
 @timer
 def run_tick():
     # 查找所有 NBT 文件
