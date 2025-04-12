@@ -1,10 +1,26 @@
+import subprocess
+import sys
+
+def install(package):
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
+
+required_packages = ['colorlog','nbt']  # 列出所需的包
+
+for package in required_packages:
+    try:
+        __import__(package)
+    except ImportError:
+        print(f"Installing {package}...")
+        install(package)
+
+
 from datetime import datetime
 from run import main_loop
 from nbt_func import main_check
 import os, time
 from lib.sugar import timer
 from lib.log_color import log
-import threading
+import threading
 
 # 用于存储正在进行的线程
 active_threads = {}
@@ -47,7 +63,8 @@ def sync_code_mod_time(code_mod_times, player_name, filename, file_mod_time):
     log.info(f"已同步 {filename} 的代码修改时间为: {file_mod_time}")
 
     
-def check_and_run(player_name, filename, file_mod_time, code_mod_times, inside_check):
+
+def check_and_run(player_name, filename, file_mod_time, code_mod_times, inside_check):
     # 创建唯一的线程标识符
     thread_id = (player_name, filename)
     
