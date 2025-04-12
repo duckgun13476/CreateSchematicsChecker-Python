@@ -1,11 +1,9 @@
 import subprocess
 import sys
 
-def install(package):
+def install(package):         # fix package problem
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
-
-required_packages = ['colorlog','nbt']  # 列出所需的包
-
+required_packages = ['colorlog','nbt']
 for package in required_packages:
     try:
         __import__(package)
@@ -26,7 +24,7 @@ import threading
 active_threads = {}
 # 获取当前工作目录
 current_directory = os.getcwd()
-uploaded_directory = os.path.join(current_directory, 'uploaded')
+uploaded_directory = os.path.join(current_directory, '../schematics/uploaded')
 
 
 def check_nbt_files():

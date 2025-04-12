@@ -1,5 +1,6 @@
 from nbt import nbt
-
+import os
+# about to delete
 
 def belt_check(source_path_1):
     # 加载 NBT 文件
