@@ -85,6 +85,7 @@ def check_and_run(player_name, filename, file_mod_time, code_mod_times, inside_c
 
 @timer
 def run_main():
+
     nbt_files_dict = search_nbt_files()  # 获取所有 NBT 文件信息
     previous_nbt_files = nbt_files_dict
     # log.info(nbt_files_dict)  # 打印 NBT 文件字典
@@ -103,14 +104,18 @@ def run_main():
             code_mod_times[player_name][filename] = file_mod_time
 
     log.info("第一次循环完成，已同步文件和代码的修改时间。")
-    log.info("当前代码修改时间：%s", code_mod_times)  # 使用格式化字符串
+    log.info("当前代码修改时间：")  # 使用格式化字符串
+    for player_name, code_mod_times in code_mod_times.items():
+        log.info(player_name + ": " + str(code_mod_times))
+
+
     turn = 0
     total_count = 0
     while True:
         last_count = total_count
         inside_check = False
         turn += 1
-        time.sleep(2)  # 每隔 5 秒检查一次
+        time.sleep(config.check_frequency)  # 每隔 5 秒检查一次
         nbt_files_dict = search_nbt_files()  # 获取所有 NBT 文件信息
         total_count = 0
         for player, nbt_files in nbt_files_dict.items():
@@ -118,9 +123,9 @@ def run_main():
         if total_count != last_count:
             log.info(f"[变动检查]找到的nbt文件数量[{total_count}]")
             # previous_nbt_files, inside_check = main_loop(previous_nbt_files, nbt_files_dict)
-        if turn >= 500:
+        if turn >= 100/config.check_frequency:
             turn = 0
-            log.info(f"[活跃提示]找到的nbt文件数量[{total_count}]")
+            log.info(f"[活跃提示]蓝图数量[{total_count}]")
 
         # 第二次循环：进行比较
         for player_name, files in nbt_files_dict.items():
@@ -161,4 +166,5 @@ if __name__ == '__main__':
             run_main()
         except Exception as e:
             log.error(e)
+            time.sleep(1)
 

@@ -5,7 +5,8 @@ from lib.log_color import log
 import os,shutil
 from nbt_check import belt_check
 from datetime import datetime
-from file_size import wait_for_file_transfer_complete
+
+from file_size_io import wait_for_file_transfer_complete
 
 log_directory = 'logs'  # 日志文件夹
 os.makedirs(log_directory, exist_ok=True)  # 创建日志文件夹（如果不存在）
@@ -18,46 +19,40 @@ def write_log(log_message):
 
 
 def nbt_loader(name, file):
-    file_path = config.path
-    print(f"{file_path}/{name}/{file}")
-    nbt_data = nbt.NBTFile(f"{file_path}/{name}/{file}")
-
-    return nbt_data
+    return nbt.NBTFile(f"{config.schematics_path}/{name}/{file}")
 
 
 @timer
 def count_block_ids(data):
     block_count = {}  # 用于存储每个 ID 的计数
+    total_count = 0
+    if 'palette' in data:
+        blocks = data['palette']
 
-    if 'blocks' in data:
-        blocks = data['blocks']
         for block in blocks:
-            # 假设每个 block 是一个 TAG_Compound，ID 存储在 'nbt' 下的 'id' 中
-            if 'nbt' in block and 'id' in block['nbt']:
-                block_id = block['nbt']['id'].value  # 获取 block 的 ID
+            if 'Name' in block:
+                block_id = block['Name'].value  # 获取 block 的 ID
                 if block_id in block_count:
                     block_count[block_id] += 1  # 增加计数
                 else:
                     block_count[block_id] = 1  # 初始化计数
+                total_count += 1
+    return block_count,total_count
 
-    return block_count
 
-
-def search_for_string_match(data, tags_to_check, item_to_check):
-    # 将 NBT 数据转换为字符串
-    data_str = str(data.pretty_tree())  # 使用 dumps() 获取完整内容
+def search_for_string_match(data, check_string_23):
+    data_str = str(data.pretty_tree())  # 将 NBT 数据转换为字符串
     tag_count = 0
     item_count = 0
-    for tag in tags_to_check:
-        # 检查是否包含目标 ID
+    for tag in check_string_23[0]:
         if tag in data_str:
             log.warning(f"警告: 找到异常 NBT 标签，包含{tag}")
             tag_count += 1
-    for item in item_to_check:
-        # 检查是否包含目标 ID
+    for item in check_string_23[1]:
         if item in data_str:
             log.warning(f"警告: 找到异常 ID 物品，包含{item}")
-            data_str = data_str.replace(item, "minecraft:air")
+            if config.fast_handle:
+                data_str = data_str.replace(item, "minecraft:air")
             item_count += 1
     return tag_count, item_count
 
@@ -107,46 +102,45 @@ def replace_item_with_air(nbt_data, item_to_check, error):
 
 
 def main_check(name, file):
-    dead = False
-    blue_print_path = f"uploaded/{name}/{file}"
+    dead = False  # whether is cheat schematic
+    blue_print_path = f"{config.schematics_path}/{name}/{file}"
     log.info("进入检查")
-    # 检查文件是否传输完成
-    file_over = wait_for_file_transfer_complete(blue_print_path)
-    if file_over:
-        # 需要检查的标签列表
-        tags_to_check = ["AttributeModifiers", "Enchantments"]
-        item_to_check = ["create:creative_crate", "create:creative_fluid_tank", "create:creative_motor", "create:motor",'create:blaze_burner',
-                     "create:clipboard","create:lectern_controller","supplementaries:urn",'minecraft:kelp',"minecraft:shulker_box","minecraft:tripwire_hook"]
+    if wait_for_file_transfer_complete(blue_print_path):   # 检查文件是否传输完成
 
-        data = nbt_loader(name, file)
-        # 统计 blocks 下的 entries 下的 nbt 下的 id
-        block_statistics = count_block_ids(data)
-        tag_count, item_count = search_for_string_match(data, tags_to_check, item_to_check)
+        # 需要检查的标签列表
+
+        data = nbt_loader(name, file)  # load  nbt
+        block_statistics,total_count = count_block_ids(data)  # 统计 blocks 下的 entries 下的 nbt 下的 id
+
+
         # 输出统计结果
-        log.info(f"方块信息统计:[{name}][{file}]")
-        error_solve = 0
+        log.info(f"方块信息统计:[{name}][{file}][{total_count} 方块]")
+        error_solve = False  # bollen para to decide whether to check
+
         for block_id, count in block_statistics.items():
             log.info(f"ID: {block_id}, 数量: {count}")
-            if block_id == "create:belt":
-                error_solve += 1
+            if block_id in config.block_to_check:
+                error_solve = True
+
+
+        tag_count, item_count = search_for_string_match(data, [config.tags_to_check, config.block_to_check])
 
         if tag_count or item_count or error_solve:
-            target_path = f"{config.path}/{name}/{file}"
-
-            # 生成新的文件名，前面加上当前时间戳
+            # 保存异常的蓝图
+            target_path = blue_print_path
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             file_name, file_extension = os.path.splitext(file)  # 分离文件名和扩展名
             new_file_name = f"{timestamp}_{file_name}{file_extension}"  # 新的文件名
-            warn_path = f"warn/{name}/{new_file_name}"  # 更新warn_path
-
+            warn_path = f"problem_schematics/{name}/{new_file_name}"  # 更新warn_path
             os.makedirs(os.path.dirname(warn_path), exist_ok=True)
             shutil.copy(target_path, warn_path)
-
             log.info("异常蓝图已存储")
 
+
         if tag_count + item_count or error_solve:
+
             # 在log文件下记录
-            target_path = f"{config.path}/{name}/{file}"
+            target_path = f"{config.schematics_path}/{name}/{file}"
             text_warn = f"记录异常蓝图:[{name}][{file}]-[tag][{tag_count}]-[item][{item_count}]-[error][{error_solve}]"
             log.warning(text_warn)
             write_log(text_warn)
@@ -179,12 +173,12 @@ def main_check(name, file):
             # 还能救一下
             if item_count:
                 log.warning(f"玩家[{name}]的蓝图[{file}]存在异常，异常计数 tag[{tag_count}]-item[{item_count}]")
-                nbt_file = nbt.NBTFile(f"{config.path}/{name}/{file}")
-                nbt_file = replace_item_with_air(nbt_file, item_to_check, False)
-                nbt_file.write_file(f"{config.path}/{name}/{file}")
+                nbt_file = nbt.NBTFile(f"{config.schematics_path}/{name}/{file}")
+                nbt_file = replace_item_with_air(nbt_file, config.block_to_check, False)
+                nbt_file.write_file(f"{config.schematics_path}/{name}/{file}")
             if error_solve:
                 log.info(f"玩家[{name}]的蓝图[{file}]存在传送带，执行检查")
-                path = f"{config.path}/{name}/{file}"
+                path = f"{config.schematics_path}/{name}/{file}"
                 log.info(belt_check(path))
 
             log.info("检测完毕")
@@ -193,5 +187,5 @@ def main_check(name, file):
 
 if __name__ == '__main__':
     name = "csy12345"
-    file = "17w应力后期全速刷矿机（结构未优化）.nbt"
+    file = "砂狼白子.nbt"
     main_check(name, file)
