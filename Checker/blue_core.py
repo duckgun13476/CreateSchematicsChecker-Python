@@ -1,18 +1,6 @@
-import subprocess
-import sys
+from Checker.lib.package_handler import handle_package
+handle_package()
 import config
-
-def install(package):         # fix package problem
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
-required_packages = ['colorlog','nbt']
-for package in required_packages:
-    try:
-        __import__(package)
-    except ImportError:
-        print(f"Installing {package}...")
-        install(package)
-
-
 from datetime import datetime
 from nbt_func import main_check
 import os, time

@@ -2076,3 +2076,1763 @@
 2025-04-17 09:45:59,352 - INFO - [活跃提示]蓝图数量[10]
 2025-04-17 09:47:39,447 - INFO - [活跃提示]蓝图数量[10]
 2025-04-17 09:49:19,540 - INFO - [活跃提示]蓝图数量[10]
+2025-04-17 09:50:59,637 - INFO - [活跃提示]蓝图数量[10]
+2025-04-17 10:05:47,447 - INFO - 启动主线程中
+2025-04-17 10:05:47,447 - INFO - 第一次循环完成，已同步文件和代码的修改时间。
+2025-04-17 10:05:47,447 - INFO - 当前代码修改时间：
+2025-04-17 10:05:47,447 - INFO - Pink_Candy_Cats: {'base.nbt': 'Tue Apr 15 12:49:37 2025', 'dungouji.nbt': 'Tue Apr 15 14:30:24 2025', 'test.nbt': 'Thu Apr 17 09:44:24 2025', 'w.nbt': 'Mon Apr  7 12:33:15 2025', '_.nbt': 'Thu Apr 17 09:40:28 2025', '__1.nbt': 'Tue Apr 15 14:31:05 2025', '__6.nbt': 'Thu Apr 17 08:47:34 2025', '__7.nbt': 'Thu Apr 17 08:47:35 2025', '__8.nbt': 'Tue Apr  8 22:02:24 2025', '__9.nbt': 'Tue Apr  8 22:43:32 2025'}
+2025-04-17 10:05:48,448 - INFO - [变动检查]找到的nbt文件数量[10]
+2025-04-17 10:05:48,450 - INFO - 进入检查
+2025-04-17 10:05:48,450 - INFO - 已同步 base.nbt 的代码修改时间为: Tue Apr 15 12:49:37 2025
+2025-04-17 10:05:48,450 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt上传中：
+2025-04-17 10:05:48,451 - INFO - 文件传输完毕: (文件大小: 1387 字节 用时0.00秒)
+2025-04-17 10:05:48,451 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt
+2025-04-17 10:05:48,457 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:05:48,457 - INFO - 方块信息统计:[Pink_Candy_Cats][base.nbt][4 方块]
+2025-04-17 10:05:48,457 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:05:48,457 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:05:48,457 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:05:48,457 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:05:48,459 - INFO - 进入检查
+2025-04-17 10:05:48,459 - INFO - 已同步 dungouji.nbt 的代码修改时间为: Tue Apr 15 14:30:24 2025
+2025-04-17 10:05:48,459 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt上传中：
+2025-04-17 10:05:48,459 - INFO - 文件传输完毕: (文件大小: 4542 字节 用时0.00秒)
+2025-04-17 10:05:48,459 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt
+2025-04-17 10:05:48,479 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:05:48,479 - INFO - 方块信息统计:[Pink_Candy_Cats][dungouji.nbt][14 方块]
+2025-04-17 10:05:48,479 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:05:48,479 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:05:48,479 - INFO - ID: minecraft:sea_lantern, 数量: 1
+2025-04-17 10:05:48,479 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:05:48,479 - INFO - ID: create:track, 数量: 1
+2025-04-17 10:05:48,479 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:05:48,479 - INFO - ID: create:controls, 数量: 1
+2025-04-17 10:05:48,479 - INFO - ID: create:deployer, 数量: 2
+2025-04-17 10:05:48,479 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:05:48,479 - INFO - ID: create:track_station, 数量: 1
+2025-04-17 10:05:48,479 - INFO - ID: create:small_bogey, 数量: 1
+2025-04-17 10:05:48,479 - INFO - ID: metalbarrels:iron_barrel, 数量: 2
+2025-04-17 10:05:48,487 - INFO - 进入检查
+2025-04-17 10:05:48,487 - INFO - 已同步 test.nbt 的代码修改时间为: Thu Apr 17 09:44:24 2025
+2025-04-17 10:05:48,487 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt上传中：
+2025-04-17 10:05:48,488 - INFO - 文件传输完毕: (文件大小: 6662 字节 用时0.00秒)
+2025-04-17 10:05:48,488 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt
+2025-04-17 10:05:48,501 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:05:48,501 - INFO - 方块信息统计:[Pink_Candy_Cats][test.nbt][21 方块]
+2025-04-17 10:05:48,502 - INFO - ID: minecraft:grass_block, 数量: 1
+2025-04-17 10:05:48,502 - INFO - ID: minecraft:pumpkin, 数量: 1
+2025-04-17 10:05:48,502 - INFO - ID: minecraft:dirt, 数量: 1
+2025-04-17 10:05:48,502 - INFO - ID: minecraft:birch_leaves, 数量: 4
+2025-04-17 10:05:48,502 - INFO - ID: minecraft:birch_log, 数量: 1
+2025-04-17 10:05:48,502 - INFO - ID: minecraft:oak_log, 数量: 1
+2025-04-17 10:05:48,502 - INFO - ID: minecraft:oak_leaves, 数量: 7
+2025-04-17 10:05:48,502 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:05:48,502 - INFO - ID: minecraft:vine, 数量: 3
+2025-04-17 10:05:48,502 - INFO - ID: minecraft:dead_bush, 数量: 1
+2025-04-17 10:05:48,508 - INFO - 进入检查
+2025-04-17 10:05:48,508 - INFO - 已同步 w.nbt 的代码修改时间为: Mon Apr  7 12:33:15 2025
+2025-04-17 10:05:48,508 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt上传中：
+2025-04-17 10:05:48,508 - INFO - 文件传输完毕: (文件大小: 3586 字节 用时0.00秒)
+2025-04-17 10:05:48,508 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt
+2025-04-17 10:05:48,516 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:05:48,516 - INFO - 方块信息统计:[Pink_Candy_Cats][w.nbt][44 方块]
+2025-04-17 10:05:48,516 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:05:48,517 - INFO - ID: create:belt, 数量: 12
+2025-04-17 10:05:48,517 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:05:48,517 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:05:48,517 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:05:48,517 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:05:48,517 - INFO - ID: createaddition:electric_motor, 数量: 1
+2025-04-17 10:05:48,517 - INFO - ID: createaddition:large_connector, 数量: 1
+2025-04-17 10:05:48,517 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:05:48,517 - INFO - ID: create:brass_belt_funnel, 数量: 7
+2025-04-17 10:05:48,517 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:05:48,517 - INFO - ID: create:brass_tunnel, 数量: 1
+2025-04-17 10:05:48,517 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:05:48,517 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:05:48,517 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:05:48,517 - INFO - ID: create:basin, 数量: 1
+2025-04-17 10:05:48,519 - INFO - 进入检查
+2025-04-17 10:05:48,519 - INFO - 已同步 _.nbt 的代码修改时间为: Thu Apr 17 09:40:28 2025
+2025-04-17 10:05:48,520 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt上传中：
+2025-04-17 10:05:48,520 - INFO - 文件传输完毕: (文件大小: 877 字节 用时0.00秒)
+2025-04-17 10:05:48,520 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt
+2025-04-17 10:05:48,522 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:05:48,522 - INFO - 方块信息统计:[Pink_Candy_Cats][_.nbt][3 方块]
+2025-04-17 10:05:48,522 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:05:48,522 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:05:48,522 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:05:48,523 - INFO - 进入检查
+2025-04-17 10:05:48,523 - INFO - 已同步 __1.nbt 的代码修改时间为: Tue Apr 15 14:31:05 2025
+2025-04-17 10:05:48,523 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt上传中：
+2025-04-17 10:05:48,523 - INFO - 文件传输完毕: (文件大小: 3294 字节 用时0.00秒)
+2025-04-17 10:05:48,523 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt
+2025-04-17 10:05:48,541 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:05:48,541 - INFO - 方块信息统计:[Pink_Candy_Cats][__1.nbt][4 方块]
+2025-04-17 10:05:48,541 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:05:48,541 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:05:48,541 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:05:48,541 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:05:48,547 - INFO - 进入检查
+2025-04-17 10:05:48,548 - INFO - 已同步 __6.nbt 的代码修改时间为: Thu Apr 17 08:47:34 2025
+2025-04-17 10:05:48,548 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt上传中：
+2025-04-17 10:05:48,548 - INFO - 文件传输完毕: (文件大小: 17988 字节 用时0.00秒)
+2025-04-17 10:05:48,548 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt
+2025-04-17 10:05:48,626 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:05:48,626 - INFO - 方块信息统计:[Pink_Candy_Cats][__6.nbt][94 方块]
+2025-04-17 10:05:48,626 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:05:48,626 - INFO - ID: minecraft:stone_bricks, 数量: 1
+2025-04-17 10:05:48,626 - INFO - ID: minecraft:chiseled_stone_bricks, 数量: 1
+2025-04-17 10:05:48,626 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:05:48,626 - INFO - ID: minecraft:lever, 数量: 2
+2025-04-17 10:05:48,626 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:05:48,626 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:05:48,627 - INFO - ID: create:belt, 数量: 20
+2025-04-17 10:05:48,627 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:05:48,627 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:05:48,627 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:05:48,627 - INFO - ID: minecraft:air, 数量: 9
+2025-04-17 10:05:48,627 - INFO - ID: create:brass_belt_funnel, 数量: 13
+2025-04-17 10:05:48,627 - INFO - ID: create:item_vault, 数量: 2
+2025-04-17 10:05:48,627 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:05:48,627 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:05:48,627 - INFO - ID: minecraft:barrel, 数量: 3
+2025-04-17 10:05:48,627 - INFO - ID: create:basin, 数量: 3
+2025-04-17 10:05:48,627 - INFO - ID: create:brass_tunnel, 数量: 3
+2025-04-17 10:05:48,627 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:05:48,627 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:05:48,627 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:05:48,627 - INFO - ID: create:spout, 数量: 1
+2025-04-17 10:05:48,627 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:05:48,627 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:05:48,627 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:05:48,627 - INFO - ID: supplementaries:faucet, 数量: 1
+2025-04-17 10:05:48,627 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:05:48,651 - INFO - 进入检查
+2025-04-17 10:05:48,651 - INFO - 已同步 __7.nbt 的代码修改时间为: Thu Apr 17 08:47:35 2025
+2025-04-17 10:05:48,651 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt上传中：
+2025-04-17 10:05:48,651 - INFO - 文件传输完毕: (文件大小: 9289 字节 用时0.00秒)
+2025-04-17 10:05:48,651 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt
+2025-04-17 10:05:48,692 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:05:48,692 - INFO - 方块信息统计:[Pink_Candy_Cats][__7.nbt][36 方块]
+2025-04-17 10:05:48,692 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:05:48,692 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:05:48,692 - INFO - ID: minecraft:lever, 数量: 1
+2025-04-17 10:05:48,692 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:05:48,692 - INFO - ID: create:belt, 数量: 5
+2025-04-17 10:05:48,692 - INFO - ID: create:encased_chain_drive, 数量: 2
+2025-04-17 10:05:48,692 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:05:48,692 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:05:48,692 - INFO - ID: create:brass_belt_funnel, 数量: 5
+2025-04-17 10:05:48,692 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:05:48,692 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:05:48,692 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:05:48,692 - INFO - ID: create:basin, 数量: 2
+2025-04-17 10:05:48,692 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:05:48,693 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:05:48,693 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:05:48,693 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:05:48,693 - INFO - ID: minecraft:air, 数量: 1
+2025-04-17 10:05:48,706 - INFO - 进入检查
+2025-04-17 10:05:48,706 - INFO - 已同步 __8.nbt 的代码修改时间为: Tue Apr  8 22:02:24 2025
+2025-04-17 10:05:48,706 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt上传中：
+2025-04-17 10:05:48,707 - INFO - 文件传输完毕: (文件大小: 1855 字节 用时0.00秒)
+2025-04-17 10:05:48,707 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt
+2025-04-17 10:05:48,710 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:05:48,710 - INFO - 方块信息统计:[Pink_Candy_Cats][__8.nbt][11 方块]
+2025-04-17 10:05:48,710 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:05:48,710 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:05:48,710 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:05:48,711 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:05:48,711 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:05:48,711 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:05:48,711 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:05:48,711 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:05:48,712 - INFO - 进入检查
+2025-04-17 10:05:48,712 - INFO - 已同步 __9.nbt 的代码修改时间为: Tue Apr  8 22:43:32 2025
+2025-04-17 10:05:48,712 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt上传中：
+2025-04-17 10:05:48,713 - INFO - 文件传输完毕: (文件大小: 2429 字节 用时0.00秒)
+2025-04-17 10:05:48,713 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt
+2025-04-17 10:05:48,718 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:05:48,718 - INFO - 方块信息统计:[Pink_Candy_Cats][__9.nbt][20 方块]
+2025-04-17 10:05:48,718 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:05:48,718 - INFO - ID: create:encased_chain_drive, 数量: 5
+2025-04-17 10:05:48,718 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:05:48,718 - INFO - ID: create:chute, 数量: 1
+2025-04-17 10:05:48,719 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:05:48,719 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:05:48,719 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:05:48,719 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:05:48,719 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:05:48,719 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:05:48,719 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:05:48,719 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:05:48,719 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:07:27,807 - INFO - [活跃提示]蓝图数量[10]
+2025-04-17 10:09:07,902 - INFO - [活跃提示]蓝图数量[10]
+2025-04-17 10:09:48,462 - INFO - 启动主线程中
+2025-04-17 10:09:48,463 - INFO - 第一次循环完成，已同步文件和代码的修改时间。
+2025-04-17 10:09:48,463 - INFO - 当前代码修改时间：
+2025-04-17 10:09:48,463 - INFO - Pink_Candy_Cats: {'base.nbt': 'Tue Apr 15 12:49:37 2025', 'dungouji.nbt': 'Tue Apr 15 14:30:24 2025', 'test.nbt': 'Thu Apr 17 09:44:24 2025', 'w.nbt': 'Mon Apr  7 12:33:15 2025', '_.nbt': 'Thu Apr 17 09:40:28 2025', '__1.nbt': 'Tue Apr 15 14:31:05 2025', '__6.nbt': 'Thu Apr 17 08:47:34 2025', '__7.nbt': 'Thu Apr 17 08:47:35 2025', '__8.nbt': 'Tue Apr  8 22:02:24 2025', '__9.nbt': 'Tue Apr  8 22:43:32 2025'}
+2025-04-17 10:09:49,464 - INFO - [变动检查]找到的nbt文件数量[10]
+2025-04-17 10:09:49,467 - INFO - 进入检查
+2025-04-17 10:09:49,467 - INFO - 已同步 base.nbt 的代码修改时间为: Tue Apr 15 12:49:37 2025
+2025-04-17 10:09:49,467 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt上传中：
+2025-04-17 10:09:49,468 - INFO - 文件传输完毕: (文件大小: 1387 字节 用时0.00秒)
+2025-04-17 10:09:49,468 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt
+2025-04-17 10:09:49,473 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:09:49,473 - INFO - 方块信息统计:[Pink_Candy_Cats][base.nbt][4 方块]
+2025-04-17 10:09:49,473 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:09:49,473 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:09:49,473 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:09:49,473 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:09:49,476 - INFO - 进入检查
+2025-04-17 10:09:49,476 - INFO - 已同步 dungouji.nbt 的代码修改时间为: Tue Apr 15 14:30:24 2025
+2025-04-17 10:09:49,477 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt上传中：
+2025-04-17 10:09:49,477 - INFO - 文件传输完毕: (文件大小: 4542 字节 用时0.00秒)
+2025-04-17 10:09:49,477 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt
+2025-04-17 10:09:49,496 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:09:49,496 - INFO - 方块信息统计:[Pink_Candy_Cats][dungouji.nbt][14 方块]
+2025-04-17 10:09:49,496 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:09:49,496 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:09:49,496 - INFO - ID: minecraft:sea_lantern, 数量: 1
+2025-04-17 10:09:49,496 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:09:49,497 - INFO - ID: create:track, 数量: 1
+2025-04-17 10:09:49,497 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:09:49,497 - INFO - ID: create:controls, 数量: 1
+2025-04-17 10:09:49,497 - INFO - ID: create:deployer, 数量: 2
+2025-04-17 10:09:49,497 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:09:49,497 - INFO - ID: create:track_station, 数量: 1
+2025-04-17 10:09:49,497 - INFO - ID: create:small_bogey, 数量: 1
+2025-04-17 10:09:49,497 - INFO - ID: metalbarrels:iron_barrel, 数量: 2
+2025-04-17 10:09:49,504 - INFO - 进入检查
+2025-04-17 10:09:49,505 - INFO - 已同步 test.nbt 的代码修改时间为: Thu Apr 17 09:44:24 2025
+2025-04-17 10:09:49,505 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt上传中：
+2025-04-17 10:09:49,505 - INFO - 文件传输完毕: (文件大小: 6662 字节 用时0.00秒)
+2025-04-17 10:09:49,505 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt
+2025-04-17 10:09:49,518 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:09:49,518 - INFO - 方块信息统计:[Pink_Candy_Cats][test.nbt][21 方块]
+2025-04-17 10:09:49,518 - INFO - ID: minecraft:grass_block, 数量: 1
+2025-04-17 10:09:49,518 - INFO - ID: minecraft:pumpkin, 数量: 1
+2025-04-17 10:09:49,518 - INFO - ID: minecraft:dirt, 数量: 1
+2025-04-17 10:09:49,519 - INFO - ID: minecraft:birch_leaves, 数量: 4
+2025-04-17 10:09:49,519 - INFO - ID: minecraft:birch_log, 数量: 1
+2025-04-17 10:09:49,519 - INFO - ID: minecraft:oak_log, 数量: 1
+2025-04-17 10:09:49,519 - INFO - ID: minecraft:oak_leaves, 数量: 7
+2025-04-17 10:09:49,519 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:09:49,519 - INFO - ID: minecraft:vine, 数量: 3
+2025-04-17 10:09:49,519 - INFO - ID: minecraft:dead_bush, 数量: 1
+2025-04-17 10:09:49,525 - INFO - 进入检查
+2025-04-17 10:09:49,525 - INFO - 已同步 w.nbt 的代码修改时间为: Mon Apr  7 12:33:15 2025
+2025-04-17 10:09:49,525 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt上传中：
+2025-04-17 10:09:49,525 - INFO - 文件传输完毕: (文件大小: 3586 字节 用时0.00秒)
+2025-04-17 10:09:49,525 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt
+2025-04-17 10:09:49,533 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:09:49,533 - INFO - 方块信息统计:[Pink_Candy_Cats][w.nbt][44 方块]
+2025-04-17 10:09:49,533 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:09:49,534 - INFO - ID: create:belt, 数量: 12
+2025-04-17 10:09:49,534 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:09:49,534 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:09:49,534 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:09:49,534 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:09:49,534 - INFO - ID: createaddition:electric_motor, 数量: 1
+2025-04-17 10:09:49,534 - INFO - ID: createaddition:large_connector, 数量: 1
+2025-04-17 10:09:49,534 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:09:49,534 - INFO - ID: create:brass_belt_funnel, 数量: 7
+2025-04-17 10:09:49,534 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:09:49,534 - INFO - ID: create:brass_tunnel, 数量: 1
+2025-04-17 10:09:49,534 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:09:49,534 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:09:49,534 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:09:49,534 - INFO - ID: create:basin, 数量: 1
+2025-04-17 10:09:49,537 - INFO - 进入检查
+2025-04-17 10:09:49,537 - INFO - 已同步 _.nbt 的代码修改时间为: Thu Apr 17 09:40:28 2025
+2025-04-17 10:09:49,537 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt上传中：
+2025-04-17 10:09:49,537 - INFO - 文件传输完毕: (文件大小: 877 字节 用时0.00秒)
+2025-04-17 10:09:49,537 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt
+2025-04-17 10:09:49,539 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:09:49,539 - INFO - 方块信息统计:[Pink_Candy_Cats][_.nbt][3 方块]
+2025-04-17 10:09:49,539 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:09:49,539 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:09:49,539 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:09:49,539 - INFO - 进入检查
+2025-04-17 10:09:49,539 - INFO - 已同步 __1.nbt 的代码修改时间为: Tue Apr 15 14:31:05 2025
+2025-04-17 10:09:49,539 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt上传中：
+2025-04-17 10:09:49,541 - INFO - 文件传输完毕: (文件大小: 3294 字节 用时0.00秒)
+2025-04-17 10:09:49,541 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt
+2025-04-17 10:09:49,558 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:09:49,558 - INFO - 方块信息统计:[Pink_Candy_Cats][__1.nbt][4 方块]
+2025-04-17 10:09:49,558 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:09:49,558 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:09:49,558 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:09:49,558 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:09:49,565 - INFO - 进入检查
+2025-04-17 10:09:49,565 - INFO - 已同步 __6.nbt 的代码修改时间为: Thu Apr 17 08:47:34 2025
+2025-04-17 10:09:49,565 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt上传中：
+2025-04-17 10:09:49,565 - INFO - 文件传输完毕: (文件大小: 17988 字节 用时0.00秒)
+2025-04-17 10:09:49,565 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt
+2025-04-17 10:09:49,642 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:09:49,642 - INFO - 方块信息统计:[Pink_Candy_Cats][__6.nbt][94 方块]
+2025-04-17 10:09:49,642 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:09:49,642 - INFO - ID: minecraft:stone_bricks, 数量: 1
+2025-04-17 10:09:49,642 - INFO - ID: minecraft:chiseled_stone_bricks, 数量: 1
+2025-04-17 10:09:49,642 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:09:49,642 - INFO - ID: minecraft:lever, 数量: 2
+2025-04-17 10:09:49,642 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:09:49,642 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:09:49,642 - INFO - ID: create:belt, 数量: 20
+2025-04-17 10:09:49,642 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:09:49,642 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:09:49,642 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:09:49,643 - INFO - ID: minecraft:air, 数量: 9
+2025-04-17 10:09:49,643 - INFO - ID: create:brass_belt_funnel, 数量: 13
+2025-04-17 10:09:49,643 - INFO - ID: create:item_vault, 数量: 2
+2025-04-17 10:09:49,643 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:09:49,643 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:09:49,643 - INFO - ID: minecraft:barrel, 数量: 3
+2025-04-17 10:09:49,643 - INFO - ID: create:basin, 数量: 3
+2025-04-17 10:09:49,643 - INFO - ID: create:brass_tunnel, 数量: 3
+2025-04-17 10:09:49,643 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:09:49,643 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:09:49,643 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:09:49,643 - INFO - ID: create:spout, 数量: 1
+2025-04-17 10:09:49,643 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:09:49,643 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:09:49,643 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:09:49,643 - INFO - ID: supplementaries:faucet, 数量: 1
+2025-04-17 10:09:49,643 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:09:49,667 - INFO - 进入检查
+2025-04-17 10:09:49,667 - INFO - 已同步 __7.nbt 的代码修改时间为: Thu Apr 17 08:47:35 2025
+2025-04-17 10:09:49,667 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt上传中：
+2025-04-17 10:09:49,667 - INFO - 文件传输完毕: (文件大小: 9289 字节 用时0.00秒)
+2025-04-17 10:09:49,667 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt
+2025-04-17 10:09:49,708 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:09:49,709 - INFO - 方块信息统计:[Pink_Candy_Cats][__7.nbt][36 方块]
+2025-04-17 10:09:49,709 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:09:49,709 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:09:49,709 - INFO - ID: minecraft:lever, 数量: 1
+2025-04-17 10:09:49,709 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:09:49,709 - INFO - ID: create:belt, 数量: 5
+2025-04-17 10:09:49,709 - INFO - ID: create:encased_chain_drive, 数量: 2
+2025-04-17 10:09:49,709 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:09:49,709 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:09:49,709 - INFO - ID: create:brass_belt_funnel, 数量: 5
+2025-04-17 10:09:49,709 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:09:49,709 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:09:49,710 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:09:49,710 - INFO - ID: create:basin, 数量: 2
+2025-04-17 10:09:49,710 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:09:49,710 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:09:49,710 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:09:49,710 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:09:49,710 - INFO - ID: minecraft:air, 数量: 1
+2025-04-17 10:09:49,724 - INFO - 进入检查
+2025-04-17 10:09:49,724 - INFO - 已同步 __8.nbt 的代码修改时间为: Tue Apr  8 22:02:24 2025
+2025-04-17 10:09:49,724 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt上传中：
+2025-04-17 10:09:49,724 - INFO - 文件传输完毕: (文件大小: 1855 字节 用时0.00秒)
+2025-04-17 10:09:49,724 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt
+2025-04-17 10:09:49,728 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:09:49,728 - INFO - 方块信息统计:[Pink_Candy_Cats][__8.nbt][11 方块]
+2025-04-17 10:09:49,728 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:09:49,728 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:09:49,728 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:09:49,728 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:09:49,728 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:09:49,728 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:09:49,728 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:09:49,728 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:09:49,730 - INFO - 进入检查
+2025-04-17 10:09:49,730 - INFO - 已同步 __9.nbt 的代码修改时间为: Tue Apr  8 22:43:32 2025
+2025-04-17 10:09:49,730 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt上传中：
+2025-04-17 10:09:49,730 - INFO - 文件传输完毕: (文件大小: 2429 字节 用时0.00秒)
+2025-04-17 10:09:49,731 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt
+2025-04-17 10:09:49,736 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:09:49,736 - INFO - 方块信息统计:[Pink_Candy_Cats][__9.nbt][20 方块]
+2025-04-17 10:09:49,736 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:09:49,736 - INFO - ID: create:encased_chain_drive, 数量: 5
+2025-04-17 10:09:49,736 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:09:49,736 - INFO - ID: create:chute, 数量: 1
+2025-04-17 10:09:49,736 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:09:49,736 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:09:49,736 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:09:49,736 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:09:49,736 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:09:49,736 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:09:49,736 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:09:49,736 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:09:49,736 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:11:40,631 - INFO - 环境检测正常
+2025-04-17 10:11:40,635 - INFO - 启动主线程中
+2025-04-17 10:11:40,635 - INFO - 第一次循环完成，已同步文件和代码的修改时间。
+2025-04-17 10:11:40,635 - INFO - 当前代码修改时间：
+2025-04-17 10:11:40,635 - INFO - Pink_Candy_Cats: {'base.nbt': 'Tue Apr 15 12:49:37 2025', 'dungouji.nbt': 'Tue Apr 15 14:30:24 2025', 'test.nbt': 'Thu Apr 17 09:44:24 2025', 'w.nbt': 'Mon Apr  7 12:33:15 2025', '_.nbt': 'Thu Apr 17 09:40:28 2025', '__1.nbt': 'Tue Apr 15 14:31:05 2025', '__6.nbt': 'Thu Apr 17 08:47:34 2025', '__7.nbt': 'Thu Apr 17 08:47:35 2025', '__8.nbt': 'Tue Apr  8 22:02:24 2025', '__9.nbt': 'Tue Apr  8 22:43:32 2025'}
+2025-04-17 10:11:41,635 - INFO - [变动检查]找到的nbt文件数量[10]
+2025-04-17 10:11:41,637 - INFO - 进入检查
+2025-04-17 10:11:41,637 - INFO - 已同步 base.nbt 的代码修改时间为: Tue Apr 15 12:49:37 2025
+2025-04-17 10:11:41,637 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt上传中：
+2025-04-17 10:11:41,637 - INFO - 文件传输完毕: (文件大小: 1387 字节 用时0.00秒)
+2025-04-17 10:11:41,637 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt
+2025-04-17 10:11:41,644 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:11:41,644 - INFO - 方块信息统计:[Pink_Candy_Cats][base.nbt][4 方块]
+2025-04-17 10:11:41,644 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:11:41,644 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:11:41,644 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:11:41,644 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:11:41,646 - INFO - 进入检查
+2025-04-17 10:11:41,646 - INFO - 已同步 dungouji.nbt 的代码修改时间为: Tue Apr 15 14:30:24 2025
+2025-04-17 10:11:41,646 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt上传中：
+2025-04-17 10:11:41,647 - INFO - 文件传输完毕: (文件大小: 4542 字节 用时0.00秒)
+2025-04-17 10:11:41,647 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt
+2025-04-17 10:11:41,666 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:11:41,666 - INFO - 方块信息统计:[Pink_Candy_Cats][dungouji.nbt][14 方块]
+2025-04-17 10:11:41,666 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:11:41,666 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:11:41,666 - INFO - ID: minecraft:sea_lantern, 数量: 1
+2025-04-17 10:11:41,666 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:11:41,666 - INFO - ID: create:track, 数量: 1
+2025-04-17 10:11:41,667 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:11:41,667 - INFO - ID: create:controls, 数量: 1
+2025-04-17 10:11:41,667 - INFO - ID: create:deployer, 数量: 2
+2025-04-17 10:11:41,667 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:11:41,667 - INFO - ID: create:track_station, 数量: 1
+2025-04-17 10:11:41,667 - INFO - ID: create:small_bogey, 数量: 1
+2025-04-17 10:11:41,667 - INFO - ID: metalbarrels:iron_barrel, 数量: 2
+2025-04-17 10:11:41,675 - INFO - 进入检查
+2025-04-17 10:11:41,675 - INFO - 已同步 test.nbt 的代码修改时间为: Thu Apr 17 09:44:24 2025
+2025-04-17 10:11:41,675 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt上传中：
+2025-04-17 10:11:41,676 - INFO - 文件传输完毕: (文件大小: 6662 字节 用时0.00秒)
+2025-04-17 10:11:41,676 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt
+2025-04-17 10:11:41,690 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:11:41,690 - INFO - 方块信息统计:[Pink_Candy_Cats][test.nbt][21 方块]
+2025-04-17 10:11:41,690 - INFO - ID: minecraft:grass_block, 数量: 1
+2025-04-17 10:11:41,690 - INFO - ID: minecraft:pumpkin, 数量: 1
+2025-04-17 10:11:41,690 - INFO - ID: minecraft:dirt, 数量: 1
+2025-04-17 10:11:41,690 - INFO - ID: minecraft:birch_leaves, 数量: 4
+2025-04-17 10:11:41,690 - INFO - ID: minecraft:birch_log, 数量: 1
+2025-04-17 10:11:41,690 - INFO - ID: minecraft:oak_log, 数量: 1
+2025-04-17 10:11:41,690 - INFO - ID: minecraft:oak_leaves, 数量: 7
+2025-04-17 10:11:41,690 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:11:41,690 - INFO - ID: minecraft:vine, 数量: 3
+2025-04-17 10:11:41,690 - INFO - ID: minecraft:dead_bush, 数量: 1
+2025-04-17 10:11:41,697 - INFO - 进入检查
+2025-04-17 10:11:41,697 - INFO - 已同步 w.nbt 的代码修改时间为: Mon Apr  7 12:33:15 2025
+2025-04-17 10:11:41,697 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt上传中：
+2025-04-17 10:11:41,697 - INFO - 文件传输完毕: (文件大小: 3586 字节 用时0.00秒)
+2025-04-17 10:11:41,697 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt
+2025-04-17 10:11:41,705 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:11:41,705 - INFO - 方块信息统计:[Pink_Candy_Cats][w.nbt][44 方块]
+2025-04-17 10:11:41,705 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:11:41,705 - INFO - ID: create:belt, 数量: 12
+2025-04-17 10:11:41,706 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:11:41,706 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:11:41,706 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:11:41,706 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:11:41,706 - INFO - ID: createaddition:electric_motor, 数量: 1
+2025-04-17 10:11:41,706 - INFO - ID: createaddition:large_connector, 数量: 1
+2025-04-17 10:11:41,706 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:11:41,706 - INFO - ID: create:brass_belt_funnel, 数量: 7
+2025-04-17 10:11:41,706 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:11:41,706 - INFO - ID: create:brass_tunnel, 数量: 1
+2025-04-17 10:11:41,706 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:11:41,706 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:11:41,706 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:11:41,706 - INFO - ID: create:basin, 数量: 1
+2025-04-17 10:11:41,709 - INFO - 进入检查
+2025-04-17 10:11:41,709 - INFO - 已同步 _.nbt 的代码修改时间为: Thu Apr 17 09:40:28 2025
+2025-04-17 10:11:41,709 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt上传中：
+2025-04-17 10:11:41,709 - INFO - 文件传输完毕: (文件大小: 877 字节 用时0.00秒)
+2025-04-17 10:11:41,709 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt
+2025-04-17 10:11:41,711 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:11:41,711 - INFO - 方块信息统计:[Pink_Candy_Cats][_.nbt][3 方块]
+2025-04-17 10:11:41,711 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:11:41,711 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:11:41,711 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:11:41,711 - INFO - 进入检查
+2025-04-17 10:11:41,713 - INFO - 已同步 __1.nbt 的代码修改时间为: Tue Apr 15 14:31:05 2025
+2025-04-17 10:11:41,713 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt上传中：
+2025-04-17 10:11:41,713 - INFO - 文件传输完毕: (文件大小: 3294 字节 用时0.00秒)
+2025-04-17 10:11:41,713 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt
+2025-04-17 10:11:41,730 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:11:41,730 - INFO - 方块信息统计:[Pink_Candy_Cats][__1.nbt][4 方块]
+2025-04-17 10:11:41,730 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:11:41,730 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:11:41,730 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:11:41,730 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:11:41,737 - INFO - 进入检查
+2025-04-17 10:11:41,737 - INFO - 已同步 __6.nbt 的代码修改时间为: Thu Apr 17 08:47:34 2025
+2025-04-17 10:11:41,737 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt上传中：
+2025-04-17 10:11:41,737 - INFO - 文件传输完毕: (文件大小: 17988 字节 用时0.00秒)
+2025-04-17 10:11:41,737 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt
+2025-04-17 10:11:41,814 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:11:41,814 - INFO - 方块信息统计:[Pink_Candy_Cats][__6.nbt][94 方块]
+2025-04-17 10:11:41,814 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:11:41,814 - INFO - ID: minecraft:stone_bricks, 数量: 1
+2025-04-17 10:11:41,814 - INFO - ID: minecraft:chiseled_stone_bricks, 数量: 1
+2025-04-17 10:11:41,814 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:11:41,814 - INFO - ID: minecraft:lever, 数量: 2
+2025-04-17 10:11:41,814 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:11:41,814 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:11:41,814 - INFO - ID: create:belt, 数量: 20
+2025-04-17 10:11:41,814 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:11:41,814 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:11:41,814 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:11:41,814 - INFO - ID: minecraft:air, 数量: 9
+2025-04-17 10:11:41,814 - INFO - ID: create:brass_belt_funnel, 数量: 13
+2025-04-17 10:11:41,814 - INFO - ID: create:item_vault, 数量: 2
+2025-04-17 10:11:41,814 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:11:41,814 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:11:41,814 - INFO - ID: minecraft:barrel, 数量: 3
+2025-04-17 10:11:41,814 - INFO - ID: create:basin, 数量: 3
+2025-04-17 10:11:41,816 - INFO - ID: create:brass_tunnel, 数量: 3
+2025-04-17 10:11:41,816 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:11:41,816 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:11:41,816 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:11:41,816 - INFO - ID: create:spout, 数量: 1
+2025-04-17 10:11:41,816 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:11:41,816 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:11:41,816 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:11:41,816 - INFO - ID: supplementaries:faucet, 数量: 1
+2025-04-17 10:11:41,816 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:11:41,840 - INFO - 进入检查
+2025-04-17 10:11:41,841 - INFO - 已同步 __7.nbt 的代码修改时间为: Thu Apr 17 08:47:35 2025
+2025-04-17 10:11:41,841 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt上传中：
+2025-04-17 10:11:41,841 - INFO - 文件传输完毕: (文件大小: 9289 字节 用时0.00秒)
+2025-04-17 10:11:41,841 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt
+2025-04-17 10:11:41,885 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:11:41,886 - INFO - 方块信息统计:[Pink_Candy_Cats][__7.nbt][36 方块]
+2025-04-17 10:11:41,886 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: minecraft:lever, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:11:41,886 - INFO - ID: create:belt, 数量: 5
+2025-04-17 10:11:41,886 - INFO - ID: create:encased_chain_drive, 数量: 2
+2025-04-17 10:11:41,886 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: create:brass_belt_funnel, 数量: 5
+2025-04-17 10:11:41,886 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: create:basin, 数量: 2
+2025-04-17 10:11:41,886 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:11:41,886 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:11:41,886 - INFO - ID: minecraft:air, 数量: 1
+2025-04-17 10:11:41,900 - INFO - 进入检查
+2025-04-17 10:11:41,900 - INFO - 已同步 __8.nbt 的代码修改时间为: Tue Apr  8 22:02:24 2025
+2025-04-17 10:11:41,900 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt上传中：
+2025-04-17 10:11:41,901 - INFO - 文件传输完毕: (文件大小: 1855 字节 用时0.00秒)
+2025-04-17 10:11:41,901 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt
+2025-04-17 10:11:41,904 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:11:41,904 - INFO - 方块信息统计:[Pink_Candy_Cats][__8.nbt][11 方块]
+2025-04-17 10:11:41,904 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:11:41,904 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:11:41,904 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:11:41,904 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:11:41,905 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:11:41,905 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:11:41,905 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:11:41,905 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:11:41,906 - INFO - 进入检查
+2025-04-17 10:11:41,906 - INFO - 已同步 __9.nbt 的代码修改时间为: Tue Apr  8 22:43:32 2025
+2025-04-17 10:11:41,906 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt上传中：
+2025-04-17 10:11:41,907 - INFO - 文件传输完毕: (文件大小: 2429 字节 用时0.00秒)
+2025-04-17 10:11:41,907 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt
+2025-04-17 10:11:41,911 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:11:41,911 - INFO - 方块信息统计:[Pink_Candy_Cats][__9.nbt][20 方块]
+2025-04-17 10:11:41,912 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:11:41,912 - INFO - ID: create:encased_chain_drive, 数量: 5
+2025-04-17 10:11:41,912 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:11:41,912 - INFO - ID: create:chute, 数量: 1
+2025-04-17 10:11:41,912 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:11:41,912 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:11:41,912 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:11:41,912 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:11:41,912 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:11:41,912 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:11:41,912 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:11:41,912 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:11:41,912 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:12:01,536 - INFO - 环境检测正常
+2025-04-17 10:12:01,538 - INFO - 启动主线程中
+2025-04-17 10:12:01,539 - INFO - 第一次循环完成，已同步文件和代码的修改时间。
+2025-04-17 10:12:01,539 - INFO - 当前代码修改时间：
+2025-04-17 10:12:01,539 - INFO - Pink_Candy_Cats: {'base.nbt': 'Tue Apr 15 12:49:37 2025', 'dungouji.nbt': 'Tue Apr 15 14:30:24 2025', 'test.nbt': 'Thu Apr 17 09:44:24 2025', 'w.nbt': 'Mon Apr  7 12:33:15 2025', '_.nbt': 'Thu Apr 17 09:40:28 2025', '__1.nbt': 'Tue Apr 15 14:31:05 2025', '__6.nbt': 'Thu Apr 17 08:47:34 2025', '__7.nbt': 'Thu Apr 17 08:47:35 2025', '__8.nbt': 'Tue Apr  8 22:02:24 2025', '__9.nbt': 'Tue Apr  8 22:43:32 2025'}
+2025-04-17 10:12:02,539 - INFO - [变动检查]找到的nbt文件数量[10]
+2025-04-17 10:12:02,542 - INFO - 进入检查
+2025-04-17 10:12:02,542 - INFO - 已同步 base.nbt 的代码修改时间为: Tue Apr 15 12:49:37 2025
+2025-04-17 10:12:02,542 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt上传中：
+2025-04-17 10:12:02,542 - INFO - 文件传输完毕: (文件大小: 1387 字节 用时0.00秒)
+2025-04-17 10:12:02,542 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt
+2025-04-17 10:12:02,547 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:12:02,549 - INFO - 方块信息统计:[Pink_Candy_Cats][base.nbt][4 方块]
+2025-04-17 10:12:02,549 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:12:02,549 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:12:02,549 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:12:02,549 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:12:02,551 - INFO - 进入检查
+2025-04-17 10:12:02,551 - INFO - 已同步 dungouji.nbt 的代码修改时间为: Tue Apr 15 14:30:24 2025
+2025-04-17 10:12:02,551 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt上传中：
+2025-04-17 10:12:02,551 - INFO - 文件传输完毕: (文件大小: 4542 字节 用时0.00秒)
+2025-04-17 10:12:02,551 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt
+2025-04-17 10:12:02,571 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:12:02,571 - INFO - 方块信息统计:[Pink_Candy_Cats][dungouji.nbt][14 方块]
+2025-04-17 10:12:02,571 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:12:02,571 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:12:02,571 - INFO - ID: minecraft:sea_lantern, 数量: 1
+2025-04-17 10:12:02,571 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:12:02,571 - INFO - ID: create:track, 数量: 1
+2025-04-17 10:12:02,571 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:12:02,571 - INFO - ID: create:controls, 数量: 1
+2025-04-17 10:12:02,571 - INFO - ID: create:deployer, 数量: 2
+2025-04-17 10:12:02,571 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:12:02,571 - INFO - ID: create:track_station, 数量: 1
+2025-04-17 10:12:02,571 - INFO - ID: create:small_bogey, 数量: 1
+2025-04-17 10:12:02,571 - INFO - ID: metalbarrels:iron_barrel, 数量: 2
+2025-04-17 10:12:02,578 - INFO - 进入检查
+2025-04-17 10:12:02,579 - INFO - 已同步 test.nbt 的代码修改时间为: Thu Apr 17 09:44:24 2025
+2025-04-17 10:12:02,579 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt上传中：
+2025-04-17 10:12:02,580 - INFO - 文件传输完毕: (文件大小: 6662 字节 用时0.00秒)
+2025-04-17 10:12:02,580 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt
+2025-04-17 10:12:02,593 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:12:02,593 - INFO - 方块信息统计:[Pink_Candy_Cats][test.nbt][21 方块]
+2025-04-17 10:12:02,593 - INFO - ID: minecraft:grass_block, 数量: 1
+2025-04-17 10:12:02,593 - INFO - ID: minecraft:pumpkin, 数量: 1
+2025-04-17 10:12:02,593 - INFO - ID: minecraft:dirt, 数量: 1
+2025-04-17 10:12:02,593 - INFO - ID: minecraft:birch_leaves, 数量: 4
+2025-04-17 10:12:02,593 - INFO - ID: minecraft:birch_log, 数量: 1
+2025-04-17 10:12:02,593 - INFO - ID: minecraft:oak_log, 数量: 1
+2025-04-17 10:12:02,593 - INFO - ID: minecraft:oak_leaves, 数量: 7
+2025-04-17 10:12:02,594 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:12:02,594 - INFO - ID: minecraft:vine, 数量: 3
+2025-04-17 10:12:02,594 - INFO - ID: minecraft:dead_bush, 数量: 1
+2025-04-17 10:12:02,600 - INFO - 进入检查
+2025-04-17 10:12:02,600 - INFO - 已同步 w.nbt 的代码修改时间为: Mon Apr  7 12:33:15 2025
+2025-04-17 10:12:02,600 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt上传中：
+2025-04-17 10:12:02,600 - INFO - 文件传输完毕: (文件大小: 3586 字节 用时0.00秒)
+2025-04-17 10:12:02,600 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt
+2025-04-17 10:12:02,608 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:12:02,608 - INFO - 方块信息统计:[Pink_Candy_Cats][w.nbt][44 方块]
+2025-04-17 10:12:02,608 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:12:02,608 - INFO - ID: create:belt, 数量: 12
+2025-04-17 10:12:02,608 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:12:02,608 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:12:02,608 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:12:02,608 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:12:02,609 - INFO - ID: createaddition:electric_motor, 数量: 1
+2025-04-17 10:12:02,609 - INFO - ID: createaddition:large_connector, 数量: 1
+2025-04-17 10:12:02,609 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:12:02,609 - INFO - ID: create:brass_belt_funnel, 数量: 7
+2025-04-17 10:12:02,609 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:12:02,609 - INFO - ID: create:brass_tunnel, 数量: 1
+2025-04-17 10:12:02,609 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:12:02,609 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:12:02,609 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:12:02,609 - INFO - ID: create:basin, 数量: 1
+2025-04-17 10:12:02,612 - INFO - 进入检查
+2025-04-17 10:12:02,612 - INFO - 已同步 _.nbt 的代码修改时间为: Thu Apr 17 09:40:28 2025
+2025-04-17 10:12:02,612 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt上传中：
+2025-04-17 10:12:02,612 - INFO - 文件传输完毕: (文件大小: 877 字节 用时0.00秒)
+2025-04-17 10:12:02,612 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt
+2025-04-17 10:12:02,614 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:12:02,614 - INFO - 方块信息统计:[Pink_Candy_Cats][_.nbt][3 方块]
+2025-04-17 10:12:02,614 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:12:02,614 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:12:02,614 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:12:02,615 - INFO - 进入检查
+2025-04-17 10:12:02,615 - INFO - 已同步 __1.nbt 的代码修改时间为: Tue Apr 15 14:31:05 2025
+2025-04-17 10:12:02,615 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt上传中：
+2025-04-17 10:12:02,615 - INFO - 文件传输完毕: (文件大小: 3294 字节 用时0.00秒)
+2025-04-17 10:12:02,615 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt
+2025-04-17 10:12:02,633 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:12:02,633 - INFO - 方块信息统计:[Pink_Candy_Cats][__1.nbt][4 方块]
+2025-04-17 10:12:02,633 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:12:02,633 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:12:02,633 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:12:02,633 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:12:02,640 - INFO - 进入检查
+2025-04-17 10:12:02,640 - INFO - 已同步 __6.nbt 的代码修改时间为: Thu Apr 17 08:47:34 2025
+2025-04-17 10:12:02,641 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt上传中：
+2025-04-17 10:12:02,641 - INFO - 文件传输完毕: (文件大小: 17988 字节 用时0.00秒)
+2025-04-17 10:12:02,641 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt
+2025-04-17 10:12:02,717 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:12:02,717 - INFO - 方块信息统计:[Pink_Candy_Cats][__6.nbt][94 方块]
+2025-04-17 10:12:02,717 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:12:02,718 - INFO - ID: minecraft:stone_bricks, 数量: 1
+2025-04-17 10:12:02,718 - INFO - ID: minecraft:chiseled_stone_bricks, 数量: 1
+2025-04-17 10:12:02,718 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:12:02,718 - INFO - ID: minecraft:lever, 数量: 2
+2025-04-17 10:12:02,718 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:12:02,718 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:12:02,718 - INFO - ID: create:belt, 数量: 20
+2025-04-17 10:12:02,718 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:12:02,718 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:12:02,718 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:12:02,718 - INFO - ID: minecraft:air, 数量: 9
+2025-04-17 10:12:02,718 - INFO - ID: create:brass_belt_funnel, 数量: 13
+2025-04-17 10:12:02,718 - INFO - ID: create:item_vault, 数量: 2
+2025-04-17 10:12:02,718 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:12:02,718 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:12:02,718 - INFO - ID: minecraft:barrel, 数量: 3
+2025-04-17 10:12:02,718 - INFO - ID: create:basin, 数量: 3
+2025-04-17 10:12:02,718 - INFO - ID: create:brass_tunnel, 数量: 3
+2025-04-17 10:12:02,718 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:12:02,718 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:12:02,718 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:12:02,718 - INFO - ID: create:spout, 数量: 1
+2025-04-17 10:12:02,718 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:12:02,719 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:12:02,719 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:12:02,719 - INFO - ID: supplementaries:faucet, 数量: 1
+2025-04-17 10:12:02,719 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:12:02,743 - INFO - 进入检查
+2025-04-17 10:12:02,743 - INFO - 已同步 __7.nbt 的代码修改时间为: Thu Apr 17 08:47:35 2025
+2025-04-17 10:12:02,743 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt上传中：
+2025-04-17 10:12:02,743 - INFO - 文件传输完毕: (文件大小: 9289 字节 用时0.00秒)
+2025-04-17 10:12:02,743 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt
+2025-04-17 10:12:02,789 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:12:02,789 - INFO - 方块信息统计:[Pink_Candy_Cats][__7.nbt][36 方块]
+2025-04-17 10:12:02,790 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: minecraft:lever, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:12:02,790 - INFO - ID: create:belt, 数量: 5
+2025-04-17 10:12:02,790 - INFO - ID: create:encased_chain_drive, 数量: 2
+2025-04-17 10:12:02,790 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: create:brass_belt_funnel, 数量: 5
+2025-04-17 10:12:02,790 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: create:basin, 数量: 2
+2025-04-17 10:12:02,790 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:12:02,790 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:12:02,790 - INFO - ID: minecraft:air, 数量: 1
+2025-04-17 10:12:02,804 - INFO - 进入检查
+2025-04-17 10:12:02,804 - INFO - 已同步 __8.nbt 的代码修改时间为: Tue Apr  8 22:02:24 2025
+2025-04-17 10:12:02,804 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt上传中：
+2025-04-17 10:12:02,804 - INFO - 文件传输完毕: (文件大小: 1855 字节 用时0.00秒)
+2025-04-17 10:12:02,804 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt
+2025-04-17 10:12:02,807 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:12:02,807 - INFO - 方块信息统计:[Pink_Candy_Cats][__8.nbt][11 方块]
+2025-04-17 10:12:02,807 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:12:02,809 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:12:02,809 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:12:02,809 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:12:02,809 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:12:02,809 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:12:02,809 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:12:02,809 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:12:02,811 - INFO - 进入检查
+2025-04-17 10:12:02,811 - INFO - 已同步 __9.nbt 的代码修改时间为: Tue Apr  8 22:43:32 2025
+2025-04-17 10:12:02,811 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt上传中：
+2025-04-17 10:12:02,811 - INFO - 文件传输完毕: (文件大小: 2429 字节 用时0.00秒)
+2025-04-17 10:12:02,812 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt
+2025-04-17 10:12:02,816 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:12:02,816 - INFO - 方块信息统计:[Pink_Candy_Cats][__9.nbt][20 方块]
+2025-04-17 10:12:02,817 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:12:02,817 - INFO - ID: create:encased_chain_drive, 数量: 5
+2025-04-17 10:12:02,817 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:12:02,817 - INFO - ID: create:chute, 数量: 1
+2025-04-17 10:12:02,817 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:12:02,817 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:12:02,817 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:12:02,817 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:12:02,817 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:12:02,817 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:12:02,817 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:12:02,817 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:12:02,817 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:13:41,912 - INFO - [活跃提示]蓝图数量[10]
+2025-04-17 10:14:53,838 - INFO - 环境检测正常
+2025-04-17 10:14:53,840 - INFO - 启动主线程中
+2025-04-17 10:14:53,840 - INFO - 第一次循环完成，已同步文件和代码的修改时间。
+2025-04-17 10:14:53,840 - INFO - 当前代码修改时间：
+2025-04-17 10:14:53,840 - INFO - Pink_Candy_Cats: {'base.nbt': 'Tue Apr 15 12:49:37 2025', 'dungouji.nbt': 'Tue Apr 15 14:30:24 2025', 'test.nbt': 'Thu Apr 17 09:44:24 2025', 'w.nbt': 'Mon Apr  7 12:33:15 2025', '_.nbt': 'Thu Apr 17 09:40:28 2025', '__1.nbt': 'Tue Apr 15 14:31:05 2025', '__6.nbt': 'Thu Apr 17 08:47:34 2025', '__7.nbt': 'Thu Apr 17 08:47:35 2025', '__8.nbt': 'Tue Apr  8 22:02:24 2025', '__9.nbt': 'Tue Apr  8 22:43:32 2025'}
+2025-04-17 10:14:54,842 - INFO - [变动检查]找到的nbt文件数量[10]
+2025-04-17 10:14:54,843 - INFO - 进入检查
+2025-04-17 10:14:54,844 - INFO - 已同步 base.nbt 的代码修改时间为: Tue Apr 15 12:49:37 2025
+2025-04-17 10:14:54,844 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt上传中：
+2025-04-17 10:14:54,844 - INFO - 文件传输完毕: (文件大小: 1387 字节 用时0.00秒)
+2025-04-17 10:14:54,844 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt
+2025-04-17 10:14:54,849 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:14:54,850 - INFO - 方块信息统计:[Pink_Candy_Cats][base.nbt][4 方块]
+2025-04-17 10:14:54,850 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:14:54,850 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:14:54,850 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:14:54,850 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:14:54,852 - INFO - 进入检查
+2025-04-17 10:14:54,852 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt上传中：
+2025-04-17 10:14:54,852 - INFO - 已同步 dungouji.nbt 的代码修改时间为: Tue Apr 15 14:30:24 2025
+2025-04-17 10:14:54,852 - INFO - 文件传输完毕: (文件大小: 4542 字节 用时0.00秒)
+2025-04-17 10:14:54,852 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt
+2025-04-17 10:14:54,872 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:14:54,873 - INFO - 方块信息统计:[Pink_Candy_Cats][dungouji.nbt][14 方块]
+2025-04-17 10:14:54,873 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:14:54,873 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:14:54,873 - INFO - ID: minecraft:sea_lantern, 数量: 1
+2025-04-17 10:14:54,873 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:14:54,873 - INFO - ID: create:track, 数量: 1
+2025-04-17 10:14:54,873 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:14:54,873 - INFO - ID: create:controls, 数量: 1
+2025-04-17 10:14:54,873 - INFO - ID: create:deployer, 数量: 2
+2025-04-17 10:14:54,873 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:14:54,873 - INFO - ID: create:track_station, 数量: 1
+2025-04-17 10:14:54,873 - INFO - ID: create:small_bogey, 数量: 1
+2025-04-17 10:14:54,873 - INFO - ID: metalbarrels:iron_barrel, 数量: 2
+2025-04-17 10:14:54,880 - INFO - 进入检查
+2025-04-17 10:14:54,880 - INFO - 已同步 test.nbt 的代码修改时间为: Thu Apr 17 09:44:24 2025
+2025-04-17 10:14:54,880 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt上传中：
+2025-04-17 10:14:54,880 - INFO - 文件传输完毕: (文件大小: 6662 字节 用时0.00秒)
+2025-04-17 10:14:54,880 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt
+2025-04-17 10:14:54,894 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:14:54,894 - INFO - 方块信息统计:[Pink_Candy_Cats][test.nbt][21 方块]
+2025-04-17 10:14:54,894 - INFO - ID: minecraft:grass_block, 数量: 1
+2025-04-17 10:14:54,894 - INFO - ID: minecraft:pumpkin, 数量: 1
+2025-04-17 10:14:54,894 - INFO - ID: minecraft:dirt, 数量: 1
+2025-04-17 10:14:54,894 - INFO - ID: minecraft:birch_leaves, 数量: 4
+2025-04-17 10:14:54,894 - INFO - ID: minecraft:birch_log, 数量: 1
+2025-04-17 10:14:54,894 - INFO - ID: minecraft:oak_log, 数量: 1
+2025-04-17 10:14:54,894 - INFO - ID: minecraft:oak_leaves, 数量: 7
+2025-04-17 10:14:54,894 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:14:54,894 - INFO - ID: minecraft:vine, 数量: 3
+2025-04-17 10:14:54,894 - INFO - ID: minecraft:dead_bush, 数量: 1
+2025-04-17 10:14:54,901 - INFO - 进入检查
+2025-04-17 10:14:54,901 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt上传中：
+2025-04-17 10:14:54,901 - INFO - 已同步 w.nbt 的代码修改时间为: Mon Apr  7 12:33:15 2025
+2025-04-17 10:14:54,901 - INFO - 文件传输完毕: (文件大小: 3586 字节 用时0.00秒)
+2025-04-17 10:14:54,901 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt
+2025-04-17 10:14:54,908 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:14:54,908 - INFO - 方块信息统计:[Pink_Candy_Cats][w.nbt][44 方块]
+2025-04-17 10:14:54,908 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:14:54,908 - INFO - ID: create:belt, 数量: 12
+2025-04-17 10:14:54,908 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:14:54,909 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:14:54,909 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:14:54,909 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:14:54,909 - INFO - ID: createaddition:electric_motor, 数量: 1
+2025-04-17 10:14:54,909 - INFO - ID: createaddition:large_connector, 数量: 1
+2025-04-17 10:14:54,909 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:14:54,909 - INFO - ID: create:brass_belt_funnel, 数量: 7
+2025-04-17 10:14:54,909 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:14:54,909 - INFO - ID: create:brass_tunnel, 数量: 1
+2025-04-17 10:14:54,909 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:14:54,909 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:14:54,909 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:14:54,909 - INFO - ID: create:basin, 数量: 1
+2025-04-17 10:14:54,912 - INFO - 进入检查
+2025-04-17 10:14:54,912 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt上传中：
+2025-04-17 10:14:54,912 - INFO - 已同步 _.nbt 的代码修改时间为: Thu Apr 17 09:40:28 2025
+2025-04-17 10:14:54,912 - INFO - 文件传输完毕: (文件大小: 877 字节 用时0.00秒)
+2025-04-17 10:14:54,912 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt
+2025-04-17 10:14:54,914 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:14:54,914 - INFO - 方块信息统计:[Pink_Candy_Cats][_.nbt][3 方块]
+2025-04-17 10:14:54,914 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:14:54,914 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:14:54,914 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:14:54,915 - INFO - 进入检查
+2025-04-17 10:14:54,915 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt上传中：
+2025-04-17 10:14:54,915 - INFO - 文件传输完毕: (文件大小: 3294 字节 用时0.00秒)
+2025-04-17 10:14:54,915 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt
+2025-04-17 10:14:54,915 - INFO - 已同步 __1.nbt 的代码修改时间为: Tue Apr 15 14:31:05 2025
+2025-04-17 10:14:54,933 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:14:54,934 - INFO - 方块信息统计:[Pink_Candy_Cats][__1.nbt][4 方块]
+2025-04-17 10:14:54,934 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:14:54,934 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:14:54,934 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:14:54,934 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:14:54,939 - INFO - 进入检查
+2025-04-17 10:14:54,940 - INFO - 已同步 __6.nbt 的代码修改时间为: Thu Apr 17 08:47:34 2025
+2025-04-17 10:14:54,940 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt上传中：
+2025-04-17 10:14:54,940 - INFO - 文件传输完毕: (文件大小: 17988 字节 用时0.00秒)
+2025-04-17 10:14:54,940 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt
+2025-04-17 10:14:55,018 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:14:55,018 - INFO - 方块信息统计:[Pink_Candy_Cats][__6.nbt][94 方块]
+2025-04-17 10:14:55,019 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:14:55,019 - INFO - ID: minecraft:stone_bricks, 数量: 1
+2025-04-17 10:14:55,019 - INFO - ID: minecraft:chiseled_stone_bricks, 数量: 1
+2025-04-17 10:14:55,019 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:14:55,019 - INFO - ID: minecraft:lever, 数量: 2
+2025-04-17 10:14:55,019 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:14:55,019 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:14:55,019 - INFO - ID: create:belt, 数量: 20
+2025-04-17 10:14:55,019 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:14:55,019 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:14:55,019 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:14:55,019 - INFO - ID: minecraft:air, 数量: 9
+2025-04-17 10:14:55,019 - INFO - ID: create:brass_belt_funnel, 数量: 13
+2025-04-17 10:14:55,019 - INFO - ID: create:item_vault, 数量: 2
+2025-04-17 10:14:55,019 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:14:55,019 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:14:55,019 - INFO - ID: minecraft:barrel, 数量: 3
+2025-04-17 10:14:55,019 - INFO - ID: create:basin, 数量: 3
+2025-04-17 10:14:55,019 - INFO - ID: create:brass_tunnel, 数量: 3
+2025-04-17 10:14:55,019 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:14:55,019 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:14:55,020 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:14:55,020 - INFO - ID: create:spout, 数量: 1
+2025-04-17 10:14:55,020 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:14:55,020 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:14:55,020 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:14:55,020 - INFO - ID: supplementaries:faucet, 数量: 1
+2025-04-17 10:14:55,020 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:14:55,043 - INFO - 进入检查
+2025-04-17 10:14:55,043 - INFO - 已同步 __7.nbt 的代码修改时间为: Thu Apr 17 08:47:35 2025
+2025-04-17 10:14:55,043 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt上传中：
+2025-04-17 10:14:55,043 - INFO - 文件传输完毕: (文件大小: 9289 字节 用时0.00秒)
+2025-04-17 10:14:55,043 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt
+2025-04-17 10:14:55,084 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:14:55,084 - INFO - 方块信息统计:[Pink_Candy_Cats][__7.nbt][36 方块]
+2025-04-17 10:14:55,084 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:14:55,084 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:14:55,084 - INFO - ID: minecraft:lever, 数量: 1
+2025-04-17 10:14:55,084 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:14:55,084 - INFO - ID: create:belt, 数量: 5
+2025-04-17 10:14:55,084 - INFO - ID: create:encased_chain_drive, 数量: 2
+2025-04-17 10:14:55,084 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:14:55,084 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:14:55,084 - INFO - ID: create:brass_belt_funnel, 数量: 5
+2025-04-17 10:14:55,084 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:14:55,084 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:14:55,085 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:14:55,085 - INFO - ID: create:basin, 数量: 2
+2025-04-17 10:14:55,085 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:14:55,085 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:14:55,085 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:14:55,085 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:14:55,085 - INFO - ID: minecraft:air, 数量: 1
+2025-04-17 10:14:55,099 - INFO - 进入检查
+2025-04-17 10:14:55,099 - INFO - 已同步 __8.nbt 的代码修改时间为: Tue Apr  8 22:02:24 2025
+2025-04-17 10:14:55,099 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt上传中：
+2025-04-17 10:14:55,099 - INFO - 文件传输完毕: (文件大小: 1855 字节 用时0.00秒)
+2025-04-17 10:14:55,099 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt
+2025-04-17 10:14:55,103 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:14:55,103 - INFO - 方块信息统计:[Pink_Candy_Cats][__8.nbt][11 方块]
+2025-04-17 10:14:55,103 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:14:55,103 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:14:55,103 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:14:55,103 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:14:55,103 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:14:55,103 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:14:55,103 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:14:55,103 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:14:55,105 - INFO - 进入检查
+2025-04-17 10:14:55,105 - INFO - 已同步 __9.nbt 的代码修改时间为: Tue Apr  8 22:43:32 2025
+2025-04-17 10:14:55,105 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt上传中：
+2025-04-17 10:14:55,105 - INFO - 文件传输完毕: (文件大小: 2429 字节 用时0.00秒)
+2025-04-17 10:14:55,105 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt
+2025-04-17 10:14:55,110 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:14:55,110 - INFO - 方块信息统计:[Pink_Candy_Cats][__9.nbt][20 方块]
+2025-04-17 10:14:55,110 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:14:55,110 - INFO - ID: create:encased_chain_drive, 数量: 5
+2025-04-17 10:14:55,110 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:14:55,110 - INFO - ID: create:chute, 数量: 1
+2025-04-17 10:14:55,110 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:14:55,110 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:14:55,110 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:14:55,110 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:14:55,110 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:14:55,110 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:14:55,110 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:14:55,110 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:14:55,110 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:16:34,212 - INFO - [活跃提示]蓝图数量[10]
+2025-04-17 10:18:14,323 - INFO - [活跃提示]蓝图数量[10]
+2025-04-17 10:19:54,444 - INFO - [活跃提示]蓝图数量[10]
+2025-04-17 10:20:12,941 - INFO - 环境检测正常
+2025-04-17 10:20:12,941 - INFO - 
+ __   __   ___      ___  ___     __             ___  __   __         ___     __        ___  __        ___  __  
+/  ` |__) |__   /\   |  |__     |__) |    |  | |__  |__) |__) | |\ |  |     /  ` |__| |__  /  ` |__/ |__  |__) 
+\__, |  \ |___ /~~\  |  |___    |__) |___ \__/ |___ |    |  \ | | \|  |     \__, |  | |___ \__, |  \ |___ |  \ 
+                                                                                                               
+
+2025-04-17 10:20:12,943 - INFO - 启动主线程中
+2025-04-17 10:20:12,943 - INFO - 第一次循环完成，已同步文件和代码的修改时间。
+2025-04-17 10:20:12,944 - INFO - 当前代码修改时间：
+2025-04-17 10:20:12,944 - INFO - Pink_Candy_Cats: {'base.nbt': 'Tue Apr 15 12:49:37 2025', 'dungouji.nbt': 'Tue Apr 15 14:30:24 2025', 'test.nbt': 'Thu Apr 17 09:44:24 2025', 'w.nbt': 'Mon Apr  7 12:33:15 2025', '_.nbt': 'Thu Apr 17 09:40:28 2025', '__1.nbt': 'Tue Apr 15 14:31:05 2025', '__6.nbt': 'Thu Apr 17 08:47:34 2025', '__7.nbt': 'Thu Apr 17 08:47:35 2025', '__8.nbt': 'Tue Apr  8 22:02:24 2025', '__9.nbt': 'Tue Apr  8 22:43:32 2025'}
+2025-04-17 10:20:13,945 - INFO - [变动检查]找到的nbt文件数量[10]
+2025-04-17 10:20:13,948 - INFO - 进入检查
+2025-04-17 10:20:13,948 - INFO - 已同步 base.nbt 的代码修改时间为: Tue Apr 15 12:49:37 2025
+2025-04-17 10:20:13,948 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt上传中：
+2025-04-17 10:20:13,949 - INFO - 文件传输完毕: (文件大小: 1387 字节 用时0.00秒)
+2025-04-17 10:20:13,949 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt
+2025-04-17 10:20:13,954 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:20:13,954 - INFO - 方块信息统计:[Pink_Candy_Cats][base.nbt][4 方块]
+2025-04-17 10:20:13,954 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:20:13,954 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:20:13,954 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:20:13,954 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:20:13,956 - INFO - 进入检查
+2025-04-17 10:20:13,957 - INFO - 已同步 dungouji.nbt 的代码修改时间为: Tue Apr 15 14:30:24 2025
+2025-04-17 10:20:13,957 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt上传中：
+2025-04-17 10:20:13,957 - INFO - 文件传输完毕: (文件大小: 4542 字节 用时0.00秒)
+2025-04-17 10:20:13,957 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt
+2025-04-17 10:20:13,977 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:20:13,977 - INFO - 方块信息统计:[Pink_Candy_Cats][dungouji.nbt][14 方块]
+2025-04-17 10:20:13,977 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:20:13,977 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:20:13,978 - INFO - ID: minecraft:sea_lantern, 数量: 1
+2025-04-17 10:20:13,978 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:20:13,978 - INFO - ID: create:track, 数量: 1
+2025-04-17 10:20:13,978 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:20:13,978 - INFO - ID: create:controls, 数量: 1
+2025-04-17 10:20:13,978 - INFO - ID: create:deployer, 数量: 2
+2025-04-17 10:20:13,978 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:20:13,978 - INFO - ID: create:track_station, 数量: 1
+2025-04-17 10:20:13,978 - INFO - ID: create:small_bogey, 数量: 1
+2025-04-17 10:20:13,978 - INFO - ID: metalbarrels:iron_barrel, 数量: 2
+2025-04-17 10:20:13,985 - INFO - 进入检查
+2025-04-17 10:20:13,985 - INFO - 已同步 test.nbt 的代码修改时间为: Thu Apr 17 09:44:24 2025
+2025-04-17 10:20:13,985 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt上传中：
+2025-04-17 10:20:13,986 - INFO - 文件传输完毕: (文件大小: 6662 字节 用时0.00秒)
+2025-04-17 10:20:13,986 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt
+2025-04-17 10:20:14,002 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:20:14,002 - INFO - 方块信息统计:[Pink_Candy_Cats][test.nbt][21 方块]
+2025-04-17 10:20:14,002 - INFO - ID: minecraft:grass_block, 数量: 1
+2025-04-17 10:20:14,002 - INFO - ID: minecraft:pumpkin, 数量: 1
+2025-04-17 10:20:14,002 - INFO - ID: minecraft:dirt, 数量: 1
+2025-04-17 10:20:14,002 - INFO - ID: minecraft:birch_leaves, 数量: 4
+2025-04-17 10:20:14,002 - INFO - ID: minecraft:birch_log, 数量: 1
+2025-04-17 10:20:14,002 - INFO - ID: minecraft:oak_log, 数量: 1
+2025-04-17 10:20:14,002 - INFO - ID: minecraft:oak_leaves, 数量: 7
+2025-04-17 10:20:14,002 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:20:14,002 - INFO - ID: minecraft:vine, 数量: 3
+2025-04-17 10:20:14,002 - INFO - ID: minecraft:dead_bush, 数量: 1
+2025-04-17 10:20:14,008 - INFO - 进入检查
+2025-04-17 10:20:14,008 - INFO - 已同步 w.nbt 的代码修改时间为: Mon Apr  7 12:33:15 2025
+2025-04-17 10:20:14,008 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt上传中：
+2025-04-17 10:20:14,009 - INFO - 文件传输完毕: (文件大小: 3586 字节 用时0.00秒)
+2025-04-17 10:20:14,009 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt
+2025-04-17 10:20:14,016 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:20:14,016 - INFO - 方块信息统计:[Pink_Candy_Cats][w.nbt][44 方块]
+2025-04-17 10:20:14,016 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:20:14,017 - INFO - ID: create:belt, 数量: 12
+2025-04-17 10:20:14,017 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:20:14,017 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:20:14,017 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:20:14,017 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:20:14,017 - INFO - ID: createaddition:electric_motor, 数量: 1
+2025-04-17 10:20:14,017 - INFO - ID: createaddition:large_connector, 数量: 1
+2025-04-17 10:20:14,017 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:20:14,017 - INFO - ID: create:brass_belt_funnel, 数量: 7
+2025-04-17 10:20:14,017 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:20:14,017 - INFO - ID: create:brass_tunnel, 数量: 1
+2025-04-17 10:20:14,017 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:20:14,017 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:20:14,017 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:20:14,017 - INFO - ID: create:basin, 数量: 1
+2025-04-17 10:20:14,020 - INFO - 进入检查
+2025-04-17 10:20:14,020 - INFO - 已同步 _.nbt 的代码修改时间为: Thu Apr 17 09:40:28 2025
+2025-04-17 10:20:14,020 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt上传中：
+2025-04-17 10:20:14,020 - INFO - 文件传输完毕: (文件大小: 877 字节 用时0.00秒)
+2025-04-17 10:20:14,020 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt
+2025-04-17 10:20:14,022 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:20:14,022 - INFO - 方块信息统计:[Pink_Candy_Cats][_.nbt][3 方块]
+2025-04-17 10:20:14,022 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:20:14,022 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:20:14,022 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:20:14,023 - INFO - 进入检查
+2025-04-17 10:20:14,023 - INFO - 已同步 __1.nbt 的代码修改时间为: Tue Apr 15 14:31:05 2025
+2025-04-17 10:20:14,023 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt上传中：
+2025-04-17 10:20:14,023 - INFO - 文件传输完毕: (文件大小: 3294 字节 用时0.00秒)
+2025-04-17 10:20:14,024 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt
+2025-04-17 10:20:14,041 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:20:14,041 - INFO - 方块信息统计:[Pink_Candy_Cats][__1.nbt][4 方块]
+2025-04-17 10:20:14,041 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:20:14,041 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:20:14,041 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:20:14,041 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:20:14,047 - INFO - 进入检查
+2025-04-17 10:20:14,047 - INFO - 已同步 __6.nbt 的代码修改时间为: Thu Apr 17 08:47:34 2025
+2025-04-17 10:20:14,047 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt上传中：
+2025-04-17 10:20:14,047 - INFO - 文件传输完毕: (文件大小: 17988 字节 用时0.00秒)
+2025-04-17 10:20:14,047 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt
+2025-04-17 10:20:14,127 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:20:14,127 - INFO - 方块信息统计:[Pink_Candy_Cats][__6.nbt][94 方块]
+2025-04-17 10:20:14,127 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:20:14,127 - INFO - ID: minecraft:stone_bricks, 数量: 1
+2025-04-17 10:20:14,127 - INFO - ID: minecraft:chiseled_stone_bricks, 数量: 1
+2025-04-17 10:20:14,127 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:20:14,127 - INFO - ID: minecraft:lever, 数量: 2
+2025-04-17 10:20:14,127 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:20:14,127 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:20:14,127 - INFO - ID: create:belt, 数量: 20
+2025-04-17 10:20:14,127 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:20:14,127 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:20:14,127 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:20:14,127 - INFO - ID: minecraft:air, 数量: 9
+2025-04-17 10:20:14,127 - INFO - ID: create:brass_belt_funnel, 数量: 13
+2025-04-17 10:20:14,128 - INFO - ID: create:item_vault, 数量: 2
+2025-04-17 10:20:14,128 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:20:14,128 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:20:14,128 - INFO - ID: minecraft:barrel, 数量: 3
+2025-04-17 10:20:14,128 - INFO - ID: create:basin, 数量: 3
+2025-04-17 10:20:14,128 - INFO - ID: create:brass_tunnel, 数量: 3
+2025-04-17 10:20:14,128 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:20:14,128 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:20:14,128 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:20:14,128 - INFO - ID: create:spout, 数量: 1
+2025-04-17 10:20:14,128 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:20:14,128 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:20:14,128 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:20:14,128 - INFO - ID: supplementaries:faucet, 数量: 1
+2025-04-17 10:20:14,128 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:20:14,152 - INFO - 进入检查
+2025-04-17 10:20:14,152 - INFO - 已同步 __7.nbt 的代码修改时间为: Thu Apr 17 08:47:35 2025
+2025-04-17 10:20:14,152 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt上传中：
+2025-04-17 10:20:14,153 - INFO - 文件传输完毕: (文件大小: 9289 字节 用时0.00秒)
+2025-04-17 10:20:14,153 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt
+2025-04-17 10:20:14,194 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:20:14,194 - INFO - 方块信息统计:[Pink_Candy_Cats][__7.nbt][36 方块]
+2025-04-17 10:20:14,194 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:20:14,194 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:20:14,194 - INFO - ID: minecraft:lever, 数量: 1
+2025-04-17 10:20:14,194 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:20:14,194 - INFO - ID: create:belt, 数量: 5
+2025-04-17 10:20:14,194 - INFO - ID: create:encased_chain_drive, 数量: 2
+2025-04-17 10:20:14,194 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:20:14,195 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:20:14,195 - INFO - ID: create:brass_belt_funnel, 数量: 5
+2025-04-17 10:20:14,195 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:20:14,195 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:20:14,195 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:20:14,195 - INFO - ID: create:basin, 数量: 2
+2025-04-17 10:20:14,195 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:20:14,195 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:20:14,195 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:20:14,195 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:20:14,195 - INFO - ID: minecraft:air, 数量: 1
+2025-04-17 10:20:14,208 - INFO - 进入检查
+2025-04-17 10:20:14,208 - INFO - 已同步 __8.nbt 的代码修改时间为: Tue Apr  8 22:02:24 2025
+2025-04-17 10:20:14,209 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt上传中：
+2025-04-17 10:20:14,209 - INFO - 文件传输完毕: (文件大小: 1855 字节 用时0.00秒)
+2025-04-17 10:20:14,209 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt
+2025-04-17 10:20:14,212 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:20:14,212 - INFO - 方块信息统计:[Pink_Candy_Cats][__8.nbt][11 方块]
+2025-04-17 10:20:14,213 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:20:14,213 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:20:14,213 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:20:14,213 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:20:14,213 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:20:14,213 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:20:14,213 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:20:14,213 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:20:14,214 - INFO - 进入检查
+2025-04-17 10:20:14,214 - INFO - 已同步 __9.nbt 的代码修改时间为: Tue Apr  8 22:43:32 2025
+2025-04-17 10:20:14,215 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt上传中：
+2025-04-17 10:20:14,215 - INFO - 文件传输完毕: (文件大小: 2429 字节 用时0.00秒)
+2025-04-17 10:20:14,215 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt
+2025-04-17 10:20:14,220 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:20:14,220 - INFO - 方块信息统计:[Pink_Candy_Cats][__9.nbt][20 方块]
+2025-04-17 10:20:14,220 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:20:14,221 - INFO - ID: create:encased_chain_drive, 数量: 5
+2025-04-17 10:20:14,221 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:20:14,221 - INFO - ID: create:chute, 数量: 1
+2025-04-17 10:20:14,221 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:20:14,221 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:20:14,221 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:20:14,221 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:20:14,221 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:20:14,221 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:20:14,221 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:20:14,221 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:20:14,221 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:21:32,483 - INFO - 环境检测正常
+2025-04-17 10:21:32,483 - INFO -  __   __   ___      ___  ___     __             ___  __   __         ___     __        ___  __        ___  __  
+/  ` |__) |__   /\   |  |__     |__) |    |  | |__  |__) |__) | |\ |  |     /  ` |__| |__  /  ` |__/ |__  |__) 
+\__, |  \ |___ /~~\  |  |___    |__) |___ \__/ |___ |    |  \ | | \|  |     \__, |  | |___ \__, |  \ |___ |  \ 
+                                                                                                               
+
+2025-04-17 10:21:32,485 - INFO - 启动主线程中
+2025-04-17 10:21:32,485 - INFO - 第一次循环完成，已同步文件和代码的修改时间。
+2025-04-17 10:21:32,485 - INFO - 当前代码修改时间：
+2025-04-17 10:21:32,485 - INFO - Pink_Candy_Cats: {'base.nbt': 'Tue Apr 15 12:49:37 2025', 'dungouji.nbt': 'Tue Apr 15 14:30:24 2025', 'test.nbt': 'Thu Apr 17 09:44:24 2025', 'w.nbt': 'Mon Apr  7 12:33:15 2025', '_.nbt': 'Thu Apr 17 09:40:28 2025', '__1.nbt': 'Tue Apr 15 14:31:05 2025', '__6.nbt': 'Thu Apr 17 08:47:34 2025', '__7.nbt': 'Thu Apr 17 08:47:35 2025', '__8.nbt': 'Tue Apr  8 22:02:24 2025', '__9.nbt': 'Tue Apr  8 22:43:32 2025'}
+2025-04-17 10:21:33,486 - INFO - [变动检查]找到的nbt文件数量[10]
+2025-04-17 10:21:33,488 - INFO - 进入检查
+2025-04-17 10:21:33,488 - INFO - 已同步 base.nbt 的代码修改时间为: Tue Apr 15 12:49:37 2025
+2025-04-17 10:21:33,488 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt上传中：
+2025-04-17 10:21:33,489 - INFO - 文件传输完毕: (文件大小: 1387 字节 用时0.00秒)
+2025-04-17 10:21:33,489 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt
+2025-04-17 10:21:33,495 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:21:33,495 - INFO - 方块信息统计:[Pink_Candy_Cats][base.nbt][4 方块]
+2025-04-17 10:21:33,495 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:21:33,495 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:21:33,495 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:21:33,495 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:21:33,497 - INFO - 进入检查
+2025-04-17 10:21:33,497 - INFO - 已同步 dungouji.nbt 的代码修改时间为: Tue Apr 15 14:30:24 2025
+2025-04-17 10:21:33,497 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt上传中：
+2025-04-17 10:21:33,498 - INFO - 文件传输完毕: (文件大小: 4542 字节 用时0.00秒)
+2025-04-17 10:21:33,498 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt
+2025-04-17 10:21:33,517 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:21:33,517 - INFO - 方块信息统计:[Pink_Candy_Cats][dungouji.nbt][14 方块]
+2025-04-17 10:21:33,517 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:21:33,517 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:21:33,517 - INFO - ID: minecraft:sea_lantern, 数量: 1
+2025-04-17 10:21:33,517 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:21:33,517 - INFO - ID: create:track, 数量: 1
+2025-04-17 10:21:33,517 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:21:33,518 - INFO - ID: create:controls, 数量: 1
+2025-04-17 10:21:33,518 - INFO - ID: create:deployer, 数量: 2
+2025-04-17 10:21:33,518 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:21:33,518 - INFO - ID: create:track_station, 数量: 1
+2025-04-17 10:21:33,518 - INFO - ID: create:small_bogey, 数量: 1
+2025-04-17 10:21:33,518 - INFO - ID: metalbarrels:iron_barrel, 数量: 2
+2025-04-17 10:21:33,525 - INFO - 进入检查
+2025-04-17 10:21:33,525 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt上传中：
+2025-04-17 10:21:33,526 - INFO - 文件传输完毕: (文件大小: 6662 字节 用时0.00秒)
+2025-04-17 10:21:33,525 - INFO - 已同步 test.nbt 的代码修改时间为: Thu Apr 17 09:44:24 2025
+2025-04-17 10:21:33,526 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt
+2025-04-17 10:21:33,541 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:21:33,542 - INFO - 方块信息统计:[Pink_Candy_Cats][test.nbt][21 方块]
+2025-04-17 10:21:33,542 - INFO - ID: minecraft:grass_block, 数量: 1
+2025-04-17 10:21:33,542 - INFO - ID: minecraft:pumpkin, 数量: 1
+2025-04-17 10:21:33,542 - INFO - ID: minecraft:dirt, 数量: 1
+2025-04-17 10:21:33,542 - INFO - ID: minecraft:birch_leaves, 数量: 4
+2025-04-17 10:21:33,542 - INFO - ID: minecraft:birch_log, 数量: 1
+2025-04-17 10:21:33,542 - INFO - ID: minecraft:oak_log, 数量: 1
+2025-04-17 10:21:33,542 - INFO - ID: minecraft:oak_leaves, 数量: 7
+2025-04-17 10:21:33,542 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:21:33,542 - INFO - ID: minecraft:vine, 数量: 3
+2025-04-17 10:21:33,542 - INFO - ID: minecraft:dead_bush, 数量: 1
+2025-04-17 10:21:33,548 - INFO - 进入检查
+2025-04-17 10:21:33,548 - INFO - 已同步 w.nbt 的代码修改时间为: Mon Apr  7 12:33:15 2025
+2025-04-17 10:21:33,548 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt上传中：
+2025-04-17 10:21:33,548 - INFO - 文件传输完毕: (文件大小: 3586 字节 用时0.00秒)
+2025-04-17 10:21:33,548 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt
+2025-04-17 10:21:33,556 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:21:33,557 - INFO - 方块信息统计:[Pink_Candy_Cats][w.nbt][44 方块]
+2025-04-17 10:21:33,557 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:21:33,557 - INFO - ID: create:belt, 数量: 12
+2025-04-17 10:21:33,557 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:21:33,557 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:21:33,557 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:21:33,557 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:21:33,557 - INFO - ID: createaddition:electric_motor, 数量: 1
+2025-04-17 10:21:33,557 - INFO - ID: createaddition:large_connector, 数量: 1
+2025-04-17 10:21:33,557 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:21:33,557 - INFO - ID: create:brass_belt_funnel, 数量: 7
+2025-04-17 10:21:33,557 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:21:33,557 - INFO - ID: create:brass_tunnel, 数量: 1
+2025-04-17 10:21:33,557 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:21:33,557 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:21:33,557 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:21:33,557 - INFO - ID: create:basin, 数量: 1
+2025-04-17 10:21:33,560 - INFO - 进入检查
+2025-04-17 10:21:33,560 - INFO - 已同步 _.nbt 的代码修改时间为: Thu Apr 17 09:40:28 2025
+2025-04-17 10:21:33,560 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt上传中：
+2025-04-17 10:21:33,560 - INFO - 文件传输完毕: (文件大小: 877 字节 用时0.00秒)
+2025-04-17 10:21:33,561 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt
+2025-04-17 10:21:33,562 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:21:33,562 - INFO - 方块信息统计:[Pink_Candy_Cats][_.nbt][3 方块]
+2025-04-17 10:21:33,562 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:21:33,562 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:21:33,562 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:21:33,563 - INFO - 进入检查
+2025-04-17 10:21:33,563 - INFO - 已同步 __1.nbt 的代码修改时间为: Tue Apr 15 14:31:05 2025
+2025-04-17 10:21:33,563 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt上传中：
+2025-04-17 10:21:33,563 - INFO - 文件传输完毕: (文件大小: 3294 字节 用时0.00秒)
+2025-04-17 10:21:33,563 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt
+2025-04-17 10:21:33,582 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:21:33,582 - INFO - 方块信息统计:[Pink_Candy_Cats][__1.nbt][4 方块]
+2025-04-17 10:21:33,582 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:21:33,582 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:21:33,582 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:21:33,582 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:21:33,589 - INFO - 进入检查
+2025-04-17 10:21:33,589 - INFO - 已同步 __6.nbt 的代码修改时间为: Thu Apr 17 08:47:34 2025
+2025-04-17 10:21:33,589 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt上传中：
+2025-04-17 10:21:33,589 - INFO - 文件传输完毕: (文件大小: 17988 字节 用时0.00秒)
+2025-04-17 10:21:33,589 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt
+2025-04-17 10:21:33,668 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:21:33,668 - INFO - 方块信息统计:[Pink_Candy_Cats][__6.nbt][94 方块]
+2025-04-17 10:21:33,668 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:21:33,668 - INFO - ID: minecraft:stone_bricks, 数量: 1
+2025-04-17 10:21:33,668 - INFO - ID: minecraft:chiseled_stone_bricks, 数量: 1
+2025-04-17 10:21:33,668 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:21:33,668 - INFO - ID: minecraft:lever, 数量: 2
+2025-04-17 10:21:33,668 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:21:33,668 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:21:33,668 - INFO - ID: create:belt, 数量: 20
+2025-04-17 10:21:33,668 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:21:33,668 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:21:33,668 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:21:33,668 - INFO - ID: minecraft:air, 数量: 9
+2025-04-17 10:21:33,668 - INFO - ID: create:brass_belt_funnel, 数量: 13
+2025-04-17 10:21:33,669 - INFO - ID: create:item_vault, 数量: 2
+2025-04-17 10:21:33,669 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:21:33,669 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:21:33,669 - INFO - ID: minecraft:barrel, 数量: 3
+2025-04-17 10:21:33,669 - INFO - ID: create:basin, 数量: 3
+2025-04-17 10:21:33,669 - INFO - ID: create:brass_tunnel, 数量: 3
+2025-04-17 10:21:33,669 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:21:33,669 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:21:33,669 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:21:33,669 - INFO - ID: create:spout, 数量: 1
+2025-04-17 10:21:33,669 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:21:33,669 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:21:33,670 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:21:33,670 - INFO - ID: supplementaries:faucet, 数量: 1
+2025-04-17 10:21:33,670 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:21:33,694 - INFO - 进入检查
+2025-04-17 10:21:33,694 - INFO - 已同步 __7.nbt 的代码修改时间为: Thu Apr 17 08:47:35 2025
+2025-04-17 10:21:33,695 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt上传中：
+2025-04-17 10:21:33,695 - INFO - 文件传输完毕: (文件大小: 9289 字节 用时0.00秒)
+2025-04-17 10:21:33,695 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt
+2025-04-17 10:21:33,734 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:21:33,734 - INFO - 方块信息统计:[Pink_Candy_Cats][__7.nbt][36 方块]
+2025-04-17 10:21:33,734 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:21:33,734 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:21:33,734 - INFO - ID: minecraft:lever, 数量: 1
+2025-04-17 10:21:33,734 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:21:33,734 - INFO - ID: create:belt, 数量: 5
+2025-04-17 10:21:33,734 - INFO - ID: create:encased_chain_drive, 数量: 2
+2025-04-17 10:21:33,734 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:21:33,734 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:21:33,734 - INFO - ID: create:brass_belt_funnel, 数量: 5
+2025-04-17 10:21:33,734 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:21:33,734 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:21:33,735 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:21:33,735 - INFO - ID: create:basin, 数量: 2
+2025-04-17 10:21:33,735 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:21:33,735 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:21:33,735 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:21:33,735 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:21:33,735 - INFO - ID: minecraft:air, 数量: 1
+2025-04-17 10:21:33,749 - INFO - 进入检查
+2025-04-17 10:21:33,749 - INFO - 已同步 __8.nbt 的代码修改时间为: Tue Apr  8 22:02:24 2025
+2025-04-17 10:21:33,749 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt上传中：
+2025-04-17 10:21:33,749 - INFO - 文件传输完毕: (文件大小: 1855 字节 用时0.00秒)
+2025-04-17 10:21:33,749 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt
+2025-04-17 10:21:33,752 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:21:33,752 - INFO - 方块信息统计:[Pink_Candy_Cats][__8.nbt][11 方块]
+2025-04-17 10:21:33,752 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:21:33,752 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:21:33,753 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:21:33,753 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:21:33,753 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:21:33,753 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:21:33,753 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:21:33,753 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:21:33,754 - INFO - 进入检查
+2025-04-17 10:21:33,754 - INFO - 已同步 __9.nbt 的代码修改时间为: Tue Apr  8 22:43:32 2025
+2025-04-17 10:21:33,754 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt上传中：
+2025-04-17 10:21:33,755 - INFO - 文件传输完毕: (文件大小: 2429 字节 用时0.00秒)
+2025-04-17 10:21:33,755 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt
+2025-04-17 10:21:33,759 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:21:33,759 - INFO - 方块信息统计:[Pink_Candy_Cats][__9.nbt][20 方块]
+2025-04-17 10:21:33,760 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:21:33,760 - INFO - ID: create:encased_chain_drive, 数量: 5
+2025-04-17 10:21:33,760 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:21:33,760 - INFO - ID: create:chute, 数量: 1
+2025-04-17 10:21:33,760 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:21:33,760 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:21:33,760 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:21:33,760 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:21:33,760 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:21:33,760 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:21:33,760 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:21:33,760 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:21:33,760 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:22:10,229 - INFO - 环境检测正常
+2025-04-17 10:22:10,229 - INFO - 
+ __   __   ___      ___  ___     __             ___  __   __         ___     __        ___  __        ___  __  
+/  ` |__) |__   /\   |  |__     |__) |    |  | |__  |__) |__) | |\ |  |     /  ` |__| |__  /  ` |__/ |__  |__) 
+\__, |  \ |___ /~~\  |  |___    |__) |___ \__/ |___ |    |  \ | | \|  |     \__, |  | |___ \__, |  \ |___ |  \ 
+                                                                                                               
+
+2025-04-17 10:22:10,231 - INFO - 启动主线程中
+2025-04-17 10:22:10,233 - INFO - 第一次循环完成，已同步文件和代码的修改时间。
+2025-04-17 10:22:10,233 - INFO - 当前代码修改时间：
+2025-04-17 10:22:10,233 - INFO - Pink_Candy_Cats: {'base.nbt': 'Tue Apr 15 12:49:37 2025', 'dungouji.nbt': 'Tue Apr 15 14:30:24 2025', 'test.nbt': 'Thu Apr 17 09:44:24 2025', 'w.nbt': 'Mon Apr  7 12:33:15 2025', '_.nbt': 'Thu Apr 17 09:40:28 2025', '__1.nbt': 'Tue Apr 15 14:31:05 2025', '__6.nbt': 'Thu Apr 17 08:47:34 2025', '__7.nbt': 'Thu Apr 17 08:47:35 2025', '__8.nbt': 'Tue Apr  8 22:02:24 2025', '__9.nbt': 'Tue Apr  8 22:43:32 2025'}
+2025-04-17 10:22:11,233 - INFO - [变动检查]找到的nbt文件数量[10]
+2025-04-17 10:22:11,236 - INFO - 进入检查
+2025-04-17 10:22:11,236 - INFO - 已同步 base.nbt 的代码修改时间为: Tue Apr 15 12:49:37 2025
+2025-04-17 10:22:11,236 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt上传中：
+2025-04-17 10:22:11,237 - INFO - 文件传输完毕: (文件大小: 1387 字节 用时0.00秒)
+2025-04-17 10:22:11,237 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt
+2025-04-17 10:22:11,243 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:22:11,243 - INFO - 方块信息统计:[Pink_Candy_Cats][base.nbt][4 方块]
+2025-04-17 10:22:11,243 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:22:11,243 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:22:11,243 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:22:11,243 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:22:11,245 - INFO - 进入检查
+2025-04-17 10:22:11,245 - INFO - 已同步 dungouji.nbt 的代码修改时间为: Tue Apr 15 14:30:24 2025
+2025-04-17 10:22:11,245 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt上传中：
+2025-04-17 10:22:11,245 - INFO - 文件传输完毕: (文件大小: 4542 字节 用时0.00秒)
+2025-04-17 10:22:11,246 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt
+2025-04-17 10:22:11,265 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:22:11,265 - INFO - 方块信息统计:[Pink_Candy_Cats][dungouji.nbt][14 方块]
+2025-04-17 10:22:11,265 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:22:11,265 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:22:11,265 - INFO - ID: minecraft:sea_lantern, 数量: 1
+2025-04-17 10:22:11,265 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:22:11,265 - INFO - ID: create:track, 数量: 1
+2025-04-17 10:22:11,265 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:22:11,265 - INFO - ID: create:controls, 数量: 1
+2025-04-17 10:22:11,265 - INFO - ID: create:deployer, 数量: 2
+2025-04-17 10:22:11,265 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:22:11,265 - INFO - ID: create:track_station, 数量: 1
+2025-04-17 10:22:11,265 - INFO - ID: create:small_bogey, 数量: 1
+2025-04-17 10:22:11,266 - INFO - ID: metalbarrels:iron_barrel, 数量: 2
+2025-04-17 10:22:11,272 - INFO - 进入检查
+2025-04-17 10:22:11,272 - INFO - 已同步 test.nbt 的代码修改时间为: Thu Apr 17 09:44:24 2025
+2025-04-17 10:22:11,272 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt上传中：
+2025-04-17 10:22:11,272 - INFO - 文件传输完毕: (文件大小: 6662 字节 用时0.00秒)
+2025-04-17 10:22:11,272 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt
+2025-04-17 10:22:11,286 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:22:11,287 - INFO - 方块信息统计:[Pink_Candy_Cats][test.nbt][21 方块]
+2025-04-17 10:22:11,287 - INFO - ID: minecraft:grass_block, 数量: 1
+2025-04-17 10:22:11,287 - INFO - ID: minecraft:pumpkin, 数量: 1
+2025-04-17 10:22:11,287 - INFO - ID: minecraft:dirt, 数量: 1
+2025-04-17 10:22:11,287 - INFO - ID: minecraft:birch_leaves, 数量: 4
+2025-04-17 10:22:11,287 - INFO - ID: minecraft:birch_log, 数量: 1
+2025-04-17 10:22:11,287 - INFO - ID: minecraft:oak_log, 数量: 1
+2025-04-17 10:22:11,287 - INFO - ID: minecraft:oak_leaves, 数量: 7
+2025-04-17 10:22:11,287 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:22:11,287 - INFO - ID: minecraft:vine, 数量: 3
+2025-04-17 10:22:11,287 - INFO - ID: minecraft:dead_bush, 数量: 1
+2025-04-17 10:22:11,293 - INFO - 进入检查
+2025-04-17 10:22:11,293 - INFO - 已同步 w.nbt 的代码修改时间为: Mon Apr  7 12:33:15 2025
+2025-04-17 10:22:11,293 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt上传中：
+2025-04-17 10:22:11,293 - INFO - 文件传输完毕: (文件大小: 3586 字节 用时0.00秒)
+2025-04-17 10:22:11,293 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt
+2025-04-17 10:22:11,301 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:22:11,301 - INFO - 方块信息统计:[Pink_Candy_Cats][w.nbt][44 方块]
+2025-04-17 10:22:11,301 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:22:11,301 - INFO - ID: create:belt, 数量: 12
+2025-04-17 10:22:11,301 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:22:11,301 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:22:11,301 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:22:11,301 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:22:11,301 - INFO - ID: createaddition:electric_motor, 数量: 1
+2025-04-17 10:22:11,301 - INFO - ID: createaddition:large_connector, 数量: 1
+2025-04-17 10:22:11,301 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:22:11,301 - INFO - ID: create:brass_belt_funnel, 数量: 7
+2025-04-17 10:22:11,301 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:22:11,301 - INFO - ID: create:brass_tunnel, 数量: 1
+2025-04-17 10:22:11,301 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:22:11,301 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:22:11,302 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:22:11,302 - INFO - ID: create:basin, 数量: 1
+2025-04-17 10:22:11,304 - INFO - 进入检查
+2025-04-17 10:22:11,304 - INFO - 已同步 _.nbt 的代码修改时间为: Thu Apr 17 09:40:28 2025
+2025-04-17 10:22:11,304 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt上传中：
+2025-04-17 10:22:11,305 - INFO - 文件传输完毕: (文件大小: 877 字节 用时0.00秒)
+2025-04-17 10:22:11,305 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt
+2025-04-17 10:22:11,307 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:22:11,307 - INFO - 方块信息统计:[Pink_Candy_Cats][_.nbt][3 方块]
+2025-04-17 10:22:11,307 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:22:11,307 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:22:11,307 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:22:11,308 - INFO - 进入检查
+2025-04-17 10:22:11,308 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt上传中：
+2025-04-17 10:22:11,309 - INFO - 已同步 __1.nbt 的代码修改时间为: Tue Apr 15 14:31:05 2025
+2025-04-17 10:22:11,310 - INFO - 文件传输完毕: (文件大小: 3294 字节 用时0.00秒)
+2025-04-17 10:22:11,310 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt
+2025-04-17 10:22:11,328 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:22:11,328 - INFO - 方块信息统计:[Pink_Candy_Cats][__1.nbt][4 方块]
+2025-04-17 10:22:11,329 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:22:11,329 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:22:11,329 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:22:11,329 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:22:11,335 - INFO - 进入检查
+2025-04-17 10:22:11,335 - INFO - 已同步 __6.nbt 的代码修改时间为: Thu Apr 17 08:47:34 2025
+2025-04-17 10:22:11,336 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt上传中：
+2025-04-17 10:22:11,336 - INFO - 文件传输完毕: (文件大小: 17988 字节 用时0.00秒)
+2025-04-17 10:22:11,336 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt
+2025-04-17 10:22:11,411 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:22:11,411 - INFO - 方块信息统计:[Pink_Candy_Cats][__6.nbt][94 方块]
+2025-04-17 10:22:11,411 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:22:11,411 - INFO - ID: minecraft:stone_bricks, 数量: 1
+2025-04-17 10:22:11,411 - INFO - ID: minecraft:chiseled_stone_bricks, 数量: 1
+2025-04-17 10:22:11,411 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:22:11,411 - INFO - ID: minecraft:lever, 数量: 2
+2025-04-17 10:22:11,411 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:22:11,411 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:22:11,411 - INFO - ID: create:belt, 数量: 20
+2025-04-17 10:22:11,411 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:22:11,412 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:22:11,412 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:22:11,412 - INFO - ID: minecraft:air, 数量: 9
+2025-04-17 10:22:11,412 - INFO - ID: create:brass_belt_funnel, 数量: 13
+2025-04-17 10:22:11,412 - INFO - ID: create:item_vault, 数量: 2
+2025-04-17 10:22:11,412 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:22:11,412 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:22:11,412 - INFO - ID: minecraft:barrel, 数量: 3
+2025-04-17 10:22:11,412 - INFO - ID: create:basin, 数量: 3
+2025-04-17 10:22:11,412 - INFO - ID: create:brass_tunnel, 数量: 3
+2025-04-17 10:22:11,412 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:22:11,412 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:22:11,412 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:22:11,412 - INFO - ID: create:spout, 数量: 1
+2025-04-17 10:22:11,412 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:22:11,412 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:22:11,412 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:22:11,412 - INFO - ID: supplementaries:faucet, 数量: 1
+2025-04-17 10:22:11,412 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:22:11,437 - INFO - 进入检查
+2025-04-17 10:22:11,437 - INFO - 已同步 __7.nbt 的代码修改时间为: Thu Apr 17 08:47:35 2025
+2025-04-17 10:22:11,437 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt上传中：
+2025-04-17 10:22:11,437 - INFO - 文件传输完毕: (文件大小: 9289 字节 用时0.00秒)
+2025-04-17 10:22:11,438 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt
+2025-04-17 10:22:11,480 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:22:11,480 - INFO - 方块信息统计:[Pink_Candy_Cats][__7.nbt][36 方块]
+2025-04-17 10:22:11,480 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:22:11,480 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:22:11,480 - INFO - ID: minecraft:lever, 数量: 1
+2025-04-17 10:22:11,480 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:22:11,480 - INFO - ID: create:belt, 数量: 5
+2025-04-17 10:22:11,480 - INFO - ID: create:encased_chain_drive, 数量: 2
+2025-04-17 10:22:11,481 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:22:11,481 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:22:11,481 - INFO - ID: create:brass_belt_funnel, 数量: 5
+2025-04-17 10:22:11,481 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:22:11,481 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:22:11,481 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:22:11,481 - INFO - ID: create:basin, 数量: 2
+2025-04-17 10:22:11,481 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:22:11,481 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:22:11,481 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:22:11,481 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:22:11,481 - INFO - ID: minecraft:air, 数量: 1
+2025-04-17 10:22:11,495 - INFO - 进入检查
+2025-04-17 10:22:11,495 - INFO - 已同步 __8.nbt 的代码修改时间为: Tue Apr  8 22:02:24 2025
+2025-04-17 10:22:11,495 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt上传中：
+2025-04-17 10:22:11,495 - INFO - 文件传输完毕: (文件大小: 1855 字节 用时0.00秒)
+2025-04-17 10:22:11,495 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt
+2025-04-17 10:22:11,498 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:22:11,498 - INFO - 方块信息统计:[Pink_Candy_Cats][__8.nbt][11 方块]
+2025-04-17 10:22:11,498 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:22:11,498 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:22:11,498 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:22:11,498 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:22:11,498 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:22:11,498 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:22:11,500 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:22:11,500 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:22:11,501 - INFO - 进入检查
+2025-04-17 10:22:11,501 - INFO - 已同步 __9.nbt 的代码修改时间为: Tue Apr  8 22:43:32 2025
+2025-04-17 10:22:11,502 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt上传中：
+2025-04-17 10:22:11,502 - INFO - 文件传输完毕: (文件大小: 2429 字节 用时0.00秒)
+2025-04-17 10:22:11,502 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt
+2025-04-17 10:22:11,507 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:22:11,507 - INFO - 方块信息统计:[Pink_Candy_Cats][__9.nbt][20 方块]
+2025-04-17 10:22:11,507 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:22:11,507 - INFO - ID: create:encased_chain_drive, 数量: 5
+2025-04-17 10:22:11,507 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:22:11,507 - INFO - ID: create:chute, 数量: 1
+2025-04-17 10:22:11,507 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:22:11,507 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:22:11,507 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:22:11,507 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:22:11,507 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:22:11,507 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:22:11,507 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:22:11,507 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:22:11,507 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:23:02,356 - INFO - 环境检测正常
+2025-04-17 10:23:02,356 - INFO - 
+--------------------------------------------------------------------------------------------------------------
+ __   __   ___      ___  ___     __             ___  __   __         ___     __        ___  __        ___  __  
+/  ` |__) |__   /\   |  |__     |__) |    |  | |__  |__) |__) | |\ |  |     /  ` |__| |__  /  ` |__/ |__  |__) 
+\__, |  \ |___ /~~\  |  |___    |__) |___ \__/ |___ |    |  \ | | \|  |     \__, |  | |___ \__, |  \ |___ |  \ 
+--------------------------------------------------------------------------------------------------------------
+
+2025-04-17 10:23:02,358 - INFO - 启动主线程中
+2025-04-17 10:23:02,359 - INFO - 第一次循环完成，已同步文件和代码的修改时间。
+2025-04-17 10:23:02,359 - INFO - 当前代码修改时间：
+2025-04-17 10:23:02,359 - INFO - Pink_Candy_Cats: {'base.nbt': 'Tue Apr 15 12:49:37 2025', 'dungouji.nbt': 'Tue Apr 15 14:30:24 2025', 'test.nbt': 'Thu Apr 17 09:44:24 2025', 'w.nbt': 'Mon Apr  7 12:33:15 2025', '_.nbt': 'Thu Apr 17 09:40:28 2025', '__1.nbt': 'Tue Apr 15 14:31:05 2025', '__6.nbt': 'Thu Apr 17 08:47:34 2025', '__7.nbt': 'Thu Apr 17 08:47:35 2025', '__8.nbt': 'Tue Apr  8 22:02:24 2025', '__9.nbt': 'Tue Apr  8 22:43:32 2025'}
+2025-04-17 10:23:03,360 - INFO - [变动检查]找到的nbt文件数量[10]
+2025-04-17 10:23:03,363 - INFO - 进入检查
+2025-04-17 10:23:03,364 - INFO - 已同步 base.nbt 的代码修改时间为: Tue Apr 15 12:49:37 2025
+2025-04-17 10:23:03,364 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt上传中：
+2025-04-17 10:23:03,364 - INFO - 文件传输完毕: (文件大小: 1387 字节 用时0.00秒)
+2025-04-17 10:23:03,364 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/base.nbt
+2025-04-17 10:23:03,369 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:23:03,369 - INFO - 方块信息统计:[Pink_Candy_Cats][base.nbt][4 方块]
+2025-04-17 10:23:03,369 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:23:03,369 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:23:03,370 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:23:03,370 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:23:03,371 - INFO - 进入检查
+2025-04-17 10:23:03,372 - INFO - 已同步 dungouji.nbt 的代码修改时间为: Tue Apr 15 14:30:24 2025
+2025-04-17 10:23:03,372 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt上传中：
+2025-04-17 10:23:03,372 - INFO - 文件传输完毕: (文件大小: 4542 字节 用时0.00秒)
+2025-04-17 10:23:03,372 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/dungouji.nbt
+2025-04-17 10:23:03,392 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:23:03,393 - INFO - 方块信息统计:[Pink_Candy_Cats][dungouji.nbt][14 方块]
+2025-04-17 10:23:03,393 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:23:03,393 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:23:03,393 - INFO - ID: minecraft:sea_lantern, 数量: 1
+2025-04-17 10:23:03,393 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:23:03,393 - INFO - ID: create:track, 数量: 1
+2025-04-17 10:23:03,393 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:23:03,393 - INFO - ID: create:controls, 数量: 1
+2025-04-17 10:23:03,393 - INFO - ID: create:deployer, 数量: 2
+2025-04-17 10:23:03,393 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:23:03,393 - INFO - ID: create:track_station, 数量: 1
+2025-04-17 10:23:03,393 - INFO - ID: create:small_bogey, 数量: 1
+2025-04-17 10:23:03,393 - INFO - ID: metalbarrels:iron_barrel, 数量: 2
+2025-04-17 10:23:03,400 - INFO - 进入检查
+2025-04-17 10:23:03,400 - INFO - 已同步 test.nbt 的代码修改时间为: Thu Apr 17 09:44:24 2025
+2025-04-17 10:23:03,400 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt上传中：
+2025-04-17 10:23:03,401 - INFO - 文件传输完毕: (文件大小: 6662 字节 用时0.00秒)
+2025-04-17 10:23:03,401 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/test.nbt
+2025-04-17 10:23:03,414 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:23:03,414 - INFO - 方块信息统计:[Pink_Candy_Cats][test.nbt][21 方块]
+2025-04-17 10:23:03,414 - INFO - ID: minecraft:grass_block, 数量: 1
+2025-04-17 10:23:03,414 - INFO - ID: minecraft:pumpkin, 数量: 1
+2025-04-17 10:23:03,414 - INFO - ID: minecraft:dirt, 数量: 1
+2025-04-17 10:23:03,414 - INFO - ID: minecraft:birch_leaves, 数量: 4
+2025-04-17 10:23:03,414 - INFO - ID: minecraft:birch_log, 数量: 1
+2025-04-17 10:23:03,415 - INFO - ID: minecraft:oak_log, 数量: 1
+2025-04-17 10:23:03,415 - INFO - ID: minecraft:oak_leaves, 数量: 7
+2025-04-17 10:23:03,415 - INFO - ID: minecraft:grass, 数量: 1
+2025-04-17 10:23:03,415 - INFO - ID: minecraft:vine, 数量: 3
+2025-04-17 10:23:03,415 - INFO - ID: minecraft:dead_bush, 数量: 1
+2025-04-17 10:23:03,421 - INFO - 进入检查
+2025-04-17 10:23:03,421 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt上传中：
+2025-04-17 10:23:03,421 - INFO - 已同步 w.nbt 的代码修改时间为: Mon Apr  7 12:33:15 2025
+2025-04-17 10:23:03,421 - INFO - 文件传输完毕: (文件大小: 3586 字节 用时0.00秒)
+2025-04-17 10:23:03,421 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/w.nbt
+2025-04-17 10:23:03,429 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:23:03,429 - INFO - 方块信息统计:[Pink_Candy_Cats][w.nbt][44 方块]
+2025-04-17 10:23:03,430 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:23:03,430 - INFO - ID: create:belt, 数量: 12
+2025-04-17 10:23:03,430 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:23:03,430 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:23:03,430 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:23:03,430 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:23:03,430 - INFO - ID: createaddition:electric_motor, 数量: 1
+2025-04-17 10:23:03,430 - INFO - ID: createaddition:large_connector, 数量: 1
+2025-04-17 10:23:03,430 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:23:03,430 - INFO - ID: create:brass_belt_funnel, 数量: 7
+2025-04-17 10:23:03,430 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:23:03,430 - INFO - ID: create:brass_tunnel, 数量: 1
+2025-04-17 10:23:03,430 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:23:03,430 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:23:03,430 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:23:03,430 - INFO - ID: create:basin, 数量: 1
+2025-04-17 10:23:03,433 - INFO - 进入检查
+2025-04-17 10:23:03,433 - INFO - 已同步 _.nbt 的代码修改时间为: Thu Apr 17 09:40:28 2025
+2025-04-17 10:23:03,433 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt上传中：
+2025-04-17 10:23:03,434 - INFO - 文件传输完毕: (文件大小: 877 字节 用时0.00秒)
+2025-04-17 10:23:03,434 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/_.nbt
+2025-04-17 10:23:03,436 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:23:03,436 - INFO - 方块信息统计:[Pink_Candy_Cats][_.nbt][3 方块]
+2025-04-17 10:23:03,436 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:23:03,436 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:23:03,436 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:23:03,437 - INFO - 进入检查
+2025-04-17 10:23:03,437 - INFO - 已同步 __1.nbt 的代码修改时间为: Tue Apr 15 14:31:05 2025
+2025-04-17 10:23:03,437 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt上传中：
+2025-04-17 10:23:03,437 - INFO - 文件传输完毕: (文件大小: 3294 字节 用时0.00秒)
+2025-04-17 10:23:03,437 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__1.nbt
+2025-04-17 10:23:03,458 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:23:03,458 - INFO - 方块信息统计:[Pink_Candy_Cats][__1.nbt][4 方块]
+2025-04-17 10:23:03,458 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:23:03,458 - INFO - ID: create:mechanical_plough, 数量: 1
+2025-04-17 10:23:03,458 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:23:03,458 - INFO - ID: create:mechanical_drill, 数量: 1
+2025-04-17 10:23:03,465 - INFO - 进入检查
+2025-04-17 10:23:03,465 - INFO - 已同步 __6.nbt 的代码修改时间为: Thu Apr 17 08:47:34 2025
+2025-04-17 10:23:03,465 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt上传中：
+2025-04-17 10:23:03,466 - INFO - 文件传输完毕: (文件大小: 17988 字节 用时0.00秒)
+2025-04-17 10:23:03,466 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__6.nbt
+2025-04-17 10:23:03,540 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:23:03,541 - INFO - 方块信息统计:[Pink_Candy_Cats][__6.nbt][94 方块]
+2025-04-17 10:23:03,541 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:23:03,541 - INFO - ID: minecraft:stone_bricks, 数量: 1
+2025-04-17 10:23:03,541 - INFO - ID: minecraft:chiseled_stone_bricks, 数量: 1
+2025-04-17 10:23:03,541 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:23:03,541 - INFO - ID: minecraft:lever, 数量: 2
+2025-04-17 10:23:03,541 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:23:03,541 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:23:03,541 - INFO - ID: create:belt, 数量: 20
+2025-04-17 10:23:03,541 - INFO - ID: create:gearbox, 数量: 3
+2025-04-17 10:23:03,541 - INFO - ID: create:encased_chain_drive, 数量: 6
+2025-04-17 10:23:03,541 - INFO - ID: create:shaft, 数量: 2
+2025-04-17 10:23:03,541 - INFO - ID: minecraft:air, 数量: 9
+2025-04-17 10:23:03,541 - INFO - ID: create:brass_belt_funnel, 数量: 13
+2025-04-17 10:23:03,541 - INFO - ID: create:item_vault, 数量: 2
+2025-04-17 10:23:03,541 - INFO - ID: create:brass_encased_shaft, 数量: 1
+2025-04-17 10:23:03,541 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:23:03,541 - INFO - ID: minecraft:barrel, 数量: 3
+2025-04-17 10:23:03,541 - INFO - ID: create:basin, 数量: 3
+2025-04-17 10:23:03,541 - INFO - ID: create:brass_tunnel, 数量: 3
+2025-04-17 10:23:03,541 - INFO - ID: create:weighted_ejector, 数量: 1
+2025-04-17 10:23:03,541 - INFO - ID: create:crushing_wheel, 数量: 1
+2025-04-17 10:23:03,542 - INFO - ID: create:crushing_wheel_controller, 数量: 4
+2025-04-17 10:23:03,542 - INFO - ID: create:spout, 数量: 1
+2025-04-17 10:23:03,542 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:23:03,542 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:23:03,542 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:23:03,542 - INFO - ID: supplementaries:faucet, 数量: 1
+2025-04-17 10:23:03,542 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:23:03,567 - INFO - 进入检查
+2025-04-17 10:23:03,567 - INFO - 已同步 __7.nbt 的代码修改时间为: Thu Apr 17 08:47:35 2025
+2025-04-17 10:23:03,567 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt上传中：
+2025-04-17 10:23:03,567 - INFO - 文件传输完毕: (文件大小: 9289 字节 用时0.00秒)
+2025-04-17 10:23:03,567 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__7.nbt
+2025-04-17 10:23:03,611 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:23:03,612 - INFO - 方块信息统计:[Pink_Candy_Cats][__7.nbt][36 方块]
+2025-04-17 10:23:03,612 - INFO - ID: create:framed_glass, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: minecraft:lever, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: create:redstone_link, 数量: 8
+2025-04-17 10:23:03,612 - INFO - ID: create:belt, 数量: 5
+2025-04-17 10:23:03,612 - INFO - ID: create:encased_chain_drive, 数量: 2
+2025-04-17 10:23:03,612 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: create:brass_belt_funnel, 数量: 5
+2025-04-17 10:23:03,612 - INFO - ID: create:item_vault, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: create:basin, 数量: 2
+2025-04-17 10:23:03,612 - INFO - ID: create:stockpile_switch, 数量: 2
+2025-04-17 10:23:03,612 - INFO - ID: create:cogwheel, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: create:mechanical_mixer, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: create:mechanical_arm, 数量: 1
+2025-04-17 10:23:03,612 - INFO - ID: minecraft:air, 数量: 1
+2025-04-17 10:23:03,626 - INFO - 进入检查
+2025-04-17 10:23:03,626 - INFO - 已同步 __8.nbt 的代码修改时间为: Tue Apr  8 22:02:24 2025
+2025-04-17 10:23:03,626 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt上传中：
+2025-04-17 10:23:03,626 - INFO - 文件传输完毕: (文件大小: 1855 字节 用时0.00秒)
+2025-04-17 10:23:03,626 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__8.nbt
+2025-04-17 10:23:03,630 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:23:03,630 - INFO - 方块信息统计:[Pink_Candy_Cats][__8.nbt][11 方块]
+2025-04-17 10:23:03,630 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:23:03,630 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:23:03,630 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:23:03,630 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:23:03,630 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:23:03,630 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:23:03,630 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:23:03,630 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:23:03,632 - INFO - 进入检查
+2025-04-17 10:23:03,632 - INFO - 已同步 __9.nbt 的代码修改时间为: Tue Apr  8 22:43:32 2025
+2025-04-17 10:23:03,632 - INFO - 等待F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt上传中：
+2025-04-17 10:23:03,632 - INFO - 文件传输完毕: (文件大小: 2429 字节 用时0.00秒)
+2025-04-17 10:23:03,632 - WARNING - F:\2.4\client\墨白内服一键启动包v3.1.1\.minecraft\versions\墨白内服v3.1-formal\schematics\uploaded/Pink_Candy_Cats/__9.nbt
+2025-04-17 10:23:03,638 - DEBUG - 函数count_block_ids执行时间：0.0秒
+2025-04-17 10:23:03,638 - INFO - 方块信息统计:[Pink_Candy_Cats][__9.nbt][20 方块]
+2025-04-17 10:23:03,638 - INFO - ID: create:brass_casing, 数量: 1
+2025-04-17 10:23:03,638 - INFO - ID: create:encased_chain_drive, 数量: 5
+2025-04-17 10:23:03,638 - INFO - ID: create:deployer, 数量: 1
+2025-04-17 10:23:03,638 - INFO - ID: create:chute, 数量: 1
+2025-04-17 10:23:03,638 - INFO - ID: create:belt, 数量: 2
+2025-04-17 10:23:03,638 - INFO - ID: create:shaft, 数量: 1
+2025-04-17 10:23:03,638 - INFO - ID: create:depot, 数量: 1
+2025-04-17 10:23:03,638 - INFO - ID: create:item_drain, 数量: 1
+2025-04-17 10:23:03,639 - INFO - ID: create:brass_belt_funnel, 数量: 3
+2025-04-17 10:23:03,639 - INFO - ID: createaddition:rolling_mill, 数量: 1
+2025-04-17 10:23:03,639 - INFO - ID: minecraft:barrel, 数量: 1
+2025-04-17 10:23:03,639 - INFO - ID: create:gearbox, 数量: 1
+2025-04-17 10:23:03,639 - INFO - ID: create:mechanical_press, 数量: 1
+2025-04-17 10:24:42,729 - INFO - [活跃提示]蓝图数量[10]
+2025-04-17 10:26:22,821 - INFO - [活跃提示]蓝图数量[10]
+2025-04-17 10:28:02,913 - INFO - [活跃提示]蓝图数量[10]
