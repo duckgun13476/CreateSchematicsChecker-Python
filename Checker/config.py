@@ -1,7 +1,9 @@
+from Checker import para
 ## 基础配置
-schematics_path = "../schematics/uploaded"  # 蓝图路径
-check_frequency = 2  # 针对文件的扫描频率 单位为秒（扫描文件名）
-
+schematics_path = para.path  # 蓝图路径
+log_path = r'logs/application.log'
+check_frequency = 1  # 针对文件的扫描频率 单位为秒（扫描文件名）
+schematics_packet_size = 1024  # 蓝图的上传默认包大小默认为1024（用于外置脚本识别是否传输完成） 位于 create>server>Schematics 配置下
 
 
 ## 蓝图全局黑名单

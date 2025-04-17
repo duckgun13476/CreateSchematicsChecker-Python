@@ -1,7 +1,11 @@
 import colorlog
 import logging
+from Checker.config import log_path
+
 console_handler = logging.StreamHandler()
+
 console_handler.setLevel(logging.DEBUG)
+
 formatter = colorlog.ColoredFormatter(
     "%(log_color)s%(levelname)-8s%(reset)s %(log_color)s%(message)s",
     datefmt=None,
@@ -17,11 +21,12 @@ formatter = colorlog.ColoredFormatter(
     style='%'
 )
 console_handler.setFormatter(formatter)
-log_file_path = 'logs/application.log'  # 日志文件名
-file_handler = logging.FileHandler(log_file_path)
+
+file_handler = logging.FileHandler(log_path, encoding='utf-8')
 file_handler.setLevel(logging.DEBUG)  # 设置文件处理器的日志级别
 file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))  # 设置文件格式
 log = colorlog.getLogger()
+
 if not log.handlers:
     log.setLevel(logging.DEBUG)
     log.addHandler(console_handler)
@@ -34,3 +39,4 @@ if __name__ == "__main__":
     log.warning("这是一条 WARNING 级别的日志")
     log.error("这是一条 ERROR 级别的日志")
     log.critical("这是一条 CRITICAL 级别的日志")
+

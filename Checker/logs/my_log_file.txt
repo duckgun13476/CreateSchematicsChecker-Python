@@ -1440,3 +1440,7 @@
 记录异常蓝图:[A_yang306][创造条板.nbt]-[tag][0]-[item][4]-[error][False]
 记录异常蓝图:[A_yang306][创造条板.nbt]-[tag][0]-[item][4]-[error][False]
 记录异常蓝图:[A_yang306][创造条板.nbt]-[tag][0]-[item][4]-[error][False]
+记录异常蓝图:[A_yang306][创造条板.nbt]-[tag][0]-[item][4]-[error][False]
+记录异常蓝图:[A_yang306][创造条板.nbt]-[tag][0]-[item][4]-[error][False]
+记录异常蓝图:[Pink_Candy_Cats][__6.nbt]-[tag][0]-[item][4]-[error][True]
+记录异常蓝图:[Pink_Candy_Cats][__7.nbt]-[tag][0]-[item][2]-[error][True]
