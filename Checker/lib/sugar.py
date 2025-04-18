@@ -1,6 +1,6 @@
 import time
 from functools import wraps
-from lib.log_color import log
+from Checker.lib.log_color import log
 
 
 ##################################################

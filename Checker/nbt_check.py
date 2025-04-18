@@ -39,6 +39,6 @@ def belt_check(source_path_1):
 
 
 if __name__ == '__main__':
-    source_path = 'warn/穆糖Official/传送带破区块蓝图.nbt'  # 替换为你的 NBT 文件路径
+    source_path = '../schematics/uploaded/A_yang306/我不吃牛肉[讲台版].nbt'  # 替换为你的 NBT 文件路径
     print(belt_check(source_path))
 

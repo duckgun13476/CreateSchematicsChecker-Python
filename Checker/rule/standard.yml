@@ -10,21 +10,18 @@ rules:
   # path         变量的路径
   - name: 机械动力：传送带
     block: create:belt
-    attribute: Univariate
-    list: blocks
-    path: Length
-    value: [0,10]
+    Univariate:
+      blocks.Length: [0,15]
 
   - name: 锦致装饰：瓮
     block: supplementaries:urn
-    attribute: Univariate
-    list: palette
-    path: Properties.treasure
-    value: false
+    Univariate:
+      palette.Properties.treasure: false
 
-  - name: 锦致装饰：瓮
-    block: supplementaries:urn
-    attribute: Univariate
-    list: palette
-    path: Properties.treasure
-    value: false
+  - name: 机械动力：机械手
+    block: create:mechanical_arm
+    Univariate:
+      blocks.InteractionPoints.Pos.X: [0,5]
+      blocks.InteractionPoints.Pos.Y: [0,5]
+      blocks.InteractionPoints.Pos.Z: [0,5]
+
