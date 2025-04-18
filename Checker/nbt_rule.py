@@ -5,7 +5,30 @@ import os
 from Checker.rule_handler import load_rule,extract_rules
 from Checker.lib.sugar import timer
 # about to delete
+def generate_paths(path):
+    # 初始化路径结果
+    paths = []
 
+    def generate(current_path, index):
+        # 如果到达路径末尾，添加当前路径到结果
+        if index == len(path):
+            paths.append(current_path)
+            return
+
+        element = path[index]
+
+        if isinstance(element, int):
+            # 对于每个数字，生成对应的路径
+            for j in range(element):
+                generate(current_path + [j], index + 1)
+        else:
+            # 不是数字，继续添加到当前路径
+            generate(current_path + [element], index + 1)
+
+    # 开始生成路径
+    generate([], 0)
+
+    return paths
 
 def read_nbt_value(nbt_data, path):
     # 将路径分割为各个部分
@@ -35,34 +58,67 @@ def read_nbt_value(nbt_data, path):
 
     return current_data
 
+def get_nbt_value(nbt, path):
+    """根据给定路径获取 NBT 值."""
+    for key in path:
+        print("key",key)
+        if isinstance(key,int):
+            nbt_list = []
+            for num in range(0, key):
+                print("num",num)
+                nbt_list.append(nbt[num])
+            # print("type",type(nbt_list))
+            nbt = nbt_list
+            print("int")
+        else:
+            if isinstance(nbt,list):
+                list_nbt = []
+                for nbt_item in nbt:
+                    print("nbt_item",nbt_item)
+                    list_nbt.append(nbt_item[key])
+                    nbt = list_nbt
+            else:
+                nbt = nbt[key]  # 逐级访问
+    return nbt
+
 def check_nbt_with_rule(rule,in_nbt):
-    print("------")
     if rule.get('Univariate'):
         for s_rule in rule['Univariate']:
-            print(s_rule,   rule['Univariate'][s_rule])
+            print(s_rule, rule['Univariate'][s_rule])
+            path = []
             s_rule = s_rule.split('.')
             pick_data = in_nbt
             for s_rule_a in s_rule[1:]:
-                # print(s_rule_a)
-                # print(pick_data)
-                # data_type = type(pick_data)
-                # print(data_type)
-                if isinstance(pick_data, list):
-                    # print("这是一个列表")
+                if isinstance(pick_data, list) or isinstance(pick_data, nbt.TAG_List):
+                    if isinstance(pick_data, nbt.TAG_List):
+                        path.append(len(pick_data))
+                    path.append(s_rule_a)
                     pick_data_save = []
                     for s_rule_b in pick_data:
                         pick_data_save.append(s_rule_b.get(s_rule_a))
                     pick_data = pick_data_save
-                    # print(pick_data)
-                elif isinstance(pick_data, nbt.TAG_List):
-                    pick_data_save = []
-                    for s_rule_b in pick_data:
-                        pick_data_save.append(s_rule_b.get(s_rule_a))
-                    pick_data = pick_data_save
-                    # print(pick_data)
                 else:
                     pick_data = pick_data.get(s_rule_a)
+                    path.append(s_rule_a)
+
+
                 if s_rule_a == s_rule[-1]:
+                    path = generate_paths(path)
+                    print("path",path)
+                    try:
+                        for s_path in path:
+                            out_nbt = in_nbt
+                            for path_f in s_path:
+                                if path_f == s_path[-1]:
+                                    out_nbt[path_f] = nbt.TAG_Int(123234)
+                                out_nbt = out_nbt[path_f]
+
+                            print("nbt",out_nbt)
+
+
+                    except Exception as e:
+                        print(1,e)
+
                     if isinstance(pick_data, list):
                         for list_data in pick_data:
                             print(s_rule_a,list_data)
@@ -101,9 +157,13 @@ def rule_check(source_path_1):
     # 检查主线程
     for block in source_nbt.get('blocks'):
 
+
         block_nbt = block.get('nbt')
         if block_nbt is not None:
+            print(type(block['nbt']['id']))
+            # block['nbt']['id']=nbt.TAG_String('minecraft:block')
             block_id = block_nbt.get('id')
+
             # print(block_id,"---")
             for rule in block_rule:
                 # print(block_id,rule.get('block'))
@@ -115,6 +175,7 @@ def rule_check(source_path_1):
     for palette in source_nbt.get('palette'):
         pass
         # print(palette)
+    source_nbt.write_file(source_path_1)
 
     return
 """    for rule in rules.get('rules'):
