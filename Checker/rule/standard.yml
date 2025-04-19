@@ -1,3 +1,8 @@
+version: 0.1
+
+check_belt: true
+check_chain_conveyor: true
+
 rules:
   ### 这是一个规则配置文件  ###
   ###########
@@ -11,17 +16,35 @@ rules:
   - name: 机械动力：传送带
     block: create:belt
     Univariate:
-      blocks.Length: [0,15]
+      blocks.nbt.Length: [0,15]
+
+  - name: 机械动力：机械臂
+    block: create:mechanical_arm
+    Univariate:
+      blocks.nbt.InteractionPoints.Pos.X: [-5,5]
+      blocks.nbt.InteractionPoints.Pos.Y: [-5,5]
+      blocks.nbt.InteractionPoints.Pos.Z: [-5,5]
 
   - name: 锦致装饰：瓮
     block: supplementaries:urn
     Univariate:
       palette.Properties.treasure: false
 
-  - name: 机械动力：机械手
-    block: create:mechanical_arm
+  - name: 机械动力：锁链传动轮
+    block: create:chain_conveyor
     Univariate:
-      blocks.InteractionPoints.Pos.X: [0,5]
-      blocks.InteractionPoints.Pos.Y: [0,5]
-      blocks.InteractionPoints.Pos.Z: [0,5]
+      blocks.nbt.Connections.X: [-32,32]
+      blocks.nbt.Connections.Y: [-16,16]
+      blocks.nbt.Connections.Z: [-32,32]
+
+  - name: 机械动力：阀门手轮
+    block: create:valve_handle
+    Univariate:
+      blocks.nbt.ScrollValue: [-180,180]
+
+  - name: 机械动力：弹射置物台
+    block: create:weighted_ejector
+    Univariate:
+      blocks.nbt.HorizontalDistance: [1,32]
+      blocks.nbt.Powered: [0,0]
 

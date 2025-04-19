@@ -1,10 +1,26 @@
 import yaml
 
-def load_rule():
+def load_rule(convert_to_string=False):
     path = r"rule/standard.yml"
+
+    # 自定义 Loader
+    class CustomLoader(yaml.SafeLoader):
+        pass
+
+    # 自定义布尔构造函数
+    def bool_constructor(loader, node):
+        value = loader.construct_scalar(node)
+        if convert_to_string:
+            return value  # 保持为字符串
+        else:
+            return value.lower() == 'true'  # 转换为布尔值
+
+    # 注册自定义构造函数
+    CustomLoader.add_constructor('tag:yaml.org,2002:bool', bool_constructor)
+
     # 读取 YAML 文件
     with open(path, 'r', encoding='utf-8') as file:
-        config = yaml.safe_load(file)
+        config = yaml.load(file, Loader=CustomLoader)
         return config
 
 
