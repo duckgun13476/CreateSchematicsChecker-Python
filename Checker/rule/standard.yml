@@ -1,6 +1,6 @@
 version: 0.1
 
-check_belt: true
+check_belt: false
 check_chain_conveyor: true
 conveyor_max_connection: 4
 
@@ -49,3 +49,12 @@ rules:
       blocks.nbt.HorizontalDistance: [1,32]
       blocks.nbt.Powered: [0,0]
 
+  - name: 机械动力：剪贴板
+    block: create:clipboard
+    Redundant:
+      blocks.nbt.Item.tag: BlockEntityTag
+
+  - name: 机械动力：无线遥控器
+    block: create:lectern_controller
+    Redundant:
+      blocks.nbt.Controller.tag: BlockEntityTag

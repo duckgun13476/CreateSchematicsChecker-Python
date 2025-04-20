@@ -28,6 +28,7 @@ def extract_rules(config):
     # 初始化两个空列表
     blocks_rules = []
     palette_rules = []
+    redundant_rules = []
     # 遍历每一个规则
     for rule in config['rules']:
         # 获取 Univariate 字典
@@ -41,7 +42,10 @@ def extract_rules(config):
             elif key.startswith('palette'):
                 palette_rules.append(rule)  # 添加完整的规则字典
                 break  # 找到后可以跳出内层循环
-    return blocks_rules, palette_rules
+
+        if rule.get('Redundant') is not None:
+            redundant_rules.append(rule)
+    return blocks_rules, palette_rules, redundant_rules
 
 
 if __name__ == '__main__':

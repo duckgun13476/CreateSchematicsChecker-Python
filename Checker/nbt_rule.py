@@ -54,7 +54,6 @@ def read_nbt_value(nbt_data, path):
 def get_nbt_value(nbt, path):
     """根据给定路径获取 NBT 值."""
     for key in path:
-        print("key",key)
         if isinstance(key,int):
             nbt_list = []
             for num in range(0, key):
@@ -166,8 +165,8 @@ def rule_check(source_path_1):
     source_nbt = path_get_nbt(source_path_1)
     if source_nbt:
         # 加载规则
-        config = load_rule(convert_to_string=True)
-        block_rule,palette_rule = extract_rules(config)
+        nbt_config = load_rule(convert_to_string=True)
+        block_rule,palette_rule,redundant_rule = extract_rules(nbt_config)
 
         chain_parent_list = []
         chain_children_list = []
@@ -179,7 +178,8 @@ def rule_check(source_path_1):
             if block_nbt is not None:
                 block_id = block_nbt.get('id')
 
-                if str(block_id) =='create:chain_conveyor':
+
+                if str(block_id) =='create:chain_conveyor' and nbt_config.get('check_chain_conveyor')=='true':
                     print(f"执行特殊规则：'create:chain_conveyor'")
                     X_P = nbt_int(block.get('pos')[0])
                     Y_P = nbt_int(block.get('pos')[1])
@@ -197,7 +197,7 @@ def rule_check(source_path_1):
                         return False
 
 
-                if str(block_id) =='create:belt':
+                if str(block_id) =='create:belt' and nbt_config.get('check_belt')=='true':
                     print(f"执行特殊规则：'create:belt_connector'")
                     X = nbt_int(block_nbt.get('Controller')[0])
                     Y = nbt_int(block_nbt.get('Controller')[1])
@@ -216,20 +216,32 @@ def rule_check(source_path_1):
                         print(f"检测到匹配：{rule['name']}   {rule['block']}")
                         check_nbt_with_block(rule, block_nbt)
 
+                for redundant in redundant_rule:
+                    if str(block_id) == redundant.get('block'):
+                        print(f"检测到匹配：{redundant['name']}   {redundant['block']}")
+                        for key,word in redundant.get('Redundant').items():
+                            key = key.split('.')[2:]
+                            value = get_nbt_value(block_nbt,key)
+                            if word in value:
+                                print("检测到非法nbt，后续规则不会执行")
+                                return False
+
         # print(chain_parent_list)
         # print(chain_children_list)
 
-        if config.get('conveyor_max_connection')<find_max_same_element_count(chain_children_list):
-            print(f"传动轮连接数量[{config.get('conveyor_max_connection')}]超过最大配置数量[{find_max_same_element_count(chain_children_list)}]，后续规则不会执行")
-            return False
-        for item in chain_children_list:
-            if item not in chain_parent_list:
-                print(f"检测到传动轮被篡改，坐标{item}没有双向配对，后续规则不会执行")
+        if nbt_config.get('check_chain_conveyor')=='true' and chain_parent_list != []:
+            if nbt_config.get('conveyor_max_connection')<find_max_same_element_count(chain_children_list):
+                print(f"传动轮连接数量[{nbt_config.get('conveyor_max_connection')}]超过最大配置数量[{find_max_same_element_count(chain_children_list)}]，后续规则不会执行")
                 return False
-        for belt in belt_list:
-            if belt[1]!=belt[3]:
-                print("检测到传送带被篡改，后续规则不会执行")
-                return False
+            for item in chain_children_list:
+                if item not in chain_parent_list:
+                    print(f"检测到传动轮被篡改，坐标{item}没有双向配对，后续规则不会执行")
+                    return False
+        if nbt_config.get('check_belt')=='true' and belt_list != []:
+            for belt in belt_list:
+                if belt[1]!=belt[3]:
+                    print("检测到传送带被篡改，后续规则不会执行")
+                    return False
 
         for palette in source_nbt.get('palette'):
             block_id = palette.get('Name')
@@ -261,7 +273,7 @@ def str_check(source_path_1,check_string_23):
 
 
 if __name__ == '__main__':
-    source_path = '../schematics/uploaded/csy12345/convey.nbt'  # 替换为你的 NBT 文件路径
+    source_path = '../schematics/uploaded/csy12345/20250125_155515_一键通关[原视频].nbt'  # 替换为你的 NBT 文件路径
 
 
     rule_check(source_path)
@@ -271,4 +283,6 @@ if __name__ == '__main__':
                       "create:lectern_controller","supplementaries:urn",'minecraft:kelp',"minecraft:shulker_box","minecraft:tripwire_hook"]
 
 
-    str_check(source_path,[tags_to_check,block_to_check])
+    # str_check(source_path,[tags_to_check,block_to_check])
+
+
