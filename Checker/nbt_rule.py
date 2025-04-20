@@ -1,3 +1,4 @@
+from collections import Counter
 from Checker.lib.log_color import log
 from nbt import nbt
 import os
@@ -147,6 +148,17 @@ def path_get_nbt(source_path_1):
             print(f"文件 {source_path_1} 已删除。")
         return None
 
+def nbt_int(nbt_123):
+    return int(str(nbt_123))
+
+def find_max_same_element_count(array):
+    # 使用 Counter 统计每个元素的出现次数
+    count_map = Counter(tuple(row) for row in array)
+
+    # 找到最大出现次数
+    max_count = max(count_map.values())
+
+    return max_count
 
 
 @timer
@@ -157,15 +169,67 @@ def rule_check(source_path_1):
         config = load_rule(convert_to_string=True)
         block_rule,palette_rule = extract_rules(config)
 
+        chain_parent_list = []
+        chain_children_list = []
+        belt_list = []
+
         for block in source_nbt.get('blocks'):
 
             block_nbt = block.get('nbt')
             if block_nbt is not None:
                 block_id = block_nbt.get('id')
+
+                if str(block_id) =='create:chain_conveyor':
+                    print(f"执行特殊规则：'create:chain_conveyor'")
+                    X_P = nbt_int(block.get('pos')[0])
+                    Y_P = nbt_int(block.get('pos')[1])
+                    Z_P = nbt_int(block.get('pos')[2])
+                    chain_parent_list.append([X_P,Y_P,Z_P])
+                    check_same_item = []
+                    for item in block_nbt.get('Connections'):
+                        X_C = nbt_int(item.get('X')) + X_P
+                        Y_C = nbt_int(item.get('Y')) + Y_P
+                        Z_C = nbt_int(item.get('Z')) + Z_P
+                        chain_children_list.append([X_C,Y_C,Z_C])
+                        check_same_item.append([X_C,Y_C,Z_C])
+                    if find_max_same_element_count(check_same_item) > 1:
+                        print("检测到传动轮被篡改，后续规则不会执行")
+                        return False
+
+
+                if str(block_id) =='create:belt':
+                    print(f"执行特殊规则：'create:belt_connector'")
+                    X = nbt_int(block_nbt.get('Controller')[0])
+                    Y = nbt_int(block_nbt.get('Controller')[1])
+                    Z = nbt_int(block_nbt.get('Controller')[2])
+                    Controller  = [X,Y,Z]
+                    is_same = False
+                    for item in belt_list:
+                        if Controller ==item[0]:
+                            is_same = True
+                            item[3]+=1
+                    if not is_same:
+                        belt_list.append([Controller,int(str(block_nbt.get('Length'))),block_nbt.get('Index'),1])
+
                 for rule in block_rule:
                     if str(block_id) == rule.get('block'):
                         print(f"检测到匹配：{rule['name']}   {rule['block']}")
                         check_nbt_with_block(rule, block_nbt)
+
+        # print(chain_parent_list)
+        # print(chain_children_list)
+
+        if config.get('conveyor_max_connection')<find_max_same_element_count(chain_children_list):
+            print(f"传动轮连接数量[{config.get('conveyor_max_connection')}]超过最大配置数量[{find_max_same_element_count(chain_children_list)}]，后续规则不会执行")
+            return False
+        for item in chain_children_list:
+            if item not in chain_parent_list:
+                print(f"检测到传动轮被篡改，坐标{item}没有双向配对，后续规则不会执行")
+                return False
+        for belt in belt_list:
+            if belt[1]!=belt[3]:
+                print("检测到传送带被篡改，后续规则不会执行")
+                return False
 
         for palette in source_nbt.get('palette'):
             block_id = palette.get('Name')
@@ -197,9 +261,7 @@ def str_check(source_path_1,check_string_23):
 
 
 if __name__ == '__main__':
-    source_path = '../schematics/uploaded/csy12345/屠龙炮矿车本体.nbt'  # 替换为你的 NBT 文件路径
-
-
+    source_path = '../schematics/uploaded/csy12345/convey.nbt'  # 替换为你的 NBT 文件路径
 
 
     rule_check(source_path)

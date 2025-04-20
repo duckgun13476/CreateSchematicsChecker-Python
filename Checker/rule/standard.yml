@@ -2,6 +2,7 @@ version: 0.1
 
 check_belt: true
 check_chain_conveyor: true
+conveyor_max_connection: 4
 
 rules:
   ### 这是一个规则配置文件  ###
