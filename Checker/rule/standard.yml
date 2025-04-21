@@ -1,23 +1,25 @@
-version: 0.1
+version: 0.1                  # 配置文件版本，如果您不是开发者千万不要修改它，会导致脚本异常，规则文件会定期自动同步！
 
-check_belt: false
-check_chain_conveyor: true
-conveyor_max_connection: 4
+check_belt: true              # 检查传送带是否被篡改（务必开启，否则会导致一些复制传动杆和传送带的蓝图被上传！！！）
+check_chain_conveyor: true    # 检查链式传动轮是否被篡改（务必开启，否则会导致铁链复制，虚空传动bug的蓝图被上传！！！）
+conveyor_max_connection: 4    # 链式传动轮的最大连接数，应与服务器配置一致（默认为4）
 
 rules:
   ### 这是一个规则配置文件  ###
   ###########
   ## name         规则的定义名，可随意定义
-
+  ## block        规则的定义名，需要匹配的方块
   ###########
   ## attribute    规则的属性
-  # - Univariate   针对单一变量
+  # - Univariate   针对单一变量   （比如某些路径下被恶意修改的变量）
+  # - Redundant    针对特殊nbt数据（比如某些路径下不应该出现的数据）
   ###########
-  # path         变量的路径
+  # 路径填写方式为路径标签路径，entry为数组，不需要填写
+
   - name: 机械动力：传送带
     block: create:belt
     Univariate:
-      blocks.nbt.Length: [0,15]
+      blocks.nbt.Length: [0,20]
 
   - name: 机械动力：机械臂
     block: create:mechanical_arm

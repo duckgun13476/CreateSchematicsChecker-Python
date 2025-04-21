@@ -12,6 +12,10 @@ def wait_for_file_transfer_complete(file_path, check_interval=0.1, max_duration=
     :param max_duration: 最大等待时间（秒）
     :return: 文件传输是否完成的布尔值
     """
+    if os.path.getsize(file_path) % schematics_packet_size != 0:
+        log.debug(f"文件已在本地~ 跳过上传检查")
+        return True
+
     log.info(f"等待{file_path}上传中：")
     if not os.path.exists(file_path):
         log.error(f"文件 {file_path} 不存在。")

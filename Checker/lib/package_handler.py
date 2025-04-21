@@ -1,5 +1,5 @@
 import subprocess
-import sys
+import sys,time
 
 logo = r"""
 --------------------------------------------------------------------------------------------------------------
@@ -18,6 +18,7 @@ def handle_package():
     package_mapping = {
         'colorlog': 'colorlog',
         'nbt': 'nbt',
+        'requests':'requests',
         'yaml': 'pyyaml'  # 注意这里的 'yaml' 是 PyYAML 的导入名
     }
 
@@ -31,3 +32,5 @@ def handle_package():
     from Checker.lib.log_color import log
     log.info("环境检测正常")
     log.info(f"{logo}")
+    log.info(f"3秒后开始运行。。。。")
+    time.sleep(3)
