@@ -2,8 +2,7 @@ from collections import Counter
 from Checker.lib.log_color import log,write_log
 from nbt import nbt
 import os
-from Checker.rule_handler import load_rule
-from Checker.lib.sugar import timer
+from Checker.lib.rule_handler import load_rule
 from Checker import config
 
 
@@ -104,6 +103,7 @@ def check_nbt_with_block(rule, in_nbt, count_153=0):
                     log.warn(f"根据规则 {rule['name']} 设置 {s_rule_a}:{out_nbt[path_f]} 下限为 {ss_rule_value[0]}")
                     count_15 += 1
                     out_nbt[path_f] = nbt.TAG_Int(ss_rule_value[0])
+
             # print("value", ss_rule_value, "|", s_rule_a, pick_data)
         return count_15
 
@@ -203,6 +203,21 @@ def rule_check(source_path_1, block_rule, palette_rule, redundant_rule, nbt_conf
             if block_nbt is not None:
                 block_id = block_nbt.get('id')
 
+                if str(block_id) == 'create:weighted_ejector':
+                    ejector_distance = block_nbt.get('HorizontalDistance')
+                    if nbt_int(ejector_distance) <= 0:
+                        log.error(f"检测到弹射置物台篡改蓝图！后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}]值[{ejector_distance}]")
+                        write_log(f"检测到弹射置物台篡改蓝图！后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}]值[{ejector_distance}]")
+                        return -1
+
+                if str(block_id) == 'create:valve_handle':
+                    degree = block_nbt.get('ScrollValue')
+                    if nbt_int(degree) <= -200 or nbt_int(degree) >= 200:
+                        log.error(f"检测到手轮篡改蓝图！后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}]角度[{degree}]")
+                        write_log(f"检测到手轮篡改蓝图！后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}]角度[{degree}]")
+                        return -1
+
+
                 if str(block_id) == 'create:chain_conveyor' and nbt_config.get('check_chain_conveyor') == 'true':
                     # log.info(f"执行特殊规则：'create:chain_conveyor'")
                     X_P = nbt_int(block.get('pos')[0])
@@ -255,7 +270,6 @@ def rule_check(source_path_1, block_rule, palette_rule, redundant_rule, nbt_conf
                     if str(block_id) == rule.get('block'):
                         # log.info(f"检测到单变量匹配：{rule['name']}   {rule['block']}")
                         modify_count += check_nbt_with_block(rule, block_nbt)
-
                 for redundant in redundant_rule:
                     if str(block_id) == redundant.get('block'):
                         # log.info(f"检测到数据包匹配：{redundant['name']}   {redundant['block']}")
@@ -272,7 +286,7 @@ def rule_check(source_path_1, block_rule, palette_rule, redundant_rule, nbt_conf
                                         write_log(f"检测到非法nbt，后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}][{str(value.get('BlockEntityTag').get("id"))}]")
                                         return -1
                                 else:
-                                    modify_count = 0
+                                    pass
 
         # print(chain_parent_list)
         # print(chain_children_list)
@@ -331,7 +345,7 @@ def str_check(source_path_1, interest,tags,blocks):
     return item_count
 
 if __name__ == '__main__':
-    source_path = r'C:\Users\123\PycharmProjects\CreateSchematicsChecker-Python\schematics\kongyu\uploaded\Daybreak2486\kongqi.nbt'  # 替换为你的 NBT 文件路径
+    source_path = r'/schematics/kongyu/uploaded/Daybreak2486/kongqi.nbt'  # 替换为你的 NBT 文件路径
     ban_tags = ["AttributeModifiers", "Enchantments"]
     ban_block = ["create:creative_crate", "create:creative_fluid_tank", "create:creative_motor"]
     nbt_rule = load_rule(convert_to_string=True)

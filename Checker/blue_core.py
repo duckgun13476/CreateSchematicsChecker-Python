@@ -2,14 +2,14 @@ from Checker.lib.package_handler import handle_package
 handle_package()
 import config
 from datetime import datetime
-from nbt_func import check_handler
+from Checker.nbt_func import check_handler
 import os, time
 from lib.sugar import timer
 from lib.log_color import log
 import threading
-from Checker import nbt_rule
-from Checker.rule_handler import load_rule
-from Checker.api_shulker import version_handler_in
+from Checker.lib import file_handle
+from Checker.lib.rule_handler import load_rule
+from Checker.api_shulker import version_handler_in,get_latest_rule,save_data_to_yaml
 
 # 用于存储正在进行的线程
 active_threads = {}
@@ -62,40 +62,70 @@ def check_and_run(player_name, filename, file_mod_time, code_mod_times):
         thread.join()  # 等待线程完成
         del active_threads[thread_id]
     else:
-        print(f"已在运行: {player_name} - {filename}")
+        log.error(f"已在运行: {player_name} - {filename}")
+
+
+def remove_lines_with_value(file_path, target_value):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            lines = file.readlines()
+        filtered_lines = [line for line in lines if f"|{target_value}|" not in line]
+        with open(file_path, 'w', encoding='utf-8') as file:
+            file.writelines(filtered_lines)
+        log.info(f"已删除版本为[{target_value}]的历史检测 ，更新后的数据已保存回指纹文件！")
+    except Exception as e:
+        log.error(f"处理文件时出错: {e}")
+
+
+def update_rule():
+    log.info("检查规则更新————")
+    update_version = float(version_handler_in())
+    local_version = float(load_rule().get('version'))
+    if update_version > local_version:
+        log.info(f"检测到规则更新！！本地配置版本：[{local_version}]最新版本：[{update_version}]")
+        log.info("准备下载规则文件。。。")
+        rule_info = get_latest_rule().get('data')
+        log.info(f"最新规则文件版本:{update_version}")
+        file_handle.copy_file_to_year_folder("rule/standard.yml", "save/rule_backup")
+        file_handle.delete_file("rule/standard.yml")
+        save_data_to_yaml(rule_info, "rule/standard.yml")
+        log.warning("由于规则更新，旧版检测可能失效或过时，旧版的检测结果将被移除！！")
+        remove_lines_with_value("rule/schematics.yml",str(local_version))
+        log.info("处理完毕！")
+    else:
+        log.info("规则已为最新")
+        pass
+
 
 
 @timer
 def run_main():
-
+    update_rule()
+    time.sleep(2)
     nbt_files_dict = search_nbt_files()  # 获取所有 NBT 文件信息
-    # log.info(nbt_files_dict)  # 打印 NBT 文件字典
-
     # 创建一个字典来存储代码修改时间
     code_mod_times = {player: {file_info[0]: file_info[1] for file_info in files} for player, files in
                       nbt_files_dict.items()}
-
     # 第一次循环：同步文件和代码的修改时间
     for player_name, files in nbt_files_dict.items():
         for file_info in files:
             filename = file_info[0]  # 获取文件名
             file_mod_time = file_info[1]  # 获取文件的修改时间
-
             # 同步文件修改时间和代码修改时间
             code_mod_times[player_name][filename] = file_mod_time
 
     log.info("第一次循环完成，已同步文件和代码的修改时间。")
+    log.info(f"路径为{config.schematics_path}")
     log.info("当前代码修改时间：")  # 使用格式化字符串
     for player_name, code_mod_times in code_mod_times.items():
         log.info(player_name + ": " + str(code_mod_times))
 
-
     turn = 0
     total_count = 0
+    post: int = 0
     while True:
         last_count = total_count
         turn += 1
-        post: int = 0
         time.sleep(config.check_frequency)  # 每隔？秒检查一次
         nbt_files_dict = search_nbt_files()  # 获取所有 NBT 文件信息
         total_count = 0
@@ -103,20 +133,13 @@ def run_main():
             total_count += len(nbt_files)
         if total_count != last_count:
             log.info(f"[变动检查]找到的nbt文件数量[{total_count}]")
-            post += 1
-            if post > 10:
-                post = 0
-                log.info("定时更新规则————")
-                update_version = int(version_handler_in())
-                local_version = int(load_rule().get('version'))
-                if update_version > local_version:
-                    log.info("检测到规则更新！！")
-                else:
-                    pass
-
         if turn >= 100/config.check_frequency:
             turn = 0
-            log.info(f"[活跃提示]蓝图数量[{total_count}]")
+            log.info(f"[活跃提示]蓝图数量[{total_count}][{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]")
+            post += 1
+            if post > 20:
+                post = 0
+                update_rule()
 
         # 第二次循环：进行比较
         for player_name, files in nbt_files_dict.items():
@@ -140,7 +163,7 @@ def run_main():
                 file_mod_time_1 = datetime.strptime(file_mod_time, '%a %b %d %H:%M:%S %Y')
                 code_mod_time_1 = datetime.strptime(code_mod_time, '%a %b %d %H:%M:%S %Y')
 
-                if abs((file_mod_time_1 - code_mod_time_1).total_seconds()) < 10:
+                if abs((file_mod_time_1 - code_mod_time_1).total_seconds()) < 0.5:
                     pass
                     # log.info(f"{filename} 的修改时间相同，跳过检查。")
                 else:
@@ -148,12 +171,11 @@ def run_main():
 
 
 if __name__ == '__main__':
-
     while True:
         try:
             log.info("启动主线程中")
             run_main()
         except Exception as e:
-            log.error(e)
+            log.error(f"运行主线程发生错误：{e}")
             time.sleep(1)
 
