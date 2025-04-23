@@ -28,9 +28,6 @@ This is a blueprint checking script based on mechanical power, designed to run w
 ## Acknowledgments
 Special thanks to crackun24 for providing parts of the code and for his help in this project.
 
-## Help
-Help provided by crackun24.
-
 ## Dependencies
 - Minecraft
 - Create
@@ -52,8 +49,6 @@ Help provided by crackun24.
 ## 致谢
 特别感谢 crackun24 提供的部分代码，以及他在项目中提供的帮助。
 
-## 帮助
-帮助由 crackun24 提供。
 
 ## 依赖
 - Minecraft
