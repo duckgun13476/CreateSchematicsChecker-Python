@@ -1,5 +1,11 @@
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from Checker.lib.package_handler import handle_package
 handle_package()
+
 import config
 from datetime import datetime
 from Checker.nbt_func import check_handler
@@ -133,7 +139,7 @@ def run_main():
             total_count += len(nbt_files)
         if total_count != last_count:
             log.info(f"[变动检查]找到的nbt文件数量[{total_count}]")
-        if turn >= 100/config.check_frequency:
+        if turn >= 100/ config.check_frequency:
             turn = 0
             log.info(f"[活跃提示]蓝图数量[{total_count}][{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]")
             post += 1

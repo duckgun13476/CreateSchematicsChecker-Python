@@ -3,7 +3,7 @@ from Checker.lib.log_color import log,write_log
 from nbt import nbt
 import os
 from Checker.lib.rule_handler import load_rule
-from Checker import config
+import config
 
 
 # about to delete
