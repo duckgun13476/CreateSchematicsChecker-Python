@@ -1,6 +1,5 @@
-from Checker import para
 ## 基础配置
-schematics_path = para.path  # 蓝图路径
+schematics_path = r'C:\Users\123\PycharmProjects\CreateSchematicsChecker-Python\schematics\uploaded'  # 蓝图路径
 
 log_path = r'logs/application.log'  # 日志路径
 

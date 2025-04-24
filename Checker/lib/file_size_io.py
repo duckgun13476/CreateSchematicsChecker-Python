@@ -1,7 +1,7 @@
 import os
 import time
 from Checker.lib.log_color import log
-from Checker.config import schematics_packet_size
+from config import schematics_packet_size
 
 def wait_for_file_transfer_complete(file_path, check_interval=0.1, max_duration=120):
     """

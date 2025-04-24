@@ -31,7 +31,7 @@ rules:
     block: create:chain_conveyor
     Univariate:
       blocks.nbt.Connections.X: [-32,32]
-      blocks.nbt.Connections.Y: [-16,16]
+      blocks.nbt.Connections.Y: [-32,32]
       blocks.nbt.Connections.Z: [-32,32]
   - name: 机械动力：阀门手轮
     block: create:valve_handle
@@ -50,3 +50,8 @@ rules:
     block: create:lectern_controller
     Redundant:
       blocks.nbt.Controller.tag: BlockEntityTag
+
+  - name: 机械动力：火炮
+    block: create:clipboard
+    Redundant:
+      blocks.nbt.Fuze.tag: BlockEntityTag

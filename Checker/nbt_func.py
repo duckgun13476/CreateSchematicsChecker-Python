@@ -1,6 +1,7 @@
 import traceback,os
 from nbt import nbt
-from Checker import config, nbt_rule
+from Checker import nbt_rule
+import config
 from Checker.lib.sugar import timer
 from Checker.lib.log_color import log,write_log
 from Checker.lib.file_size_io import wait_for_file_transfer_complete
@@ -87,7 +88,7 @@ def main_check(name, file):
         # log.info("进入检查")
         hash_trust = load_rule(path="rule/schematics.yml")
         hash_cal = calculate_md5(blue_print_path)
-        if hash_trust is not None:
+        if hash_trust is not None and hash_trust['md5_hashes'] is not None:
             for hash_item in hash_trust['md5_hashes']:
                 hash_item=hash_item.split("|")
                 if hash_item[0] == hash_cal:
