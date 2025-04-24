@@ -19,6 +19,7 @@ def handle_package():
         'colorlog': 'colorlog',
         'nbt': 'nbt',
         'requests':'requests',
+        'dotenv': 'python-dotenv',
         'yaml': 'pyyaml'  # 注意这里的 'yaml' 是 PyYAML 的导入名
     }
 
