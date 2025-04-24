@@ -9,30 +9,6 @@
 
 
 ---
-
-# Blueprint Checking Script
-
-## Overview
-This is a blueprint checking script based on mechanical power, designed to run with Python. It operates externally without occupying server performance and allows for customizable rules. It automatically checks all blueprints in the folder for bugs and anomalies, preventing any maliciously modified NBT blueprints from entering the Minecraft server.
-
-## Features
-- **Automatic Checking**: Automatically checks all blueprints in the folder, identifying and filtering potential bugs and anomalies to ensure server safety.
-- **Highly Customizable Rules**: Allows users to customize rules for special NBT scanning tailored to specific mods.
-- **MD5-Based Acceleration**: Accelerates processing using MD5 checks, significantly improving Python's runtime speed.
-- **Conveyor Belt Tampering Check**: Utilizes a full-check algorithm to validate conveyor belts in versions 0.5.1 and 6.0.0, preventing bugs, duplication, and server crashes.
-- **Gear Transmission Pairing Check**: Implements pairing checks for gear transmissions based on simple matching logic after version 6.0.0 to prevent known blueprint bugs and duplication.
-- **Multiple Malicious NBT Checks**: Screens for various malicious NBT modification values to ensure blueprint safety.
-- **Automatic Cloud Sync**: Automatically updates NBT checking rules, leaving malicious users with no escape.
-- **Automatic Rule Updates**: Automatic rule updates have been implemented to ensure that rules are always up to date.
-
-## Acknowledgments
-Special thanks to crackun24 for providing parts of the code and for his help in this project.
-
-## Dependencies
-- Minecraft
-- Create
-
----
 ## 概述
 这是一个基于机械动力的蓝图检查脚本，使用 Python 运行。该脚本外置，不占用服务器性能，并允许自定义规则。它能够自动筛查蓝图文件夹下的所有 bug 与异常蓝图，防止任何恶意篡改 NBT 的蓝图流入 Minecraft 服务器。
 
