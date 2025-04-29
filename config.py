@@ -15,6 +15,8 @@ count_block = False  # 统计方块信息（这会些许拖慢检查速度）
 
 ban_tags = ["AttributeModifiers", "Enchantments"]
 ban_block = ["create:creative_crate", "create:creative_fluid_tank", "create:creative_motor",
+             "create:creative_blaze_cake","create:handheld_worldshaper",
+             "minecraft:command_block",
              "minecraft:kelp" # 这可以阻止动态结构放置含水方块，从而阻止绝大部分gt刷石机（因为它们非常非常卡）
              ]
 kill_entity = True  # 是否清理蓝图的实体（这可以阻止所有的创造实体和实体的所有潜在复制漏洞，但会导致创造模式打印的蓝图不再包含实体）

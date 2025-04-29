@@ -166,7 +166,7 @@ def main_check(name, file):
 
 
 if __name__ == '__main__':
-    name = "SIL0129"
-    file = "kelp.nbt"
+    name = "nija998"
+    file = "zhenghuo.nbt"
     is_cheat = check_handler(name, file)
     log.info(is_cheat)
