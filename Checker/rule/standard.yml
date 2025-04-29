@@ -1,0 +1,57 @@
+version: 0.2                  # 配置文件版本，如果您不是开发者千万不要修改它，会导致脚本异常，规则文件会定期自动同步！
+check_belt: true              # 检查传送带是否被篡改（务必开启，否则会导致一些复制传动杆和传送带的蓝图被上传！！！）
+check_chain_conveyor: true    # 检查链式传动轮是否被篡改（务必开启，否则会导致铁链复制，虚空传动bug的蓝图被上传！！！）
+conveyor_max_connection: 4    # 链式传动轮的最大连接数，应与服务器配置一致（默认为4）
+rules:
+  ### 这是一个规则配置文件  ###
+  ###########
+  ## name         规则的定义名，可随意定义
+  ## block        规则的定义名，需要匹配的方块
+  ###########
+  ## attribute    规则的属性
+  # - Univariate   针对单一变量   （比如某些路径下被恶意修改的变量）
+  # - Redundant    针对特殊nbt数据（比如某些路径下不应该出现的数据）
+  ###########
+  # 路径填写方式为路径标签路径，entry为数组，不需要填写
+  - name: 机械动力：传送带
+    block: create:belt
+    Univariate:
+      blocks.nbt.Length: [0,20]
+  - name: 机械动力：机械臂
+    block: create:mechanical_arm
+    Univariate:
+      blocks.nbt.InteractionPoints.Pos.X: [-5,5]
+      blocks.nbt.InteractionPoints.Pos.Y: [-5,5]
+      blocks.nbt.InteractionPoints.Pos.Z: [-5,5]
+  - name: 锦致装饰：瓮
+    block: supplementaries:urn
+    Univariate:
+      palette.Properties.treasure: false
+  - name: 机械动力：锁链传动轮
+    block: create:chain_conveyor
+    Univariate:
+      blocks.nbt.Connections.X: [-32,32]
+      blocks.nbt.Connections.Y: [-32,32]
+      blocks.nbt.Connections.Z: [-32,32]
+  - name: 机械动力：阀门手轮
+    block: create:valve_handle
+    Univariate:
+      blocks.nbt.ScrollValue: [-180,180]
+  - name: 机械动力：弹射置物台
+    block: create:weighted_ejector
+    Univariate:
+      blocks.nbt.HorizontalDistance: [1,32]
+      blocks.nbt.Powered: [0,1]
+  - name: 机械动力：剪贴板
+    block: create:clipboard
+    Redundant:
+      blocks.nbt.Item.tag: BlockEntityTag
+  - name: 机械动力：无线遥控器
+    block: create:lectern_controller
+    Redundant:
+      blocks.nbt.Controller.tag: BlockEntityTag
+
+  - name: 机械动力：火炮
+    block: create:fuze
+    Redundant:
+      blocks.nbt.Fuze.tag: BlockEntityTag
