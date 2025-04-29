@@ -179,6 +179,27 @@ def find_max_same_element_count(array):
     else:
         return max(count_map.values())
 
+def handle_filter(ban_count,Filter_nbt):
+    if Filter_nbt.get('tag') is not None:
+        if Filter_nbt.get('tag').get('Items') is not None:
+            match = Filter_nbt.get('tag').get('Items').get('Items')
+            for match_item in match:
+                if str(match_item.get('id')) in config.ban_block:
+                    match_item['id'] = nbt.TAG_String('minecraft:air')
+                    ban_count += 1
+                elif str(match_item.get('id')) == "create:filter":
+
+                    match_shadow = match_item.get('tag').get('Items').get('Items')
+                    for shadow_item in match_shadow:
+
+                        if str(shadow_item.get('id')) in config.ban_block:
+                            shadow_item['id'] = nbt.TAG_String('minecraft:air')
+                            ban_count += 1
+                        elif str(shadow_item.get('id')) == "create:filter":
+                            log.error("过滤器迭代匹配")
+                            write_log("过滤器迭代匹配")
+                            return -1,ban_count
+    return 0,ban_count
 
 def rule_check(data, block_rule, palette_rule, redundant_rule,source_path_1, entity_handle,nbt_config=load_rule(convert_to_string=True)):
     source_nbt = data
@@ -210,23 +231,16 @@ def rule_check(data, block_rule, palette_rule, redundant_rule,source_path_1, ent
                             block_nbt['Filter']['id'] = nbt.TAG_String('minecraft:air')
                             ban_count += 1
                         elif str(block_nbt.get('Filter').get('id')) == "create:filter":
-                            match = block_nbt.get('Filter').get('tag').get('Items').get('Items')
-                            for match_item in match:
-                                if str(match_item.get('id')) in config.ban_block:
-                                    match_item['id'] = nbt.TAG_String('minecraft:air')
-                                    ban_count += 1
-                                elif str(match_item.get('id')) == "create:filter":
+                            Filter_nbt = block_nbt.get('Filter')
+                            is_cheat,ban_count = handle_filter(ban_count,Filter_nbt)
+                            if is_cheat:
+                                return -1,ban_count
 
-                                    match_shadow = match_item.get('tag').get('Items').get('Items')
-                                    for shadow_item in match_shadow:
-
-                                        if str(shadow_item.get('id')) in config.ban_block:
-                                            shadow_item['id'] = nbt.TAG_String('minecraft:air')
-                                            ban_count += 1
-                                        elif str(shadow_item.get('id')) == "create:filter":
-                                            log.error("过滤器迭代匹配")
-                                            write_log("过滤器迭代匹配")
-                                            return -1,ban_count
+                if str(block_id) == "create:smart_chute":
+                    Filter_nbt = block_nbt.get('Filter')
+                    is_cheat,ban_count = handle_filter(ban_count,Filter_nbt)
+                    if is_cheat:
+                        return -1,ban_count
 
                 if str(block_id) in config.ban_block:
                     block_nbt['id'] = nbt.TAG_String('minecraft:air')
@@ -375,11 +389,10 @@ def rule_check(data, block_rule, palette_rule, redundant_rule,source_path_1, ent
 
 
 def str_check(data, interest,tags,blocks):
-    source_nbt = data
     count_to_clear = 0
     have_entity = False
 
-    data_str = str(source_nbt.pretty_tree())  # 将 NBT 数据转换为字符串
+    data_str = str(data.pretty_tree())  # 将 NBT 数据转换为字符串
     item_count = 0
 
     if kill_entity:
@@ -387,6 +400,7 @@ def str_check(data, interest,tags,blocks):
             pass
         else:
             data['entities'].clear()
+            data_str = str(data.pretty_tree())
             log.info(f"提示：根据规则清理了实体参数。")
             have_entity = True
     else:
