@@ -1,2 +1,2 @@
 cd Checker
-python3 blue_core.py
+python blue_core.py
