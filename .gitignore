@@ -3,10 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
 ### Python ###
-EAIP20*
-little_navmap_navigraph*
-*.s3db
-token*
+*.log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

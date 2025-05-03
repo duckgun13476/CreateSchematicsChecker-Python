@@ -1,7 +1,10 @@
-import sys
 import os
+import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Dynamically add the parent directory to sys.path if running directly
+if __name__ == "__main__" and __package__ is None:
+    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+    __package__ = "Checker"
 
 from Checker.lib.package_handler import handle_package
 handle_package()
@@ -9,13 +12,13 @@ handle_package()
 import config
 from datetime import datetime
 from Checker.nbt_func import check_handler
-import os, time
-from lib.sugar import timer
-from lib.log_color import log
+import time
+from Checker.lib.sugar import timer
+from Checker.lib.log_color import log
 import threading
 from Checker.lib import file_handle
 from Checker.lib.rule_handler import load_rule
-from Checker.api_shulker import version_handler_in,get_latest_rule,save_data_to_yaml
+from Checker.api_shulker import version_handler_in, get_latest_rule, save_data_to_yaml
 
 # 用于存储正在进行的线程
 active_threads = {}
@@ -53,7 +56,7 @@ def search_nbt_files():
 def sync_code_mod_time(code_mod_times, player_name, filename, file_mod_time):
     # 同步代码修改时间
     code_mod_times[player_name][filename] = file_mod_time
-    log.info(f"已同步 [{player_name}|{filename}] 的代码修改时间为: {file_mod_time}")
+    log.info("已同步 [%s|%s] 的代码修改时间为: %s", player_name, filename, file_mod_time)
 
 
 def check_and_run(player_name, filename, file_mod_time, code_mod_times):
@@ -68,7 +71,7 @@ def check_and_run(player_name, filename, file_mod_time, code_mod_times):
         thread.join()  # 等待线程完成
         del active_threads[thread_id]
     else:
-        log.error(f"已在运行: {player_name} - {filename}")
+        log.error("已在运行: %s - %s", player_name, filename)
 
 
 def remove_lines_with_value(file_path, target_value):
@@ -100,7 +103,6 @@ def update_rule():
         log.info("处理完毕！")
     else:
         log.info("规则已为最新")
-        pass
 
 
 
@@ -141,7 +143,7 @@ def run_main():
             log.info(f"[变动检查]找到的nbt文件数量[{total_count}]")
         if turn >= 100/ config.check_frequency:
             turn = 0
-            log.info(f"[活跃提示]蓝图数量[{total_count}][{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]")
+            log.info("[活跃提示]蓝图数量[%d][%s]", total_count, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
             post += 1
             if post > 20:
                 post = 0
@@ -188,6 +190,6 @@ if __name__ == '__main__':
                 time.sleep(5)
                 exit("PATH NOT FOUND")
             else:
-                log.error(f"运行主线程发生错误：{e}")
+                log.error("运行主线程发生错误：%s", e)
                 time.sleep(5)
 

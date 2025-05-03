@@ -5,7 +5,7 @@ BASE_URL = "https://api.mcsls.xyz/nbt_filter"
 
 def get_latest_version():
     """获取最新的文件版本信息"""
-    response = requests.get(f"{BASE_URL}/get_latest_version")
+    response = requests.get(f"{BASE_URL}/get_latest_version", timeout=10)
     if response.status_code == 200:
         return response.json()
     else:
@@ -13,7 +13,7 @@ def get_latest_version():
 
 def get_latest_rule():
     """获取最新的规则文件"""
-    response = requests.get(f"{BASE_URL}/get_latest_rule")
+    response = requests.get(f"{BASE_URL}/get_latest_rule", timeout=10)
     if response.status_code == 200:
         return response.json()
     else:
@@ -24,7 +24,7 @@ def update_latest_rule(data, secret=None):
     params = {}
     if secret:
         params['secret'] = secret
-    response = requests.post(f"{BASE_URL}/post_latest_rule", params=params, data=data)
+    response = requests.post(f"{BASE_URL}/post_latest_rule", params=params, data=data, timeout=10)
     if response.status_code == 200:
         return response.json()
     else:
@@ -56,7 +56,6 @@ def save_data_to_yaml(rule_info, file_path):
         # 直接将内容写入 YAML 文件
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(data_content + "\n")  # 添加一个换行符以保持文件格式
-        log.info(f"规则数据已保存到: {file_path}")
+        log.info("规则数据已保存到: %s", file_path)
     except Exception as e:
-        log.error(f"保存规则数据时出错: {e}")
-
+        log.error("保存规则数据时出错: %s", e)
