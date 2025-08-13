@@ -181,16 +181,20 @@ def run_main():
 if __name__ == '__main__':
     while True:
         try:
-            log.info("启动主线程中")
-            run_main()
-        except Exception as e:
-            if "The system cannot find the path" in str(e):
-                log.info(f"蓝图路径：{uploaded_directory}")
-                log.error("蓝图路径不存在或指定错误！")
-                log.info(r"提示：请确保路径为 绝对路径 Linux：/example/uploaded | Win：F:\CreateEntityControler\create\uploaded")
-                time.sleep(5)
-                exit("PATH NOT FOUND")
-            else:
-                log.error("运行主线程发生错误：%s", e)
-                time.sleep(5)
+            try:
+                log.info("启动主线程中")
+                run_main()
+            except Exception as e:
+                if "The system cannot find the path" in str(e):
+                    log.info(f"蓝图路径：{uploaded_directory}")
+                    log.error("蓝图路径不存在或指定错误！")
+                    log.info(r"提示：请确保路径为 绝对路径 Linux：/example/uploaded | Win：F:\CreateEntityControler\create\uploaded")
+                    time.sleep(5)
+                    exit("PATH NOT FOUND")
+                else:
+                    log.error("运行主线程发生错误：%s", e)
+                    time.sleep(5)
 
+        except KeyboardInterrupt:
+            log.info("\n程序已被用户中断，感谢使用喵~")
+            exit("Goodbye！")

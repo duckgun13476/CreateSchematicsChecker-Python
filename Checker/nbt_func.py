@@ -5,7 +5,7 @@ import config
 from Checker.lib.sugar import timer
 from Checker.lib.log_color import log,write_log
 from Checker.lib.file_size_io import wait_for_file_transfer_complete
-from Checker.lib.hash_map_handler import calculate_md5
+from Checker.lib.hash_map_handler import calculate_sha256
 from Checker.lib.rule_handler import save_md5,load_rule,extract_rules
 from Checker.lib import file_handle
 
@@ -102,7 +102,7 @@ def main_check(name, file):
 
         # log.info("进入检查")
         hash_trust = load_rule(path="rule/schematics.yml")
-        hash_cal = calculate_md5(blue_print_path)
+        hash_cal = calculate_sha256(blue_print_path)
         if hash_trust is not None and hash_trust['md5_hashes'] is not None:
             for hash_item in hash_trust['md5_hashes']:
                 hash_item=hash_item.split("|")
