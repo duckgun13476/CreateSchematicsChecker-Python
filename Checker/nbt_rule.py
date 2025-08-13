@@ -204,6 +204,7 @@ def handle_filter(ban_count,Filter_nbt):
 def rule_check(data, block_rule, palette_rule, redundant_rule,source_path_1, entity_handle,nbt_config=load_rule(convert_to_string=True)):
     source_nbt = data
     modify_count=0
+    deployer = False
     ban_count=0
     if source_nbt:
         chain_parent_list = []
@@ -214,6 +215,14 @@ def rule_check(data, block_rule, palette_rule, redundant_rule,source_path_1, ent
             block_nbt = block.get('nbt')
             if block_nbt is not None:
                 block_id = block_nbt.get('id')
+
+                if str(block_id) == "create:deployer":
+                    # log.warning("清理机械手标签中")
+                    # print(block_nbt.get('Inventory'))
+                    if str(block_nbt.get('Inventory')) !='[]':
+                        block_nbt['Inventory'].clear()
+                        deployer = True
+                        # print(block_nbt.get('Inventory'))
 
                 if str(block_id) == "create:redstone_link":
                     if str(block_nbt.get('FrequencyFirst').get('id')) is not None:
@@ -381,7 +390,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule,source_path_1, ent
             else:
                 log.error("没有找到ID")
 
-        if modify_count != 0 or ban_count != 0 or entity_handle:
+        if modify_count != 0 or ban_count != 0 or entity_handle or deployer:
             log.info("文件被修改，写入中。")
             source_nbt.write_file(source_path_1)
         return modify_count,ban_count

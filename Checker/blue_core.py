@@ -26,10 +26,10 @@ active_threads = {}
 current_directory = os.getcwd()
 uploaded_directory = os.path.join(current_directory, config.schematics_path)
 
-
 def search_nbt_files():
     nbt_files_dict = {}  # 存储玩家名字及对应的 NBT 文件名和修改时间的字典
     # 遍历 uploaded 目录中的所有玩家文件夹
+
     for player_folder in os.listdir(uploaded_directory):
         player_path = os.path.join(uploaded_directory, player_folder)
         # 确保是文件夹
@@ -185,6 +185,7 @@ if __name__ == '__main__':
             run_main()
         except Exception as e:
             if "The system cannot find the path" in str(e):
+                log.info(f"蓝图路径：{uploaded_directory}")
                 log.error("蓝图路径不存在或指定错误！")
                 log.info(r"提示：请确保路径为 绝对路径 Linux：/example/uploaded | Win：F:\CreateEntityControler\create\uploaded")
                 time.sleep(5)

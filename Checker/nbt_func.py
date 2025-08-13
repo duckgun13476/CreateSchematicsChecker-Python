@@ -46,18 +46,26 @@ def count_block_ids(data):
     return block_count,total_count
 
 def check_handler(player_name, filename):
-    problem_path = f"save/problem_schematic/{player_name}/{filename}"
-    is_cheat_schematic,hash_md5 = main_check(player_name, filename)
-    if is_cheat_schematic:
-        # 移动文件到异常蓝图
-        file_handle.move_file(f'save/{filename}', problem_path)
-        log.error(f"筛查到异常蓝图: {player_name}/{filename}")
-        write_log(f"↑↑↑↑|{hash_md5}|异常蓝图:{player_name}/{filename}")
-        file_handle.copy_file_to_year_folder("rule/chanhuishu.nbt", f"{config.schematics_path}/{player_name}")
-        os.rename(f"{config.schematics_path}/{player_name}/chanhuishu.nbt", f"{config.schematics_path}/{player_name}/{filename}")
-        log.info(f"触发蓝图替换")
-    else:
-        file_handle.move_file(f'save/{filename}', f"{config.schematics_path}/{player_name}/{filename}")
+    try:
+        problem_path = f"save/problem_schematic/{player_name}/{filename}"
+        is_cheat_schematic,hash_md5 = main_check(player_name, filename)
+        if is_cheat_schematic:
+            # 移动文件到异常蓝图
+            file_handle.move_file(f'save/{filename}', problem_path)
+            log.error(f"筛查到异常蓝图: {player_name}/{filename}")
+            write_log(f"↑↑↑↑|{hash_md5}|异常蓝图:{player_name}/{filename}")
+            file_handle.copy_file_to_year_folder("rule/chanhuishu.nbt", f"{config.schematics_path}/{player_name}")
+            os.rename(f"{config.schematics_path}/{player_name}/chanhuishu.nbt", f"{config.schematics_path}/{player_name}/{filename}")
+            log.info(f"触发蓝图替换")
+        else:
+            file_handle.move_file(f'save/{filename}', f"{config.schematics_path}/{player_name}/{filename}")
+    except Exception as e:
+        if "is being used by another process" in str(e):
+            log.error(f"目标蓝图文件被其他进程占用，请关闭此进程以保证检测进行！")
+            log.error(f"蓝图文件：{player_name}/{filename} 请手动检查此蓝图或重启CSC脚本！")
+        else:
+            log.error(f"检查处理器发生错误: {e}")
+            traceback.print_exc()
 
 def delete_file(file_path):
     try:
@@ -123,6 +131,7 @@ def main_check(name, file):
 
         for rule in global_rule.get('rules'):
             interesting.append(rule.get('block'))
+            interesting.append("create:deployer")
         str_result,count_to_clear,data,have_entity = nbt_rule.str_check(data, interesting, config.ban_tags, config.ban_block)
         if str_result == -1:
             log.error("包含异常标签，蓝图为创造蓝图或篡改蓝图！")

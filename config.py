@@ -21,4 +21,5 @@ ban_block = ["create:creative_crate", "create:creative_fluid_tank", "create:crea
              ]
 kill_entity = True  # 是否清理蓝图的实体（这可以阻止所有的创造实体和实体的所有潜在复制漏洞，但会导致创造模式打印的蓝图不再包含实体）
 ban_entity = ['minecraft:armor_stand']
+
 # "create:clipboard",
