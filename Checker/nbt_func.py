@@ -1,12 +1,13 @@
-import traceback,os
+import traceback
+import os
 from nbt import nbt
 from Checker import nbt_rule
 import config
 from Checker.lib.sugar import timer
-from Checker.lib.log_color import log,write_log
+from Checker.lib.log_color import log, write_log
 from Checker.lib.file_size_io import wait_for_file_transfer_complete
 from Checker.lib.hash_map_handler import calculate_sha256
-from Checker.lib.rule_handler import save_md5,load_rule,extract_rules
+from Checker.lib.rule_handler import save_md5, load_rule, extract_rules
 from Checker.lib import file_handle
 
 log_directory = 'logs'  # 日志文件夹
@@ -21,7 +22,7 @@ def path_get_nbt(name, file):
         source_nbt = nbt.NBTFile(source_path_1)
         return source_nbt
     except Exception as e:
-        log.error(f"无法读取文件nbt {source_path_1}，错误: {e}")
+        log.error(f"无法读取文件nbt {source_path_1}, 错误: {e}")
         # 删除文件
         if os.path.exists(source_path_1):
             os.remove(source_path_1)
@@ -37,18 +38,19 @@ def count_block_ids(data):
         blocks = data['blocks']
         for block in blocks:
             if 'state' in block:
-                block_id =str(data['palette'][nbt_rule.nbt_int(block.get('state'))].get('Name'))
+                block_id = str(data['palette'][nbt_rule.nbt_int(block.get('state'))].get('Name'))
                 if block_id in block_count:
                     block_count[block_id] += 1  # 增加计数
                 else:
                     block_count[block_id] = 1  # 初始化计数
                 total_count += 1
-    return block_count,total_count
+    return block_count, total_count
 
-def check_handler(player_name, filename):
+
+def check_handler(player_name, filename: str) -> None:  # player_name in Path
     try:
         problem_path = f"save/problem_schematic/{player_name}/{filename}"
-        is_cheat_schematic,hash_md5 = main_check(player_name, filename)
+        is_cheat_schematic, hash_md5 = main_check(player_name, filename)
         if is_cheat_schematic:
             # 移动文件到异常蓝图
             file_handle.move_file(f'save/{filename}', problem_path)
@@ -56,13 +58,13 @@ def check_handler(player_name, filename):
             write_log(f"↑↑↑↑|{hash_md5}|异常蓝图:{player_name}/{filename}")
             file_handle.copy_file_to_year_folder("rule/chanhuishu.nbt", f"{config.schematics_path}/{player_name}")
             os.rename(f"{config.schematics_path}/{player_name}/chanhuishu.nbt", f"{config.schematics_path}/{player_name}/{filename}")
-            log.info(f"触发蓝图替换")
+            log.info("触发蓝图替换")
         else:
             file_handle.move_file(f'save/{filename}', f"{config.schematics_path}/{player_name}/{filename}")
     except Exception as e:
-        if "is being used by another process" in str(e):
-            log.error(f"目标蓝图文件被其他进程占用，请关闭此进程以保证检测进行！")
-            log.error(f"蓝图文件：{player_name}/{filename} 请手动检查此蓝图或重启CSC脚本！")
+        if (isinstance(e, PermissionError) or isinstance(e, OSError)) and e.errno == 13:  # "is being used by another process" in str(e)
+            log.error("目标蓝图文件被其他进程占用, 请关闭此进程以保证检测进行!")
+            log.error(f"被占用蓝图文件: {player_name}/{filename}  请手动检查此蓝图或重启CSC脚本!")
         else:
             log.error(f"检查处理器发生错误: {e}")
             traceback.print_exc()
@@ -98,23 +100,23 @@ def main_check(name, file):
             block_rule, palette_rule, redundant_rule = extract_rules(global_rule)
         except Exception as e:
             log.error(f"Failed to load rule: {e}")
-            global_rule = None
+            global_rule = {}
 
         # log.info("进入检查")
         hash_trust = load_rule(path="rule/schematics.yml")
         hash_cal = calculate_sha256(blue_print_path)
         if hash_trust is not None and hash_trust['md5_hashes'] is not None:
             for hash_item in hash_trust['md5_hashes']:
-                hash_item=hash_item.split("|")
+                hash_item = hash_item.split("|")
                 if hash_item[0] == hash_cal:
-                    if hash_item[1]==str(global_rule.get('version')):
+                    if hash_item[1] == str(global_rule.get('version')):
                         log.info(f"检查到指纹历史:[{name}|{file}]")
                         # log.debug(hash_item)
                         if hash_item[2] == "True":
-                            write_log("相同的文件md5，查看历史日志获得蓝图问题")
-                            return True,hash_cal
+                            write_log("相同的文件md5, 查看历史日志获得蓝图问题")
+                            return True, hash_cal
                         else:
-                            return False,hash_cal
+                            return False, hash_cal
         else:
             delete_file("rule/schematics.yml")
 
@@ -122,46 +124,45 @@ def main_check(name, file):
 
         data = path_get_nbt("save", file)
         if config.count_block:  # 统计方块信息
-            block_statistics,total_count = count_block_ids(data)
+            block_statistics, total_count = count_block_ids(data)
             log.info(f"方块信息统计:[玩家|{name}][{file}][{total_count} 方块]")
             for block_id, count in block_statistics.items():
                 log.info(f"ID: {block_id}, 数量: {count}")
 
         interesting = []
 
-        for rule in global_rule.get('rules'):
+        for rule in global_rule.get('rules', []):
             interesting.append(rule.get('block'))
             interesting.append("create:deployer")
-        str_result,count_to_clear,data,have_entity = nbt_rule.str_check(data, interesting, config.ban_tags, config.ban_block)
+        str_result, count_to_clear, data, have_entity = nbt_rule.str_check(data, interesting, config.ban_tags, config.ban_block)
         if str_result == -1:
-            log.error("包含异常标签，蓝图为创造蓝图或篡改蓝图！")
-            write_log("包含异常标签，蓝图为创造蓝图或篡改蓝图！")
+            log.error("包含异常标签, 蓝图为创造蓝图或篡改蓝图!")
+            write_log("包含异常标签, 蓝图为创造蓝图或篡改蓝图!")
             dead = True
         elif str_result == 0 and count_to_clear == 0 and not have_entity:
-            pass
             log.info("没有发现问题")
         else:
             try:
-                check_result,modify_result = nbt_rule.rule_check(data, block_rule, palette_rule,
-                                                   redundant_rule,f"save/{file}",have_entity, nbt_config=global_rule)
+                check_result, modify_result = nbt_rule.rule_check(
+                    data, block_rule, palette_rule,
+                    redundant_rule, f"save/{file}", have_entity, nbt_config=global_rule
+                )
 
-
-                if count_to_clear>=1 or modify_result>=1:
+                if count_to_clear >= 1 or modify_result >= 1:
                     log.warning(f"检测到[{count_to_clear}]个黑名单方块|清理了[{modify_result}]个黑名单方块")
                 if count_to_clear != modify_result:
-                    log.error(f"检测到结果不符合，可能是不兼容的蓝图或未清除干净！将触发替换！")
-                    write_log(f"检测到结果不符合，可能是不兼容的蓝图或未清除干净！将触发替换！")
+                    log.error(f"检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
+                    write_log(f"检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
                     dead = True
 
-
                 if check_result >= 1:
-                    log.warning(f"替换规则触发次数： {check_result}")
+                    log.warning(f"替换规则触发次数:  {check_result}")
                 if check_result == -1:
                     dead = True
 
             except Exception as e:
-                if "has no attribute" in str(e):
-                    log.error("无法读取标签，蓝图可能被篡改")
+                if isinstance(e, AttributeError):  # "has no attribute" in str(e)
+                    log.error("无法读取标签, 蓝图可能被篡改")
                     traceback.print_exc()
                     dead = True
                 else:
@@ -169,9 +170,9 @@ def main_check(name, file):
                     traceback.print_exc()
 
     path_md5 = r"rule/schematics.yml"
-    if check_result < 1 and count_to_clear == 0 and not have_entity:  # 触发替换规则的蓝图不会记录指纹，因为下次再见到仍然需要替换，无法降低耗时
-        save_md5(path_md5,f"{hash_cal}|{global_rule['version']}|{dead}")
-    return dead,hash_cal
+    if check_result < 1 and count_to_clear == 0 and not have_entity:  # 触发替换规则的蓝图不会记录指纹, 因为下次再见到仍然需要替换, 无法降低耗时
+        save_md5(path_md5, f"{hash_cal}|{global_rule['version']}|{dead}")
+    return dead, hash_cal
 
 
 if __name__ == '__main__':

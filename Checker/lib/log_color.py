@@ -31,6 +31,7 @@ file_handler.setLevel(logging.DEBUG)  # 设置文件处理器的日志级别
 file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))  # 设置文件格式
 log = colorlog.getLogger()
 
+
 def write_log(log_message, path="logs/check.log"):
     # 确保日志目录存在
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -42,7 +43,6 @@ def write_log(log_message, path="logs/check.log"):
     # 以追加模式打开文件并写入日志
     with open(path, 'a', encoding='utf-8') as log_file:
         log_file.write(log_entry + '\n')  # 写入内容并换行
-
 
 
 if not log.handlers:

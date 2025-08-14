@@ -5,9 +5,10 @@ from datetime import datetime
 from Checker.lib.log_color import log
 
 def ensure_directory_exists(directory):
-    """确保目录存在，如果不存在则创建"""
+    """确保目录存在, 如果不存在则创建"""
     if not os.path.exists(directory):
         os.makedirs(directory)
+
 
 def move_file(src, dest):
     """将文件从A目录移动到B目录"""
@@ -17,10 +18,12 @@ def move_file(src, dest):
     else:
         log.error(f"源文件不存在: {src} -> {dest}")
 
+
 def ensure_directory_exists(directory):
-    """确保目录存在，如果不存在则创建"""
+    """确保目录存在, 如果不存在则创建"""
     if not os.path.exists(directory):
         os.makedirs(directory)
+
 
 def calculate_md5(file_path):
     """计算文件的MD5哈希值"""
@@ -29,6 +32,7 @@ def calculate_md5(file_path):
         for chunk in iter(lambda: f.read(4096), b""):
             hash_md5.update(chunk)
     return hash_md5.hexdigest()
+
 
 def copy_file_to_year_folder(src, dest):
     """将文件复制到B目录的文件夹中"""
@@ -46,7 +50,7 @@ def copy_file_to_year_folder(src, dest):
                 log.debug(f"文件已存在且内容相同: {target_file_path}")
                 return
             else:
-                # 如果文件名相同但内容不同，添加日期后缀
+                # 如果文件名相同但内容不同, 添加日期后缀
                 base_name, extension = os.path.splitext(file_name)
                 new_file_name = f"{base_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}{extension}"
                 target_file_path = os.path.join(dest, new_file_name)
@@ -64,7 +68,6 @@ def delete_file(file_path):
         os.remove(file_path)
     else:
         log.error(f"文件不存在: {file_path}")
-
 
 
 

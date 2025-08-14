@@ -1,5 +1,6 @@
 import subprocess
-import sys,time
+import sys
+import time
 
 logo = r"""
 --------------------------------------------------------------------------------------------------------------
@@ -18,7 +19,7 @@ def handle_package():
     package_mapping = {
         'colorlog': 'colorlog',
         'nbt': 'nbt',
-        'requests':'requests',
+        'requests': 'requests',
         'dotenv': 'python-dotenv',
         'yaml': 'pyyaml'  # 注意这里的 'yaml' 是 PyYAML 的导入名
     }

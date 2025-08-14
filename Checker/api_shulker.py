@@ -3,6 +3,7 @@ from Checker.lib.log_color import log
 
 BASE_URL = "https://api.mcsls.xyz/nbt_filter"
 
+
 def get_latest_version():
     """获取最新的文件版本信息"""
     response = requests.get(f"{BASE_URL}/get_latest_version", timeout=10)
@@ -11,6 +12,7 @@ def get_latest_version():
     else:
         return {"code": response.status_code, "msg": "请求失败"}
 
+
 def get_latest_rule():
     """获取最新的规则文件"""
     response = requests.get(f"{BASE_URL}/get_latest_rule", timeout=10)
@@ -18,6 +20,7 @@ def get_latest_rule():
         return response.json()
     else:
         return {"code": response.status_code, "msg": "请求失败"}
+
 
 def update_latest_rule(data, secret=None):
     """更新最新的规则文件"""
@@ -38,12 +41,13 @@ def version_handler_in():
             version_info = 0
     except Exception as e:
         version_info = 0
-        if "Connection aborted" in str(e):
-            log.error("暂时无法获取到版本信息")
-        else:
-            log.error(e)
+        log.error("获取最新版本信息失败")
+        log.error(f'详细信息: {e.__class__.__name__}: {e}')
+        # if "Connection aborted" in str(e):
+        #     log.error("暂时无法获取到版本信息")
+        # else:
+        #     log.error(e)
     return version_info
-
 
 
 def save_data_to_yaml(rule_info, file_path):
