@@ -1,10 +1,10 @@
 from collections import Counter
-from Checker.lib.log_color import log, write_log
+
 from nbt import nbt
-import os
+
+from Checker.lib.log_color import log, write_log
 from Checker.lib.rule_handler import load_rule
-import config
-from config import ban_entity, kill_entity
+from Checker.lib.setting.config import *
 
 
 # about to delete
@@ -182,7 +182,7 @@ def handle_filter(ban_count, Filter_nbt):
         if Filter_nbt.get('tag').get('Items') is not None:
             match = Filter_nbt.get('tag').get('Items').get('Items')
             for match_item in match:
-                if str(match_item.get('id')) in config.ban_block:
+                if str(match_item.get('id')) in ban_block:
                     match_item['id'] = nbt.TAG_String('minecraft:air')
                     ban_count += 1
                 elif str(match_item.get('id')) == "create:filter":
@@ -190,7 +190,7 @@ def handle_filter(ban_count, Filter_nbt):
                     match_shadow = match_item.get('tag').get('Items').get('Items')
                     for shadow_item in match_shadow:
 
-                        if str(shadow_item.get('id')) in config.ban_block:
+                        if str(shadow_item.get('id')) in ban_block:
                             shadow_item['id'] = nbt.TAG_String('minecraft:air')
                             ban_count += 1
                         elif str(shadow_item.get('id')) == "create:filter":
@@ -225,17 +225,17 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
 
                 if str(block_id) == "create:redstone_link":
                     if str(block_nbt.get('FrequencyFirst').get('id')) is not None:
-                        if str(block_nbt.get('FrequencyFirst').get('id')) in config.ban_block:
+                        if str(block_nbt.get('FrequencyFirst').get('id')) in ban_block:
                             block_nbt['FrequencyFirst']['id'] = nbt.TAG_String('minecraft:air')
                             ban_count += 1
                     if str(block_nbt.get('FrequencyLast').get('id')) is not None:
-                        if str(block_nbt.get('FrequencyLast').get('id')) in config.ban_block:
+                        if str(block_nbt.get('FrequencyLast').get('id')) in ban_block:
                             block_nbt['FrequencyLast']['id'] = nbt.TAG_String('minecraft:air')
                             ban_count += 1
 
                 if str(block_id) == "create:funnel":
                     if str(block_nbt.get('Filter').get('id')) is not None:
-                        if str(block_nbt.get('Filter').get('id')) in config.ban_block:
+                        if str(block_nbt.get('Filter').get('id')) in ban_block:
                             block_nbt['Filter']['id'] = nbt.TAG_String('minecraft:air')
                             ban_count += 1
                         elif str(block_nbt.get('Filter').get('id')) == "create:filter":
@@ -250,7 +250,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                     if is_cheat:
                         return -1, ban_count
 
-                if str(block_id) in config.ban_block:
+                if str(block_id) in ban_block:
                     block_nbt['id'] = nbt.TAG_String('minecraft:air')
                     ban_count += 1
 
@@ -305,7 +305,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                     if block_nbt.get('Inventory') is not None:
                         if str(block_nbt.get('Inventory').get('Items')) != '[]':
                             for belt_item in block_nbt.get('Inventory').get('Items'):
-                                if str(belt_item.get('Item').get('id')) in config.ban_block:
+                                if str(belt_item.get('Item').get('id')) in ban_block:
                                     belt_item['Item']['id'] = nbt.TAG_String('minecraft:air')
                                     log.info("传送带含物品替换")
                                     ban_count += 1
@@ -372,7 +372,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
         for palette in source_nbt.get('palette'):
             block_id = palette.get('Name')
             if block_id is not None:
-                if str(block_id) in config.ban_block:
+                if str(block_id) in ban_block:
                     # log.debug(type(block_nbt['id']))
                     palette['Name'] = nbt.TAG_String('minecraft:air')
                     ban_count += 1
@@ -383,7 +383,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
         for entity in source_nbt.get('entities'):
             entity_type = entity.get('nbt').get('id')
             if entity_type is not None:
-                if str(entity_type) in config.ban_entity:
+                if str(entity_type) in ban_entity:
                     log.error(f"命中规则{entity_type}")
             else:
                 log.error("没有找到ID")

@@ -3,6 +3,12 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/.vscode" />
+      <excludeFolder url="file://$MODULE_DIR$/Checker/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/Checker/save" />
+      <excludeFolder url="file://$MODULE_DIR$/experiment" />
+      <excludeFolder url="file://$MODULE_DIR$/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/save" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.13 (CreateSchematicsChecker-Python)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -2,7 +2,7 @@ from datetime import datetime
 
 import colorlog
 import logging
-from config import log_path
+from Checker.lib.setting.config import log_path
 import os
 
 console_handler = logging.StreamHandler()

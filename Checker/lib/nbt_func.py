@@ -1,14 +1,14 @@
 import traceback
 import os
 from nbt import nbt
-from Checker import nbt_rule
-import config
+from Checker.lib.setting import config
+from Checker.lib.setting.config import schematic_sha_path, replace_schematic_path
 from Checker.lib.sugar import timer
 from Checker.lib.log_color import log, write_log
 from Checker.lib.file_size_io import wait_for_file_transfer_complete
 from Checker.lib.hash_map_handler import calculate_sha256
 from Checker.lib.rule_handler import save_md5, load_rule, extract_rules
-from Checker.lib import file_handle
+from Checker.lib import file_handle, nbt_rule
 
 log_directory = 'logs'  # 日志文件夹
 os.makedirs(log_directory, exist_ok=True)  # 创建日志文件夹（如果不存在）
@@ -56,7 +56,7 @@ def check_handler(player_name, filename: str) -> None:  # player_name in Path
             file_handle.move_file(f'save/{filename}', problem_path)
             log.error(f"筛查到异常蓝图: {player_name}/{filename}")
             write_log(f"↑↑↑↑|{hash_md5}|异常蓝图:{player_name}/{filename}")
-            file_handle.copy_file_to_year_folder("rule/chanhuishu.nbt", f"{config.schematics_path}/{player_name}")
+            file_handle.copy_file_to_year_folder(replace_schematic_path, f"{config.schematics_path}/{player_name}")
             os.rename(f"{config.schematics_path}/{player_name}/chanhuishu.nbt", f"{config.schematics_path}/{player_name}/{filename}")
             log.info("触发蓝图替换")
         else:
@@ -103,7 +103,7 @@ def main_check(name, file):
             global_rule = {}
 
         # log.info("进入检查")
-        hash_trust = load_rule(path="rule/schematics.yml")
+        hash_trust = load_rule(path=schematic_sha_path)
         hash_cal = calculate_sha256(blue_print_path)
         if hash_trust is not None and hash_trust['md5_hashes'] is not None:
             for hash_item in hash_trust['md5_hashes']:
@@ -118,7 +118,7 @@ def main_check(name, file):
                         else:
                             return False, hash_cal
         else:
-            delete_file("rule/schematics.yml")
+            delete_file(schematic_sha_path)
 
     if complete:   # 检查文件是否传输完成
 
@@ -169,7 +169,7 @@ def main_check(name, file):
                     log.error(f"执行rule_check 发生异常 {e}")
                     traceback.print_exc()
 
-    path_md5 = r"rule/schematics.yml"
+    path_md5 = schematic_sha_path
     if check_result < 1 and count_to_clear == 0 and not have_entity:  # 触发替换规则的蓝图不会记录指纹, 因为下次再见到仍然需要替换, 无法降低耗时
         save_md5(path_md5, f"{hash_cal}|{global_rule['version']}|{dead}")
     return dead, hash_cal

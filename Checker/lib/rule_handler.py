@@ -1,5 +1,6 @@
 import yaml
 from Checker.lib.log_color import log
+from Checker.lib.setting.config import rule_path, schematic_sha_path
 import os
 
 
@@ -40,7 +41,7 @@ def save_md5(path_md5, data):
         yaml.dump(existing_data, md5_file)
 
 
-def load_rule(convert_to_string=False, path=r"rule/standard.yml") ->:
+def load_rule(convert_to_string=False, path=rule_path):
     # 自定义 Loader
     class CustomLoader(yaml.SafeLoader):
         pass
@@ -58,7 +59,7 @@ def load_rule(convert_to_string=False, path=r"rule/standard.yml") ->:
 
     # 检查文件是否存在, 如果不存在则创建一个带有默认内容的 YAML 文件
     if not os.path.exists(path):
-        if path == r"rule/schematics.yml":
+        if path == schematic_sha_path:
             existing_data = {'md5_hashes': []}
             with open(path, 'w', encoding='utf-8') as file:
                 yaml.dump(existing_data, file, allow_unicode=True)  # 写入初始内容
@@ -66,8 +67,7 @@ def load_rule(convert_to_string=False, path=r"rule/standard.yml") ->:
             log.error("文件不存在")
     # 读取 YAML 文件
     with open(path, 'r', encoding='utf-8') as file:
-        config = yaml.load(file, Loader=CustomLoader)
-        return config
+        return yaml.load(file, Loader=CustomLoader)
 
 
 def extract_rules(config):

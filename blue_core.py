@@ -9,29 +9,29 @@ if __name__ == "__main__" and __package__ is None:
 from Checker.lib.package_handler import handle_package
 handle_package()
 
-import config
+import traceback
+from Checker.lib.setting import config
 from datetime import datetime
-from Checker.nbt_func import check_handler
+from Checker.lib.nbt_func import check_handler
 import time
 from Checker.lib.sugar import timer
 from Checker.lib.log_color import log
 import threading
 from Checker.lib import file_handle
 from Checker.lib.rule_handler import load_rule
-from Checker.api_shulker import version_handler_in, get_latest_rule, save_data_to_yaml
-
+from Checker.lib.api_shulker import version_handler_in, get_latest_rule, save_data_to_yaml
+from Checker.lib.setting.config import schematics_path
 # 用于存储正在进行的线程
 active_threads = {}
 # 获取当前工作目录
 current_directory = os.getcwd()
-uploaded_directory = os.path.join(current_directory, config.schematics_path)
 
 def search_nbt_files():
     nbt_files_dict = {}  # 存储玩家名字及对应的 NBT 文件名和修改时间的字典
     # 遍历 uploaded 目录中的所有玩家文件夹
 
-    for player_folder in os.listdir(uploaded_directory):
-        player_path = os.path.join(uploaded_directory, player_folder)
+    for player_folder in os.listdir(schematics_path):
+        player_path = os.path.join(schematics_path, player_folder)
         # 确保是文件夹
         if os.path.isdir(player_path):
             # 查找该玩家文件夹中的所有 NBT 文件
@@ -95,11 +95,11 @@ def update_rule():
         log.info("准备下载规则文件。。。")
         rule_info = get_latest_rule().get('data')
         log.info(f"最新规则文件版本:{update_version}")
-        file_handle.copy_file_to_year_folder("rule/standard.yml", "save/rule_backup")
-        file_handle.delete_file("rule/standard.yml")
-        save_data_to_yaml(rule_info, "rule/standard.yml")
+        file_handle.copy_file_to_year_folder("Checker/rule/standard.yml", "save/rule_backup")
+        file_handle.delete_file("Checker/rule/standard.yml")
+        save_data_to_yaml(rule_info, "Checker/rule/standard.yml")
         log.warning("由于规则更新, 旧版检测可能失效或过时, 旧版的检测结果将被移除!!")
-        remove_lines_with_value("rule/schematics.yml", str(local_version))
+        remove_lines_with_value("Checker/rule/schematics.yml", str(local_version))
         log.info("处理完毕!")
     else:
         log.info("规则已为最新")
@@ -122,12 +122,13 @@ def run_main():
             # 同步文件修改时间和代码修改时间
             code_mod_times[player_name][filename] = file_mod_time
 
-    log.info("第一次循环完成, 已同步文件和代码的修改时间。")
+
+    log.info("第一次循环完成, 已同步文件和缓存的修改时间。")
     log.info(f"路径为{config.schematics_path}")
     if code_mod_times:
-        log.info("当前代码修改时间: ")  # 使用格式化字符串
+        log.info("当前蓝图的修改时间: ")  # 使用格式化字符串
         for player_name, code_mod_times in code_mod_times.items():
-            log.info(player_name.name + ": " + str(code_mod_times))
+            log.info(player_name + ": " + str(code_mod_times))
 
     turn = 0
     total_count = 0
@@ -180,19 +181,25 @@ def run_main():
 
 
 if __name__ == '__main__':
-    while True:
-        try:
-            log.info("启动主线程中")
-            run_main()
-        except KeyboardInterrupt:
-            log.info("\n程序已被用户中断, 感谢使用喵~")
-            exit("Goodbye!")
-        except Exception as e:
-            if isinstance(e, FileNotFoundError):
-                log.error(f"蓝图路径: {uploaded_directory}")
-                log.error("蓝图路径不存在或指定错误!")
-                log.info(r"提示: 请确保路径为 绝对路径 Linux: /example/uploaded | Win: F:\CreateEntityControler\create\uploaded")
+
+    try:
+
+        while True:
+            try:
+
+                log.info("启动主线程中~")
+                run_main()
+            except Exception as e:
+                if isinstance(e, FileNotFoundError):
+                    log.error(f"蓝图路径: {schematics_path}")
+                    log.error("蓝图路径不存在或指定错误!")
+                    log.info(r"提示: 请确保路径为 绝对路径 Linux: /example/uploaded | Win: F:\CreateEntityControler\create\uploaded")
+                    time.sleep(5)
+                    exit("PATH NOT FOUND")
+                log.error("运行主线程发生错误: %s", e)
+                traceback.print_exc()
                 time.sleep(5)
-                exit("PATH NOT FOUND")
-            log.error("运行主线程发生错误: %s", e)
-            time.sleep(5)
+
+    except KeyboardInterrupt:
+        log.info("终止中~")
+        exit("程序已被用户中断，感谢使用喵~")
