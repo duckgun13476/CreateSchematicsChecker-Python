@@ -50,7 +50,7 @@ def search_nbt_files():
             else:
                 pass
 
-    return nbt_files_dict  # 返回包含玩家及其 NBT 文件的字典
+    return nbt_files_dict  #  返回包含玩家及其 NBT 文件的字典
 
 
 def sync_code_mod_time(code_mod_times, player_name, filename, file_mod_time):
