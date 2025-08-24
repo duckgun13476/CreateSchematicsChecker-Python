@@ -232,7 +232,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                                 material = item_c['material']['Name']
                                 if material not in fake_id:
                                     fake_id.append(str(material))
-                                    # print(fake_id )
+                                    # print(fake_i d  )
                                 elif material in fake_id:
                                     continue
 
