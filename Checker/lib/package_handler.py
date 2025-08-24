@@ -34,5 +34,5 @@ def handle_package():
     from Checker.lib.log_color import log
     log.info("环境检测正常")
     log.info(f"{logo}")
-    log.info(f"3秒后开始运行。。。。")
-    time.sleep(3)
+    # log.info(f"3秒后开始运行。。。。")
+    time.sleep(0.5)

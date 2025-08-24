@@ -202,4 +202,4 @@ if __name__ == '__main__':
 
     except KeyboardInterrupt:
         log.info("终止中~")
-        exit("程序已被用户中断，感谢使用喵~")
+        exit("EXIT     程序已被用户中断，感谢使用喵~")

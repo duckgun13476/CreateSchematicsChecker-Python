@@ -73,6 +73,5 @@ if None in [schematics_path, log_path, schematics_packet_size,
     print("ERROR    配置文件异常，将使用重新生成的文件！")
 
 print("INFO     配置加载成功！")
-print(schematics_path)
 
 

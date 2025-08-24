@@ -134,6 +134,8 @@ def main_check(name, file):
         for rule in global_rule.get('rules', []):
             interesting.append(rule.get('block'))
             interesting.append("create:deployer")
+            interesting.append("copycats:")
+
         str_result, count_to_clear, data, have_entity = nbt_rule.str_check(data, interesting, config.ban_tags, config.ban_block)
         if str_result == -1:
             log.error("包含异常标签, 蓝图为创造蓝图或篡改蓝图!")

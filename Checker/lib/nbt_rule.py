@@ -1,8 +1,9 @@
 from collections import Counter
-
+import traceback
 from nbt import nbt
 
 from Checker.lib.log_color import log, write_log
+from Checker.lib.math.func import has_duplicates, remove_element, count_elements
 from Checker.lib.rule_handler import load_rule
 from Checker.lib.setting.config import *
 
@@ -201,26 +202,80 @@ def handle_filter(ban_count, Filter_nbt):
 
 
 def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, entity_handle, nbt_config=load_rule(convert_to_string=True)):
+    block_nbt = None
     source_nbt = data
     modify_count = 0
-    deployer = False
+    write = False
     ban_count = 0
     if source_nbt:
         chain_parent_list = []
         chain_children_list = []
         belt_list = []
         for block in source_nbt.get('blocks'):
+            if block.get('nbt') is not None:
+                block_nbt = block['nbt']
+            else:
+                log.error("蓝图不包含nbt数据！")
 
-            block_nbt = block.get('nbt')
             if block_nbt is not None:
                 block_id = block_nbt.get('id')
+                print(str(block_id))
+                if "copycats:" in str(block_id):
+                    fake_id = ['minecraft:air']
+                    consume_id = []
+                    if block_nbt.get('material_data') is not None:
+                        for item in block_nbt['material_data']:
+                            # print(type(item))
+                            # print(type(block_nbt['material_data'][str(item)]))
+                            item_c = block_nbt['material_data'][str(item)]
+                            try:
+                                material = item_c['material']['Name']
+                                if material not in fake_id:
+                                    fake_id.append(str(material))
+                                    # print(fake_id )
+                                elif material in fake_id:
+                                    continue
+
+                                consumedItem_id = item_c['consumedItem']['id']
+                                consumedItem_count = item_c['consumedItem']['Count']
+                                # print(consumedItem_id, consumedItem_count)
+                                # 数量不能为0，1外的数字 id 必须在伪装列表里
+                                if str(consumedItem_id) not in fake_id or int(str(consumedItem_count)) not in [0,1]:
+                                    item_c['consumedItem']['id'] = nbt.TAG_String('minecraft:air')
+                                    if str(consumedItem_id) not in fake_id:
+                                        log.error(f"伪装图层与包含物品不符! 伪装图层是[{str(material)}] 然而包含的物品是[{str(consumedItem_id)}]")
+                                    if int(str(consumedItem_count)) not in [0,1]:
+                                        log.error(f"包含物品数量异常！本应是0或1 但实际是[{str(consumedItem_count)}]")
+
+                                    write = True
+                                else:
+                                    consume_id.append(str(consumedItem_id))
+
+
+                            except Exception as e:
+                                log.error("处理copycats 发生异常, %s", e)
+                                traceback.print_exc()
+
+                        consume_id = remove_element(consume_id, 'minecraft:air')
+                        print(consume_id)
+                        if has_duplicates(consume_id):
+                            log.error("伪装图层的包含物品数量异常！有问题的物品：")
+                            write_log("伪装图层的包含物品数量异常！有问题的物品：")
+                            count_res = count_elements(consume_id)
+                            for element in count_res:
+                                if count_res[element] not in [0,1]:
+                                    log.error(f"id [{element}] 数量[{count_res[element]}]")
+                                    write_log(f"id [{element}] 数量[{count_res[element]}]")
+
+                            return -1, ban_count
+
 
                 if str(block_id) == "create:deployer":
                     # log.warning("清理机械手标签中")
                     # print(block_nbt.get('Inventory'))
                     if str(block_nbt.get('Inventory')) != '[]':
                         block_nbt['Inventory'].clear()
-                        deployer = True
+                        write = True
                         # print(block_nbt.get('Inventory'))
 
                 if str(block_id) == "create:redstone_link":
@@ -388,10 +443,11 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
             else:
                 log.error("没有找到ID")
 
-        if modify_count != 0 or ban_count != 0 or entity_handle or deployer:
+        if modify_count != 0 or ban_count != 0 or entity_handle or write:
             log.info("文件被修改, 写入中。")
             source_nbt.write_file(source_path_1)
         return modify_count, ban_count
+    return None
 
 
 def str_check(data, interest, tags, blocks):
