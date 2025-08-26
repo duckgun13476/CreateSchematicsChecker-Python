@@ -219,7 +219,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
 
             if block_nbt is not None:
                 block_id = block_nbt.get('id')
-                print(str(block_id))
+                # print(str(block_id))
                 if "copycats:" in str(block_id):
                     fake_id = ['minecraft:air']
                     consume_id = []

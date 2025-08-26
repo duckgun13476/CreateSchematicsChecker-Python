@@ -70,7 +70,7 @@ def format_toml(filename):
 def generate_config(config_path):
     data = {
         "path": {
-            "schematics_path": r'..\experiment\schematics\uploaded',
+            "schematics_path": r'experiment/schematics/uploaded',
             "log_path": r'logs/application.log',
         },
         "setting": {
@@ -92,6 +92,14 @@ def generate_config(config_path):
                 "minecraft:command_block",
                 "minecraft:kelp"  # 这可以阻止动态结构放置含水方块, 从而阻止绝大部分gt刷石机（因为它们非常非常卡）
             ]
+        },
+        "smtp": {
+            "enable": False,
+            "email_receive": "example@qq.com",
+            "smtp_server": 'smtp.qq.com',
+            "smtp_port": 587,
+            "smtp_sender_email": '<EMAIL>',
+            "smtp_password": '<PASSWORD>',
         }
     }
 
@@ -142,6 +150,13 @@ def generate_config(config_path):
     add_comment_to_toml_r(config_path, "minecraft:command_block", "不多说了，这玩意是命令方块")
     add_comment_to_toml_r(config_path, "minecraft:kelp", "这可以阻止绝大多数gt机，他们极其卡顿！")
 
+    add_comment_to_toml(config_path, "[smtp]", "实验功能，可以在发现异常蓝图后推送smtp邮箱，免费又好用，还能利用免费的推送服务！")
+    add_comment_to_toml(config_path, "enable", "是否启用，true 或 false")
+    add_comment_to_toml(config_path, "email_receive", "接收报警的邮箱，所有报警信息都会发送到这个邮箱！")
+    add_comment_to_toml(config_path, "smtp_server", "smtp的默认根服务器，一般情况不需要改")
+    add_comment_to_toml(config_path, "smtp_port", "smtp的默认服务器端口，一般情况不需要改")
+    add_comment_to_toml(config_path, "smtp_sender_email", "使用哪个邮箱进行发送，报警信息会从这个邮箱发出")
+    add_comment_to_toml(config_path, "smtp_password", "这个邮箱的smtp密码，需要在qq邮箱网页版获取")
 
 if __name__ == "__main__":
     # 生成配置

@@ -38,6 +38,8 @@ def get_float(env_var, default=0.0):
 
 config_path = "config.toml"
 
+thread_pool = []
+
 
 try:
     config_toml = import_toml(config_path)
@@ -67,9 +69,20 @@ ban_tags = config_toml.get('check').get('ban_tags')
 ban_entity = config_toml.get('check').get('ban_entity')
 ban_block = config_toml.get('check').get('ban_block')
 
+smtp_enable = config_toml.get('smtp').get('enable')
+email_receive = config_toml.get('smtp').get('email_receive')
+smtp_port = config_toml.get('smtp').get('smtp_port')
+smtp_server = config_toml.get('smtp').get('smtp_server')
+smtp_sender_email = config_toml.get('smtp').get('smtp_sender_email')
+smtp_password = config_toml.get('smtp').get('smtp_password')
+
+
+
 if None in [schematics_path, log_path, schematics_packet_size,
             check_frequency, fast_handle, count_block, kill_entity,
-            ban_tags, ban_entity, ban_block]:
+            ban_tags, ban_entity, ban_block,
+            smtp_enable, email_receive, smtp_port, smtp_server,
+            smtp_sender_email, smtp_password]:
     print("ERROR    配置文件异常，将使用重新生成的文件！")
 
 print("INFO     配置加载成功！")

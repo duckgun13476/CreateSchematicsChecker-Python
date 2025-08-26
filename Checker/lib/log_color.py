@@ -7,7 +7,7 @@ import os
 
 console_handler = logging.StreamHandler()
 
-console_handler.setLevel(logging.DEBUG)
+console_handler.setLevel(logging.INFO)
 
 formatter = colorlog.ColoredFormatter(
     "%(log_color)s%(levelname)-8s%(reset)s %(log_color)s%(message)s",

@@ -64,12 +64,21 @@ def copy_file_to_year_folder(src, dest):
 
 def delete_file(file_path):
     """删除指定的文件"""
-    if os.path.isfile(file_path):
-        os.remove(file_path)
-    else:
-        log.error(f"文件不存在: {file_path}")
+    try:
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+            log.info("文件已删除")
+        else:
+            log.error(f"文件不存在: {file_path}")
+    except Exception as e:
+        log.error(f"删除文件时发生错误: {e}")
 
-
+def copy_file(src, dst):
+    try:
+        shutil.copy(src, dst)
+        log.info(f"复制完成")
+    except Exception as e:
+        log.error(f"复制文件时发生错误:  {e}")
 
 # 示例用法
 if __name__ == "__main__":

