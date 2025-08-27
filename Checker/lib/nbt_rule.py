@@ -40,7 +40,6 @@ def read_nbt_value(nbt_data, path):
         # 尝试获取当前键的值
         if isinstance(current_data, nbt.TAG_Compound):
             current_data = current_data.get(key)
-            print(current_data, key)
         elif isinstance(current_data, nbt.TAG_List):
             # 如果当前数据是列表, 尝试解析列表中的每个元素
             try:
@@ -48,7 +47,6 @@ def read_nbt_value(nbt_data, path):
                 index = int(key)  # 尝试将键转换为整数（列表索引）
                 current_data = current_data[index]
             except (ValueError, IndexError):
-                print(current_data, key, 'VIerror')
                 return None  # 如果键无效, 返回 None
         else:
             return None  # 如果当前数据不是字典或列表, 返回 None
@@ -62,14 +60,12 @@ def get_nbt_value(nbt, path):
         if isinstance(key, int):
             nbt_list = []
             for num in range(0, key):
-                print("num", num)
                 nbt_list.append(nbt[num])
             nbt = nbt_list
         else:
             if isinstance(nbt, list):
                 list_nbt = []
                 for nbt_item in nbt:
-                    print("nbt_item", nbt_item)
                     list_nbt.append(nbt_item[key])
                     nbt = list_nbt
             else:

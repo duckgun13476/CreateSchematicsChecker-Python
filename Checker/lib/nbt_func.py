@@ -3,7 +3,7 @@ import os
 from nbt import nbt
 
 from Checker.lib.auth.post import _m_3411_
-from Checker.lib.file_handle import copy_file
+from Checker.lib.file_handle import copy_file, ensure_sha_exist
 from Checker.lib.setting import config
 from Checker.lib.setting.config import schematic_sha_path, replace_schematic_path
 from Checker.lib.sugar import timer
@@ -30,7 +30,6 @@ def path_get_nbt(name, file):
         # 删除文件
         if os.path.exists(source_path_1):
             os.remove(source_path_1)
-            print(f"文件 {source_path_1} 已删除。")
         return None
 
 
@@ -75,6 +74,10 @@ def check_handler(player_name, filename: str) -> None:  # player_name in Path
         if (isinstance(e, PermissionError) or isinstance(e, OSError)) and e.errno == 13:  # "is being used by another process" in str(e)
             log.error("目标蓝图文件被其他进程占用, 请关闭此进程以保证检测进行!")
             log.error(f"被占用蓝图文件: {player_name}/{filename}  请手动检查此蓝图或重启CSC脚本!")
+        elif TypeError:
+            log.error("哈希文件异常，重新生成文件")
+            delete_file(schematic_sha_path)
+            ensure_sha_exist()
         else:
             log.error(f"检查处理器发生错误: {e}")
             traceback.print_exc()

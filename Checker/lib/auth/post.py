@@ -1,3 +1,5 @@
+import sys
+
 import requests
 import urllib3
 from cryptography.fernet import Fernet
@@ -52,6 +54,4 @@ def _m_3411_(_p_123124_, prefix):
         log.info(f"发生推送错误: {e}")
 
 if __name__ == "__main__":
-    file_path = "newfake.nbt"
-    prefix = "prefix_"  # 你想添加的前缀
-    _m_3411_(file_path, f"{True}|fix")
+    sys.exit("耶耶！")

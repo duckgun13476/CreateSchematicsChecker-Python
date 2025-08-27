@@ -11,6 +11,4 @@ dar_33454_ = b'gAAAAABorZFbWAWW61nAojM29O9fwBmnoG7zV1H0T3u4xtgOBu1zjYNyJ4jEFUFu6
 # 示例使用
 if __name__ == "__main__":
     pass
-    #test_string = '127.0.0.1--0--1'
-    #result = split_string(test_string)
-    #print("划分结果:", result)
+

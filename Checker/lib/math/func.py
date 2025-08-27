@@ -1,5 +1,6 @@
 from collections import Counter
-
+import random
+import string
 
 def has_duplicates(string_array):
     # 是否有相同的元素
@@ -13,10 +14,10 @@ def count_elements(string_array):
     return Counter(string_array)
 
 
-if __name__ == '__main__':
-    # 示例
-    strings = ["apple", "banana", "orange", "apple"]
-    result = count_elements(strings)
-    print(result)  # 输
-    for element in result:
-        print(element, result[element])
+def generate_random_string(length):
+    # 定义字符集，包括字母和数字
+    characters = string.ascii_letters + string.digits
+    # 随机选择字符并生成字符串
+    random_string = ''.join(random.choice(characters) for _ in range(length))
+    return random_string
+

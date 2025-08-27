@@ -1,5 +1,8 @@
 import toml
 
+from Checker.lib.math.func import generate_random_string
+
+
 def export_toml(data, filename):
     """将字典导出为 TOML 文件"""
     with open(filename, "w", encoding="utf-8") as f:  # 指定 UTF-8 编码
@@ -72,6 +75,7 @@ def generate_config(config_path):
         "path": {
             "schematics_path": r'experiment/schematics/uploaded',
             "log_path": r'logs/application.log',
+            "uuid":f"{generate_random_string(8)}-{generate_random_string(8)}-{generate_random_string(8)}-{generate_random_string(8)}",
         },
         "setting": {
             "schematics_packet_size": 1024,
@@ -120,6 +124,9 @@ def generate_config(config_path):
     add_comment_to_toml(config_path, "[path]", "  但这可以阻止玩家恶意修改极长的nbt附魔标签作为过滤器导致服务器卡死！")
     add_comment_to_toml(config_path, "[path]", "")
     add_comment_to_toml(config_path, "[path]", "#################################")
+
+    add_comment_to_toml(config_path, "uuid", "你的用户ID，自动生成不需要改，用于同步来自其他服务器的蓝图校验结果")
+
 
     add_comment_to_toml(config_path, "[path]", "路径配置")
     add_comment_to_toml(config_path, "schematics_path", "蓝图路径，可以为相对路径或绝对路径，指向upload文件夹")

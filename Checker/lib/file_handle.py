@@ -2,7 +2,27 @@ import hashlib
 import os
 import shutil
 from datetime import datetime
+
+import yaml
+
+from Checker.lib.file_size_io import resource_path
 from Checker.lib.log_color import log
+from Checker.lib.setting.config import schematic_sha_path
+
+
+def ensure_sha_exist():
+    path = schematic_sha_path
+    if not os.path.exists(path):
+        # 如果文件不存在，创建目录（如果需要）
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        existing_data = {'md5_hashes': []}
+        with open(path, 'w', encoding='utf-8') as file:
+            yaml.dump(existing_data, file, allow_unicode=True)  # 写入初始内容
+        print(f'INFO     文件 {path} 已创建。')
+    else:
+        pass
+
+
 
 def ensure_directory_exists(directory):
     """确保目录存在, 如果不存在则创建"""
@@ -35,6 +55,10 @@ def calculate_md5(file_path):
 
 
 def copy_file_to_year_folder(src, dest):
+    if "rule" in src:
+        src = resource_path(src)
+    else:
+        pass
     """将文件复制到B目录的文件夹中"""
     ensure_directory_exists(dest)
     if os.path.isfile(src):
@@ -76,13 +100,12 @@ def delete_file(file_path):
 def copy_file(src, dst):
     try:
         shutil.copy(src, dst)
-        log.info(f"复制完成")
     except Exception as e:
         log.error(f"复制文件时发生错误:  {e}")
 
 # 示例用法
 if __name__ == "__main__":
-    print("cats")
+    log.info("cats")
     # 移动文件示例
     # move_file('B/your_file.txt', 'A/your_file.txt')
 
