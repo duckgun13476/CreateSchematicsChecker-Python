@@ -49,10 +49,9 @@ def send_email(subject, body, send_email, title="筛查到异常蓝图！！"):
             return True
 
     except smtplib.SMTPException as smtp_error:
-        # print(f"SMTP 错误: {smtp_error}")
         return None
     except Exception as e:
-        print(f"发生其他错误: {e}")
+        log.error(f"发生其他错误: {e}")
         return None
 
 

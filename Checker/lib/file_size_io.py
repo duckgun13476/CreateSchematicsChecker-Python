@@ -1,7 +1,38 @@
 import os
+import sys
 import time
 from Checker.lib.log_color import log
 from Checker.lib.setting.config import schematics_packet_size
+
+
+def resource_path(relative_path):
+    """获取打包后资源文件的绝对路径"""
+    if hasattr(sys, '_MEIPASS'):
+        # 如果是打包后的环境
+        base_path = sys._MEIPASS
+    else:
+        # 开发环境，直接使用当前路径
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+
+
+def list_files_in_directory(directory):
+    directory = resource_path(directory)
+    try:
+        # 获取目录下的所有文件和子目录
+        files = os.listdir(directory)
+
+        # 过滤出文件
+        for file in files:
+            full_path = os.path.join(directory, file)
+            if os.path.isfile(full_path):  # 检查是否为文件
+                # log.error(file)  # 打印文件名
+                continue
+    except FileNotFoundError:
+        log.error(f"目录 '{directory}' 不存在。")
+    except Exception as e:
+        log.error(f"发生错误: {e}")
 
 
 def wait_for_file_transfer_complete(file_path, check_interval=0.1, max_duration=120):
@@ -43,7 +74,6 @@ def wait_for_file_transfer_complete(file_path, check_interval=0.1, max_duration=
                 log.info(f"文件传输完毕: (文件大小: {current_size} 字节 用时{time.time() - start_time})")
                 return True
         else:
-            # print("文件大小为 0 字节, 可能正在上传中。")
             pass
         
         # 检查是否超时
@@ -59,4 +89,4 @@ if __name__ == '__main__':
     while True:
         result = wait_for_file_transfer_complete(r'uploaded/Pink_Candy_Cats/test.nbt')
         time.sleep(0.2)
-        print("传输完成:", result)
+

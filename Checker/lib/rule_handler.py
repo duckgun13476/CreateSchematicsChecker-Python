@@ -1,4 +1,6 @@
 import yaml
+
+from Checker.lib.file_size_io import list_files_in_directory, resource_path
 from Checker.lib.log_color import log
 from Checker.lib.setting.config import rule_path, schematic_sha_path
 import os
@@ -42,6 +44,8 @@ def save_md5(path_md5, data):
 
 
 def load_rule(convert_to_string=False, path=rule_path):
+    if "schematic" not in path:
+        path = resource_path(path)
     # 自定义 Loader
     class CustomLoader(yaml.SafeLoader):
         pass
@@ -56,7 +60,7 @@ def load_rule(convert_to_string=False, path=rule_path):
 
     # 注册自定义构造函数
     CustomLoader.add_constructor('tag:yaml.org,2002:bool', bool_constructor)
-
+    list_files_in_directory("rule")
     # 检查文件是否存在, 如果不存在则创建一个带有默认内容的 YAML 文件
     if not os.path.exists(path):
         if path == schematic_sha_path:
@@ -65,6 +69,8 @@ def load_rule(convert_to_string=False, path=rule_path):
                 yaml.dump(existing_data, file, allow_unicode=True)  # 写入初始内容
         else:
             log.error("文件不存在")
+
+
     # 读取 YAML 文件
     with open(path, 'r', encoding='utf-8') as file:
         return yaml.load(file, Loader=CustomLoader)
