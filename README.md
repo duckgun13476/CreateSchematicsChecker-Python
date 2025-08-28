@@ -1,10 +1,8 @@
-# CreateSchematicsChecker-Python
-
-## A simple python script for checking Minecraft mod Create to check cheating Schematics
+# CSC 机械动力：蓝图检查
 
 ---
 
-~~玩bug蓝图的熊孩子的对策杀手（bushi~~
+### ~~玩bug蓝图的熊孩子的对策杀手（bushi~~
 
 
 
@@ -25,72 +23,120 @@
 - **自动云端同步**：自动更新 NBT 检查规则，让恶意新出的bug蓝图无处可逃。
 - **自动更新规则**：已实现自动更新规则功能，确保规则始终保持最新状态。
 
+---
 
-# 使用方法
+## 使用方法：
+#### 根据您的操作系统选择合适的版本↓
 
-1. **下载脚本的 ZIP 文件**
-    - 点击release下载脚本的最新 ZIP 文件。
+### windows：
+ - 下载 `blue_core31_for_windows.exe` （版本可能会变化） 。
+ - 下载完毕后直接点击运行。
+ - 运行后，会在本地生成config.toml，按照需求填入参数，然后重新打开即可！
 
-2. **解压缩 ZIP 文件**
-    - 找到下载的 ZIP 文件，右键点击并选择“解压缩”或使用解压缩软件进行解压。
+### linux：
+ - 下载 `blue_core31_for_linux` （版本可能会变化） 。
+ - 下载到任何目录后。您需要赋予文件的执行权限（注意版本可能会变化，不要直接复制粘贴）
+   ```
+   chmod +x blue_core31_for_linux
+      ```
+ - 输入 `./blue_core31_for_linux`（版本可能会变化）启动。
+ - 运行后，会在本地生成config.toml，按照需求填入参数，然后重新打开即可！
 
-3. **下载 Python 解释器**
-    - 如果运行脚本显示此问题就代表系统没有安装Python解释器：
-     
-      ![image](https://github.com/user-attachments/assets/5efc8b0d-e759-4984-82ac-0e10f31dddf7)
+---
+## 重要：您必须配置几个关键参数来保证CSC 的可以运行！因为它们是极其关键的参数！
 
-    - 这里有两种情况可以选择：
-    - 1.使用Microsoft直接安装
+1. 使用任意编辑器编辑`config.toml`文件, 它生成在程序的根目录。
+2. 您必须按照服务器的目录和参数来配置两个参数 `schematics_path` 和 `schematics_packet_size` 如果不配置正确会导致无法运行！
+3. `schematics_path` 是蓝图的本地存放路径，必须精确到 `/upload`。
+   - 如果您的windows路径是 `C:\Users\123\experiment\schematics\uploaded` 那么你需要填入 `C://Users//123//experiment//schematics//uploaded` 这是因为toml配置文件的格式要求！
+   - 如果您的linux路径是 `experiment/schematics/uploaded` 直接填入即可，linux不会有路径问题。
+4. `schematics_packet_size` 是蓝图的上传包大小，用于脚本检测蓝图是否完整上传，必须与服务器一致！！
+   - 这个数值的默认值为`1024`
+   - 配置图形化界面在`create>server>Schematics` 本地toml 直接搜索 `maxSchematicPacketSize` 即可
+
+5. **自定义规则和其他内容**
+    - 日志文件在 `log` 文件夹内，每次上传的蓝图都保存在`save`文件夹下。
+    - 规则文件一般情况下不需要改变，如果需要，则您只需要按照需求填入即可：
+   ```toml
+   # 核心配置
+   [check]
+   # 检查频率 默认为0.5秒
+   check_frequency = 0.5
+   # 是否自动清理被禁止的方块
+   fast_handle = false
+   # 是否统计蓝图内方块信息，会占用一定性能，但可以可视化
+   count_block = false
+   # 是否剔除蓝图内的全部实体，这会导致创造打印蓝图不包含实体，但是可以杜绝全部实体相关的复制漏洞
+   kill_entity = true
+   # 禁止的实体，填入后将会剔除蓝图内的此实体
+   ban_entity = [
+   "minecraft:armor_stand"
+   ]
+   # 禁止的tag，由于nbt的递归隐藏机制，如果填入的tag在蓝图内检测到，就会将蓝图清空，因为nbt数据结构无法针对tag剔除进行修复
+   ban_tags = [
+   "AttributeModifiers",
+   "Enchantments",  # 附魔标签，这会阻止创造蓝图，但也会导致蓝图不能带有附魔特性，因为它们的结构相同
+   "using_converts_to",  # 食物标签，阻止返回复制特性
+   "bundle_contents"  # 存储袋标签，阻止复制特性
+   ]
+   # 禁止的方块，填入后将会剔除蓝图内的此类方块，如果剔除不完全，则会清空蓝图
+   ban_block = [
+   "create:creative_crate",
+   "create:creative_fluid_tank",
+   "create:creative_motor",
+   "create:creative_blaze_cake",
+   "create:handheld_worldshaper",
+   "minecraft:command_block",  # 不多说了，这玩意是命令方块
+   "minecraft:kelp"  # 这可以阻止绝大多数gt机，他们极其卡顿！
+   ]
+   
+   # 实验功能，可以在发现异常蓝图后推送smtp邮箱，免费又好用，还能利用免费的推送服务！
+   [smtp]
+   # 是否启用，true 或 false
+   enable = false
+   # 接收报警的邮箱，所有报警信息都会发送到这个邮箱！
+   email_receive = "example@qq.com"
+   # smtp的默认根服务器，一般情况不需要改
+   smtp_server = "smtp.qq.com"
+   # smtp的默认服务器端口，一般情况不需要改
+   smtp_port = 587
+   # 使用哪个邮箱进行发送，报警信息会从这个邮箱发出
+   smtp_sender_email = "<EMAIL>"
+   # 这个邮箱的smtp密码，需要在qq邮箱网页版获取
+   smtp_password = "<PASSWORD>"
+   ```
+
+
+
+---
+其他：
+如果您想要使用源码运行，那么就需要本地有解释器并按照下列步骤：
+
+ **下载 Python 解释器**
+   - 这里有两种情况可以选择：
+   - 1.使用Microsoft直接安装
       - 在脚本根目录Shift+右键打开命令窗口，输入python，弹出安装
       - 直接在微软商店搜索python
-    
-    - 2.前往 [Python 官方网站](https://www.python.org/downloads/) 下载适合你操作系统的 Python 解释器。
-   
-5. **安装 Python**
-    - 按照安装向导的指示完成 Python 的安装。
 
-6. **修改 `start.bat` 文件（如果使用微软商店安装不需要执行此步）**
-    - 如果在官网下载，则需要将开头的python3指定为python.exe的绝对路径
-    - 找到解压缩后的文件夹，打开 `start.bat` 文件。
-    - 将文件中的 `python3` 修改为 Python 的绝对路径。
-    - 安装并找到python.exe后，查看属性可以得到例如下面的绝对路径：
-      ```
-      C:\Python39\python.exe
-      ```
-7. **配置config**
-    - 使用编辑器编辑config文件
-    - 根据自己需求设置检查蓝图的路径，要精确到/upload，例如：
-      ```
-      C:\abc\bcd\MC\schematic\upload
-      ```
-    - 根据服务器设置配置上传的包大小
-      - 默认值为1024
-    - 设置蓝图白名单黑名单
-      - 默认配置已经添加了会造成异常的所有方块 
-8. **启动脚本**
-    - 双击 `start.bat` 文件以启动脚本。
-9. **自定义规则和其他内容**
-    - 日志文件在 `log` 文件夹内，每次上传的蓝图都保存在`save`文件夹下。
-    - 规则文件一般情况下不需要改变，如果需要，则需要满足下列的设置：
-    - 规则配置demo如下，可以根据自己需求适当配置：
-      ```
-      - name: 机械动力：弹射置物台
-          block: create:weighted_ejector
-          Univariate:
-            blocks.nbt.HorizontalDistance: [1,32]
-            blocks.nbt.Powered: [0,1]
-      - name: 机械动力：剪贴板
-          block: create:clipboard
-          Redundant:
-            blocks.nbt.Item.tag: BlockEntityTag
-      ```
-    - `Univariate`  为单变量，针对蓝图的特定路径检测，如果不在范围内，则会调整至上下限
-    - `Redundant`  为针对一个位置是否有此标签的检查，如果发现了此标签，将会直接删除蓝图，并存进异常蓝图文件夹
+   - 2.前往 [Python 官方网站](https://www.python.org/downloads/) 下载适合你操作系统的 Python 解释器。
+
+**安装 Python**
+   - 按照安装向导的指示完成 Python 的安装。
+
+
    
 
 
 ## 致谢
-特别感谢 crackun24 提供的部分代码，以及他在项目中提供的帮助。
+ - 特别感谢 crackun24 
+   - 提供的部分代码，以及他在项目中提供的帮助。
+ - 特别感谢  HTony03
+   - 是这个项目的第一个贡献者，修复了一些代码潜在漏洞。
+ - 特别致谢：
+   - 起飞的玫瑰、恐鱼、air、crackun24、runner、CTR服主 等总计14个机械动力公益服服主，它们为这个脚本提供了检查样本和后续辅助处理。
+---
+ - 特别特别致谢 B站 up主 一只不屑的屑蜘蛛 
+   - **如果不是这 sb 熊孩子故意用蓝图崩了作者开的公益服好几次、在不知道多少服传bug蓝图破坏服务器、在作者在b站发修复时给作者拉黑、还在b站造谣诋毁作者，也不会有这个项目，蓝图bug也不会这么快有不错的解决方案！**
 
 
 ## 依赖
@@ -115,3 +161,9 @@
 - 默认添加 机械手nbt清理，自动清理机械手的异常nbt
 - 默认添加 bundle_contents组件，防止利用烧毁返回异常nbt。
 - 默认启用SHA-256 替代MD5 在小文件的检查，防止潜在安全问题。
+
+### 2025/8/28
+- 添加smtp  推送提示
+- 添加对机械动力：伪装板模组的 bug 检出
+- 添加无法处理的蓝图上传功能，用于后续维护。
+- 打包脚本，现在CSC只需要点击启动、不再需要任何外置环境配置！
