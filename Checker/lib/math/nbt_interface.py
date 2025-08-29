@@ -1,6 +1,5 @@
 import os
 
-from anyio.streams import file
 from nbt import nbt
 
 from Checker.lib.log_color import log
