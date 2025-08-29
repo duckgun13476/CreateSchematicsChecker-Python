@@ -90,6 +90,7 @@ def generate_config(config_path):
             "ban_block": [
                 "create:creative_crate",
                 "create:creative_fluid_tank",
+                "create_integrated_farming:chicken_roost", # 1.21特别添加 阻止gt机卡服
                 "create:creative_motor",
                 "create:creative_blaze_cake",
                 "create:handheld_worldshaper",
@@ -154,8 +155,10 @@ def generate_config(config_path):
     add_comment_to_toml_r(config_path, "using_converts_to", "食物标签，阻止返回复制特性")
     add_comment_to_toml_r(config_path, "bundle_contents", "存储袋标签，阻止复制特性")
 
-    add_comment_to_toml_r(config_path, "minecraft:command_block", "不多说了，这玩意是命令方块")
+
     add_comment_to_toml_r(config_path, "minecraft:kelp", "这可以阻止绝大多数gt机，他们极其卡顿！")
+    add_comment_to_toml_r(config_path, "minecraft:command_block", "不多说了，这玩意是命令方块")
+    add_comment_to_toml_r(config_path, "create_integrated_farming:chicken_roost", "1.21特别添加 阻止gt机卡服")
 
     add_comment_to_toml(config_path, "[smtp]", "实验功能，可以在发现异常蓝图后推送smtp邮箱，免费又好用，还能利用免费的推送服务！")
     add_comment_to_toml(config_path, "enable", "是否启用，true 或 false")

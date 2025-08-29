@@ -91,6 +91,8 @@ try:
         else:
             log.error("已在运行: %s - %s", player_name, filename)
 
+        log.info(f"{player_name}|{filename}检查完毕！")
+
 
     def remove_lines_with_value(file_path, target_value):
         try:
@@ -142,7 +144,7 @@ try:
 
 
         log.info("第一次循环完成, 已同步文件和缓存的修改时间。")
-        log.info(f"路径为{config.schematics_path}")
+        log.info(f"当前检查的蓝图路径为：{config.schematics_path}")
         if code_mod_times:
             log.info("当前蓝图的修改时间: ")  # 使用格式化字符串
             for player_name, code_mod_times in code_mod_times.items():
@@ -201,6 +203,7 @@ try:
                         # log.info(f"{filename} 的修改时间相同, 跳过检查。")
                     else:
                         check_and_run(player_name, filename, file_mod_time, code_mod_times)
+
 
 
     if __name__ == '__main__':

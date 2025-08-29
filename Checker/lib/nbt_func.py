@@ -4,6 +4,7 @@ from nbt import nbt
 
 from Checker.lib.auth.post import _m_3411_
 from Checker.lib.file_handle import copy_file, ensure_sha_exist
+from Checker.lib.math.nbt_interface import path_get_nbt
 from Checker.lib.setting import config
 from Checker.lib.setting.config import schematic_sha_path, replace_schematic_path
 from Checker.lib.sugar import timer
@@ -19,18 +20,6 @@ os.makedirs(log_directory, exist_ok=True)  # 创建日志文件夹（如果不�
 log_file_path = os.path.join(log_directory, 'my_log_file.txt')  # 日志文件完整路径
 
 
-def path_get_nbt(name, file):
-    source_path_1 = f"{name}/{file}"
-    # 加载 NBT 文件
-    try:
-        source_nbt = nbt.NBTFile(source_path_1)
-        return source_nbt
-    except Exception as e:
-        log.error(f"无法读取文件nbt {source_path_1}, 错误: {e}")
-        # 删除文件
-        if os.path.exists(source_path_1):
-            os.remove(source_path_1)
-        return None
 
 
 @timer
@@ -75,7 +64,8 @@ def check_handler(player_name, filename: str) -> None:  # player_name in Path
             log.error("目标蓝图文件被其他进程占用, 请关闭此进程以保证检测进行!")
             log.error(f"被占用蓝图文件: {player_name}/{filename}  请手动检查此蓝图或重启CSC脚本!")
         elif TypeError:
-            log.error("哈希文件异常，重新生成文件")
+            log.error("CSC 发生类型错误，可能是蓝图异常 或哈希文件异常，请删除save文件夹下的 schematics.yml")
+            traceback.print_exc()
             delete_file(schematic_sha_path)
             ensure_sha_exist()
         else:
@@ -143,54 +133,66 @@ def main_check(name, file):
     if complete:   # 检查文件是否传输完成
 
         data = path_get_nbt("save", file)
-        if config.count_block:  # 统计方块信息
-            block_statistics, total_count = count_block_ids(data)
-            log.info(f"方块信息统计:[玩家|{name}][{file}][{total_count} 方块]")
-            for block_id, count in block_statistics.items():
-                log.info(f"ID: {block_id}, 数量: {count}")
+        if data is None:
+            # 意味着蓝图损坏
+            log.error("CSC无法识别这个蓝图，可能是蓝图损坏，为阻止潜在漏洞，CSC会替换此蓝图，您可以在save路径下找到它")
+            write_log("CSC无法识别这个蓝图，可能是蓝图损坏，为阻止潜在漏洞，CSC会替换此蓝图，您可以在save路径下找到它")
+            dead = True
+            pass
+        else:
+            if config.count_block:  # 统计方块信息
+                block_statistics, total_count = count_block_ids(data)
+                log.info(f"方块信息统计:[玩家|{name}][{file}][{total_count} 方块]")
+                for block_id, count in block_statistics.items():
+                    log.info(f"ID: {block_id}, 数量: {count}")
 
-        interesting = []
+            interesting = []
 
-        for rule in global_rule.get('rules', []):
-            interesting.append(rule.get('block'))
+            for rule in global_rule.get('rules', []):
+                interesting.append(rule.get('block'))
+
             interesting.append("create:deployer")
             interesting.append("copycats:")
+            interesting.append("createaddition:rolling_mill")
+            interesting.append("create_enchantment_industry:printer")
+            interesting.append("create_connected:kinetic_battery")
 
-        str_result, count_to_clear, data, have_entity = nbt_rule.str_check(data, interesting, config.ban_tags, config.ban_block)
-        if str_result == -1:
-            log.error("包含异常标签, 蓝图为创造蓝图或篡改蓝图!")
-            write_log("包含异常标签, 蓝图为创造蓝图或篡改蓝图!")
-            dead = True
-        elif str_result == 0 and count_to_clear == 0 and not have_entity:
-            log.info("没有发现问题")
-        else:
-            try:
-                check_result, modify_result = nbt_rule.rule_check(
-                    data, block_rule, palette_rule,
-                    redundant_rule, f"save/{file}", have_entity, nbt_config=global_rule
-                )
 
-                if count_to_clear >= 1 or modify_result >= 1:
-                    log.warning(f"检测到[{count_to_clear}]个黑名单方块|清理了[{modify_result}]个黑名单方块")
-                if count_to_clear != modify_result:
-                    log.error(f"检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
-                    write_log(f"检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
-                    unmatch = True
-                    dead = True
+            str_result, count_to_clear, data, have_entity = nbt_rule.str_check(data, interesting, config.ban_tags, config.ban_block)
+            if str_result == -1:
+                log.error("包含异常标签, 蓝图为创造蓝图或篡改蓝图!")
+                write_log("包含异常标签, 蓝图为创造蓝图或篡改蓝图!")
+                dead = True
+            elif str_result == 0 and count_to_clear == 0 and not have_entity:
+                log.info("没有发现问题")
+            else:
+                try:
+                    check_result, modify_result = nbt_rule.rule_check(
+                        data, block_rule, palette_rule,
+                        redundant_rule, f"save/{file}", have_entity, nbt_config=global_rule
+                    )
 
-                if check_result >= 1:
-                    log.warning(f"替换规则触发次数:  {check_result}")
-                if check_result == -1:
-                    dead = True
+                    if count_to_clear >= 1 or modify_result >= 1:
+                        log.warning(f"检测到[{count_to_clear}]个黑名单方块|清理了[{modify_result}]个黑名单方块")
+                    if count_to_clear != modify_result:
+                        log.error(f"检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
+                        write_log(f"检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
+                        unmatch = True
+                        dead = True
 
-            except Exception as e:
-                if isinstance(e, AttributeError):  # "has no attribute" in str(e)
-                    log.error("无法读取标签, 蓝图可能被篡改")
-                    traceback.print_exc()
-                    dead = True
-                else:
-                    log.error(f"执行rule_check 发生异常 {e}")
-                    traceback.print_exc()
+                    if check_result >= 1:
+                        log.warning(f"替换规则触发次数:  {check_result}")
+                    if check_result == -1:
+                        dead = True
+
+                except Exception as e:
+                    if isinstance(e, AttributeError):  # "has no attribute" in str(e)
+                        log.error("无法读取标签, 蓝图可能被篡改")
+                        traceback.print_exc()
+                        dead = True
+                    else:
+                        log.error(f"执行rule_check 发生异常 {e}")
+                        traceback.print_exc()
 
     path_md5 = schematic_sha_path
 

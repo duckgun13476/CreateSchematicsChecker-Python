@@ -91,7 +91,6 @@ def delete_file(file_path):
     try:
         if os.path.isfile(file_path):
             os.remove(file_path)
-            log.info("文件已删除")
         else:
             log.error(f"文件不存在: {file_path}")
     except Exception as e:

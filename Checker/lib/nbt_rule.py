@@ -1,9 +1,12 @@
+import json
 from collections import Counter
 import traceback
 from nbt import nbt
 
 from Checker.lib.log_color import log, write_log
 from Checker.lib.math.func import has_duplicates, remove_element, count_elements
+from Checker.lib.math.nbt_hook import safe_get_array, nbt_int
+from Checker.lib.nbt_matcher.nbt_str import str_check
 from Checker.lib.rule_handler import load_rule
 from Checker.lib.setting.config import *
 
@@ -162,8 +165,6 @@ def check_nbt_with_palette(rule, in_nbt):
     return count_14
 
 
-def nbt_int(nbt_123):
-    return int(str(nbt_123))
 
 
 def find_max_same_element_count(array):
@@ -203,19 +204,113 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
     modify_count = 0
     write = False
     ban_count = 0
+    pos  = 0
     if source_nbt:
         chain_parent_list = []
         chain_children_list = []
         belt_list = []
         for block in source_nbt.get('blocks'):
+            pos += 1
             if block.get('nbt') is not None:
                 block_nbt = block['nbt']
             else:
-                log.error("蓝图不包含nbt数据！")
+                # log.error(f"蓝图不包含nbt数据！来自第 {pos} 个方块")
+                pass
+
+
+
 
             if block_nbt is not None:
                 block_id = block_nbt.get('id')
-                # print(str(block_id))
+
+                # 无尽电池的修复 创意传动
+                if "create_connected:kinetic_battery" == str(block_id):
+                    if block_nbt.get('batteryLevel') is not None:
+                        batteryLevel= block_nbt['batteryLevel']
+                        if str(batteryLevel) != "0":
+                            block_nbt['batteryLevel'] = nbt.TAG_Int(0)
+                            write = True
+                            log.warning("归零了电池的电能")
+
+
+                # 1.21.1 附魔参数清理
+                if "create_enchantment_industry:printer" == str(block_id):
+                    if block_nbt.get('PrintingTemplate') is not None:
+                        PrintingTemplate = block_nbt['PrintingTemplate']
+                        if str(PrintingTemplate) != "{}":
+                            PrintingTemplate.clear()
+                            write = True
+                            log.warning("清理了打印机的附魔参数")
+
+
+
+
+                # 1.21.1 neoforge 轧机 safenbt
+                if "createaddition:rolling_mill" == str(block_id):
+                    try:
+                        if block_nbt.get('InputInventory') is not None:
+                            InputInventory = block_nbt['InputInventory']
+                            if str(InputInventory.get('Items')) != "[]":
+                                # log.error(f"{InputInventory.get('Items')}")
+                                InputInventory['Items'].clear()
+                                log.warning("清理了轧机的输入参数")
+                                write = True
+
+                        if block_nbt.get('OutputInventory') is not None:
+                            OutputInventory = block_nbt['OutputInventory']
+                            if str(OutputInventory.get('Items')) != "[]" :
+                                # log.error(f"{OutputInventory.get('Items')}")
+                                OutputInventory['Items'].clear()
+                                log.warning("清理了轧机的输出参数")
+                                write = True
+                    except Exception as e:
+                        log.error("E rolling_mill, %s", e)
+                        traceback.print_exc()
+
+                # 6.0机械动力发报机的检查
+                if "create:stock_ticker" == str(block_id):
+                    if block_nbt.get('Categories') is not None:
+                        Categories = block_nbt['Categories']
+                        for category in Categories:
+                            if str(category.get('id')) == "create:filter":
+                                try:
+                                    components = category['components']
+                                    if components.get('create:filter_items') is not None:
+                                        items = components['create:filter_items']
+                                        for item in items:
+                                            if str(item['item']['id']) in ban_block:
+                                                write = True
+                                                item['item']['id'] = nbt.TAG_String('minecraft:air')
+                                                ban_count += 1
+                                            # log.warning(f"{str(item['item']['id'])}")
+                                except Exception as e:
+                                    log.error("检查发报机发生异常", e)
+
+
+                # 6.0机械动力工厂仪表的检查
+                if "create:factory_panel" == str(block_id):
+                    data =  block_nbt
+                    def handle_fanc_menu(in_data,ban_count,write_1):
+                        if in_data.get('Filter') is not None:
+                            Filter = in_data['Filter']
+                            filter_id = Filter.get('id')
+
+                            if str(filter_id) in ban_block:
+                                write_1 = True
+                                Filter['id'] = nbt.TAG_String('minecraft:air')
+                                ban_count += 1
+
+                            # print(str(filter_id))
+                        # print("---------------------------")
+                        return write_1,ban_count
+
+                    if data.get('top_right') is not None:
+                        write,ban_count = handle_fanc_menu(data['top_right'],ban_count,write)
+                        write,ban_count = handle_fanc_menu(data['top_left'],ban_count,write)
+                        write,ban_count = handle_fanc_menu(data['bottom_right'],ban_count,write)
+                        write,ban_count = handle_fanc_menu(data['bottom_left'],ban_count,write)
+
+                # 伪装附属的针对检测
                 if "copycats:" in str(block_id):
                     fake_id = ['minecraft:air']
                     consume_id = []
@@ -253,7 +348,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                                 traceback.print_exc()
 
                         consume_id = remove_element(consume_id, 'minecraft:air')
-                        print(consume_id)
+                        # print(consume_id)
                         if has_duplicates(consume_id):
                             log.error("伪装图层的包含物品数量异常！有问题的物品：")
                             write_log("伪装图层的包含物品数量异常！有问题的物品：")
@@ -320,27 +415,37 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                         return -1, ban_count
 
                 if str(block_id) == 'create:chain_conveyor' and nbt_config.get('check_chain_conveyor') == 'true':
-                    # log.info(f"执行特殊规则: 'create:chain_conveyor'")
+
+                    # log.info(f"执行特殊规则: 'create:chain_conveyor'来自第 {pos} 个方块")
+
                     X_P = nbt_int(block.get('pos')[0])
                     Y_P = nbt_int(block.get('pos')[1])
                     Z_P = nbt_int(block.get('pos')[2])
+
+
                     chain_parent_list.append([X_P, Y_P, Z_P])
                     check_same_item = []
+
                     for item in block_nbt.get('Connections'):
-                        X_C = nbt_int(item.get('X')) + X_P
-                        Y_C = nbt_int(item.get('Y')) + Y_P
-                        Z_C = nbt_int(item.get('Z')) + Z_P
+                        try:
+                            X_C = safe_get_array(item,'X') + X_P
+                            Y_C = safe_get_array(item,'Y') + Y_P
+                            Z_C = safe_get_array(item,'Z') + Z_P
+                        except AttributeError as e:
+                            log.error(e)
+                            log.error(f"{str(item)}")
+                            log.error(f"{type(item)}")
 
                         if max(
-                                abs(nbt_int(item.get('X'))),
-                                abs(nbt_int(item.get('Z')))
-                                    ) < abs(nbt_int(item.get('Y'))):
+                                abs( safe_get_array(item,'X') ),
+                                abs(safe_get_array(item,'Z'))
+                                    ) < abs(safe_get_array(item,'Y')):
                             log.error(f"检测到传动轮控制器角度被篡改, 后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}]")
                             log.error(f"{item.get('X')}, {item.get('Y')},{item.get('Z')}")
                             log.error(f"水平最大值: {max(
-                                abs(nbt_int(item.get('X'))),
-                                abs(nbt_int(item.get('Z')))
-                            )}|垂直最大值: {abs(nbt_int(item.get('Y')))}")
+                                abs( safe_get_array(item,'X') ),
+                                abs(safe_get_array(item,'Z'))
+                            )}|垂直最大值: {abs(safe_get_array(item,'Y'))}")
                             write_log(f"检测到传动轮控制器角度被篡改, 后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}]")
                         chain_children_list.append([X_C, Y_C, Z_C])
                         check_same_item.append([X_C, Y_C, Z_C])
@@ -423,6 +528,17 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
         for palette in source_nbt.get('palette'):
             block_id = palette.get('Name')
             if block_id is not None:
+                if str(block_id) == 'create_connected:kinetic_battery':
+                    if palette.get('Properties') is not None:
+
+                        properties = palette['Properties']
+                        if str(properties['level']) != "0":
+                            properties['level'] = nbt.TAG_Int(0)
+                            write = True
+                            log.info("归零了电池等级")
+
+
+
                 if str(block_id) in ban_block:
                     # log.debug(type(block_nbt['id']))
                     palette['Name'] = nbt.TAG_String('minecraft:air')
@@ -445,54 +561,6 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
         return modify_count, ban_count
     return None
 
-
-def str_check(data, interest, tags, blocks):
-    count_to_clear = 0
-    have_entity = False
-
-    data_str = str(data.pretty_tree())  # 将 NBT 数据转换为字符串
-    item_count = 0
-
-    if kill_entity:
-        if str(data.get('entities')) == '[]':
-            pass
-        else:
-            data['entities'].clear()
-            data_str = str(data.pretty_tree())
-            log.info("提示: 根据规则清理了实体参数。")
-            have_entity = True
-    else:
-        for entity in ban_entity:
-            if entity in data_str:
-                count_to_clear += data_str.count(entity)
-
-                log.warning(f"警告: 找到禁止 ID 实体, 包含{entity}")
-
-    for tag in tags:
-        if tag in data_str:
-            if tag == "Enchantments":
-                if data_str.count("Enchantments") == data_str.count("StoredEnchantments"):
-                    continue
-            log.error(f"警告: 找到异常 NBT 标签, 包含{tag}")
-            return -1, count_to_clear, data, have_entity
-    for item in blocks:
-        if item in data_str:
-            count_to_clear += data_str.count(item)
-            if item == "minecraft:kelp":
-                count_to_clear -= data_str.count('minecraft:kelp_plant')
-            if count_to_clear > 0:
-                log.warning(f"警告: 找到禁止 ID 物品, 包含{item}")
-
-    for index in interest:
-        if index in data_str:
-            item_count += 1
-    if count_to_clear > 0:
-        # log.info("写入nbt中。。")
-        pass
-        # data = nbt.NBTFile
-    if item_count != 0:
-        log.info(f"信息: 找到了{item_count}个关联物品!")
-    return item_count, count_to_clear, data, have_entity
 
 
 if __name__ == '__main__':
