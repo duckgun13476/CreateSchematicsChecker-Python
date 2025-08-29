@@ -18,7 +18,7 @@ def remove_string_from_list(string_list, string_to_remove):
 def _m_3411_(_p_123124_, prefix):
     try:
 
-        log.error("执行线程")
+        # log.error("执行线程")
         if "True" in prefix:
             send()
 
@@ -29,10 +29,10 @@ def _m_3411_(_p_123124_, prefix):
         old_file_name = os.path.basename(_p_123124_)  # 获取文件名部分
         file_extension = os.path.splitext(old_file_name)[1]  # 获取文件扩展名
 
-        backup_files = os.listdir("save/backup")
-        log.info("backup 目录下的文件:")
-        for file in backup_files:
-            log.info(file)
+        # backup_files = os.listdir("save/backup")
+        # log.info("backup 目录下的文件:")
+        # for file in backup_files:
+            # log.info(file)
 
 
         # 创建新的文件名，添加前缀

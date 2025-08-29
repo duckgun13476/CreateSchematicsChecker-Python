@@ -55,3 +55,8 @@ rules:
     block: create:fuze
     Redundant:
       blocks.nbt.Fuze.tag: BlockEntityTag
+
+  - name: 创意传动：动力电池
+    block: create_connected:kinetic_battery
+    Univariate:
+      palette.Properties.powered: false
