@@ -12,7 +12,7 @@ def path_get_nbt(name, file):
         source_nbt = nbt.NBTFile(source_path_1)
         return source_nbt
     except UnicodeDecodeError as e:
-        log.error(f"无法读取文件nbt {source_path_1}, 编码错误: {e} 可能是损坏的蓝图或不兼容的蓝图！")
+        log.error(f"无法读取文件nbt {source_path_1}, 编码错误: {e} 可能是损坏的蓝图或不兼容的蓝图！ ")
     except nbt.MalformedFileError as e:
         log.error(f"无法读取文件nbt {source_path_1}, NBT格式错误: {e} 可能是损坏的蓝图或不兼容的蓝图！")
     except Exception as e:
