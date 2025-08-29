@@ -8,10 +8,13 @@
 
 ![python](https://github.com/user-attachments/assets/eb746af3-f0f4-4710-86b4-a4ad7f176369)
 
-
+### 答疑/问题反馈/帮助  QQ群：1061133894 
 ---
 ## 概述
 这是一个基于机械动力的蓝图检查脚本，使用 Python 运行。该脚本外置，不占用服务器性能，并允许自定义规则。它能够自动筛查蓝图文件夹下的所有 bug 与异常蓝图，防止任何恶意篡改 NBT 的蓝图流入 Minecraft 服务器。
+
+
+它可以修复极其大量的机械动力蓝图相关漏洞，包括最新版本的大量潜在蓝图漏洞，所有相关的修复与问题来源都已经在最后列出
 
 ## 功能
 - **自动筛查**：自动检查蓝图文件夹下的所有蓝图，识别并过滤出潜在的 bug 与异常蓝图，确保服务器安全。
@@ -124,7 +127,79 @@
    - 按照安装向导的指示完成 Python 的安装。
 
 
-   
+
+## 针对已知问题的修复
+
+- **1. 修复** 使用讲台、剪贴板打印出创造物品的恶性漏洞  
+  [视频链接](https://www.bilibili.com/video/BV1sDp4ePEVp)
+
+- **2. 修复** 阀门数据篡改导致的变量缓存溢出，会增加服务器些许缓存（无限阀门旋转特性）  
+  [视频链接](https://www.bilibili.com/video/BV1UdC9YjET5)
+
+- **3. 修复** 剪贴板复制特性，附魔标签剔除 | 这可以复制创造物品，打印创造剪贴板  
+  [视频链接](https://www.bilibili.com/video/BV1SXC9YEEeW)
+
+- **4. 修复** 阻止传送带修改打印上限超过一千格 | 这会导致渲染器溢出崩溃客户端，传送带的弱加载区块会卡服
+
+- **5. 修复** 阻止打印 -1 长度传送带 | 这会在旧版本崩溃 Forge 原生服务器。  
+  [视频链接](https://www.bilibili.com/video/BV1u9ytY2E8R)
+
+- **6. 修复** 恶意利用修改传送带长度导致的巨量传送带破区块 | 这会导致服务器极其卡顿，破坏 CPU，崩溃服务器，还有概率导致存档损坏  
+  [视频链接](https://www.bilibili.com/video/BV1NwybY3ERY)
+
+- **7. 修复** 锦致装饰的翁在旧版本的无限 GT 特性，可以无限开宝藏 | 使用 GT 会导致服务器巨量卡顿  
+  [视频链接](https://www.bilibili.com/video/BV1LUS9YCEk1)
+
+- **8. 修复** 恶意修改弹射置物台弹射力量产生的屠龙炮 | 这会直接导致 Forge 端崩服，极快的弹射速度会导致服务器直接卡死，弹射路径的区块全部会极快的生成  
+  [视频链接](https://www.bilibili.com/video/BV1itXDY3EwJ)  
+  [视频链接](https://www.bilibili.com/video/BV13RKneEEFG)
+
+- **9. 修复** 恶意修改过滤器使其内部 NBT 过大 | 将其放进漏斗会导致其在判定时产生极高的游戏卡顿刻
+
+- **10. 修复** 恶意修改超长的链式传动轮匹配 | 这会导致巨量的卡服问题  
+  [视频链接](https://www.bilibili.com/video/BV1vz9bY7EW5)
+
+- **11. 修复** 添加标签 use convert to 会返回任意创造物品的漏洞  
+  [视频链接](https://www.bilibili.com/video/BV1c19tYsEBL)
+
+- **12. 修复** 篡改动力臂距离到不合理的距离导致的超远距离传输 | 在某些情况下会因为距离问题直接导致崩服  
+  [视频链接](https://www.bilibili.com/video/BV1XpXYYDEt7)
+
+- **13. 修复** 篡改链式传动轮的匹配目标到虚空导致的 90° 锁链 | 这会在某些情况下崩服  
+  [视频链接](https://www.bilibili.com/video/BV1nddcYSEWQ)
+
+- **14. 修复** 传送带的奇怪扭曲形式导致的传送带与传动杆复制  
+  [视频链接](https://www.bilibili.com/video/BV1omdmYrE3S)
+
+- **15. 修复** 恶意修改链式传动轮的匹配对象到几千个时导致的服务器巨量卡顿和锁链复制特性  
+  [视频链接](https://www.bilibili.com/video/BV1Ze5Wz7EB2)
+
+- **16. 修复** 恶意修改机械手的返还物品导致的无限产出漏洞  
+  [视频链接](https://www.bilibili.com/video/BV1udtYzwEQN)
+
+- **17. 修复** 机械手在伪装板模组下的物品复制特性  
+  [视频链接](https://www.bilibili.com/video/BV1dubezLEp7)
+
+- **18. 修复** 在安山漏斗可以返还过滤器的漏洞
+
+- **19. 修复** 可以使用烧毁标签来获得创造物品的漏洞  
+  [视频链接](https://www.bilibili.com/video/BV1UrEGzmEDU)
+
+- **20. 修复** 可以使用实体（盔甲架）导致的任何复制特性和获取创造物品特性 | 使用实体剔除功能  
+  [视频链接](https://www.bilibili.com/video/BV1wtRNYaE5m)
+
+- **21. 修复** 轧机在最新版本的创造物品恶性获取漏洞  
+  [视频链接](https://www.bilibili.com/video/BV1b4eyzGEoj)
+
+- **22. 修复** 附魔工业会打印创造标签的恶性附属漏洞  
+  [视频链接](https://www.bilibili.com/video/BV1GKemzWEKm)
+
+- **23. 修复** 创意传动会打印无限能源电池的特性  
+  [视频链接](https://www.bilibili.com/video/BV193vAzNEJ2)
+
+- **24. 修复** 集成农业会打印鸡舍实现 GT 机卡服的特性  
+  [视频链接](https://www.bilibili.com/video/BV13nh2z5EvT)
+
 
 
 ## 致谢
