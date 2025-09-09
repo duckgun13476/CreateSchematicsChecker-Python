@@ -156,6 +156,7 @@ def main_check(name, file):
             interesting.append("createaddition:rolling_mill")
             interesting.append("create_enchantment_industry:printer")
             interesting.append("create_connected:kinetic_battery")
+            interesting.append("create:toolbox")
 
 
             str_result, count_to_clear, data, have_entity = nbt_rule.str_check(data, interesting, config.ban_tags, config.ban_block)

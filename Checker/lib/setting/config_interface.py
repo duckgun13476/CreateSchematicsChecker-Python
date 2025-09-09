@@ -86,7 +86,7 @@ def generate_config(config_path):
             "count_block": False,
             "kill_entity": True,
             "ban_entity": ['minecraft:armor_stand'],
-            "ban_tags": ["AttributeModifiers", "Enchantments", "using_converts_to", "bundle_contents"],
+            "ban_tags": ["AttributeModifiers", "Enchantments", "using_converts_to", "bundle_contents","run_command"],
             "ban_block": [
                 "create:creative_crate",
                 "create:creative_fluid_tank",
@@ -154,7 +154,7 @@ def generate_config(config_path):
     add_comment_to_toml_r(config_path, "Enchantments", "附魔标签，这会阻止创造蓝图，但也会导致蓝图不能带有附魔特性，因为它们的结构相同")
     add_comment_to_toml_r(config_path, "using_converts_to", "食物标签，阻止返回复制特性")
     add_comment_to_toml_r(config_path, "bundle_contents", "存储袋标签，阻止复制特性")
-
+    add_comment_to_toml_r(config_path, "run_command", "阻止其切换权限，阻止复制特性")
 
     add_comment_to_toml_r(config_path, "minecraft:kelp", "这可以阻止绝大多数gt机，他们极其卡顿！")
     add_comment_to_toml_r(config_path, "minecraft:command_block", "不多说了，这玩意是命令方块")

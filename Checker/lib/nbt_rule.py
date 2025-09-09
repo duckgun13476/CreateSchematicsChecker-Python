@@ -223,6 +223,19 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
             if block_nbt is not None:
                 block_id = block_nbt.get('id')
 
+                # 工具盒
+                if "create:toolbox" == str(block_id):
+                    if block_nbt.get('Inventory') is not None:
+                        Inventory = block_nbt['Inventory']
+                        Items = Inventory.get('Items')
+                        if str(Items) != '[]':
+                            for item in Items:
+                                if str(item['id']) in ban_block:
+                                    write = True
+                                    item['id'] = nbt.TAG_String('minecraft:air')
+                                    ban_count += 1
+
+
                 # 无尽电池的修复 创意传动
                 if "create_connected:kinetic_battery" == str(block_id):
                     if block_nbt.get('batteryLevel') is not None:

@@ -44,7 +44,9 @@
       ```
  - 输入 `./blue_core31_for_linux`（版本可能会变化）启动。
  - 运行后，会在本地生成config.toml，按照需求填入参数，然后重新打开即可！
-
+ - 您可以使用screen或system进程来保证脚本的自动执行。
+   - screen 输入`screen -S check` 开启一个终端，然后在其中运行，使用 `screen -r check` 可以重连
+   - system 需要配置对应的脚本文件。 
 ---
 ## 重要：您必须配置几个关键参数来保证CSC 的可以运行！因为它们是极其关键的参数！
 
@@ -199,6 +201,10 @@
 
 - **24. 修复** 集成农业会打印鸡舍实现 GT 机卡服的特性  
   [视频链接](https://www.bilibili.com/video/BV13nh2z5EvT)
+
+- **25. 修复** 利用nbt漏洞实现的运行指令恶性bug
+
+  [视频链接](https://www.bilibili.com/video/BV1rZY5z1Eo6)
 
 
 
