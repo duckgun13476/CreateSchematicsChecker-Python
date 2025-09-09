@@ -8,13 +8,15 @@
 
 ![python](https://github.com/user-attachments/assets/eb746af3-f0f4-4710-86b4-a4ad7f176369)
 
-### 答疑/问题反馈/帮助  QQ群：1061133894 
+## 答疑/问题反馈/帮助  QQ群：1061133894 
 ---
 ## 概述
 这是一个基于机械动力的蓝图检查脚本，使用 Python 运行。该脚本外置，不占用服务器性能，并允许自定义规则。它能够自动筛查蓝图文件夹下的所有 bug 与异常蓝图，防止任何恶意篡改 NBT 的蓝图流入 Minecraft 服务器。
 
 
 它可以修复极其大量的机械动力蓝图相关漏洞，包括最新版本的大量潜在蓝图漏洞，所有相关的修复与问题来源都已经在最后列出
+![已经修复的机械动力漏洞](https://github.com/duckgun13476/CreateSchematicsChecker-Python?tab=readme-ov-file#%E9%92%88%E5%AF%B9%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98%E7%9A%84%E4%BF%AE%E5%A4%8D)
+![如何使用](https://github.com/duckgun13476/CreateSchematicsChecker-Python?tab=readme-ov-file#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)
 
 ## 功能
 - **自动筛查**：自动检查蓝图文件夹下的所有蓝图，识别并过滤出潜在的 bug 与异常蓝图，确保服务器安全。
