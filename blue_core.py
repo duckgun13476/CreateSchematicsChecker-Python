@@ -3,32 +3,29 @@ import yaml
 from Checker.lib.file_handle import ensure_directory_exists, ensure_sha_exist
 from Checker.lib.package_handler import logo
 
+__version__ = '3.1.1.dev1'
+
 try:
 
     import os
     import sys
 
     from Checker.lib.auth.hook import user_beat
-    from Checker.lib.setting.config import *
+    from Checker.lib.setting.config import config
 
     ensure_directory_exists('save/backup')
     ensure_directory_exists('save/problem_schematic')
     ensure_sha_exist()
-
 
     # Dynamically add the parent directory to sys.path if running directly
     if __name__ == "__main__" and __package__ is None:
         sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
         __package__ = "Checker"
 
-
-
-
     # from Checker.lib.package_handler import handle_package
     # handle_package()
 
     import traceback
-    from Checker.lib.setting import config
     from datetime import datetime
     from Checker.lib.nbt_func import check_handler
     import time
@@ -38,7 +35,8 @@ try:
     from Checker.lib import file_handle
     from Checker.lib.rule_handler import load_rule
     from Checker.lib.api_shulker import version_handler_in, get_latest_rule, save_data_to_yaml
-    from Checker.lib.setting.config import schematics_path
+
+    schematics_path = config.schematics_path
     # 用于存储正在进行的线程
     active_threads = {}
     # 获取当前工作目录
@@ -68,14 +66,12 @@ try:
                 else:
                     pass
 
-        return nbt_files_dict  #  返回包含玩家及其 NBT 文件的字典
-
+        return nbt_files_dict  # 返回包含玩家及其 NBT 文件的字典
 
     def sync_code_mod_time(code_mod_times, player_name, filename, file_mod_time):
         # 同步代码修改时间
         code_mod_times[player_name][filename] = file_mod_time
         log.info("已同步 [%s|%s] 的代码修改时间为: %s", player_name, filename, file_mod_time)
-
 
     def check_and_run(player_name, filename, file_mod_time, code_mod_times):
         thread_id = (player_name, filename)
@@ -91,8 +87,7 @@ try:
         else:
             log.error("已在运行: %s - %s", player_name, filename)
 
-        log.info(f"{player_name}|{filename}检查完毕！")
-
+        log.info(f"{player_name}|{filename}检查完毕!")
 
     def remove_lines_with_value(file_path, target_value):
         try:
@@ -104,7 +99,6 @@ try:
             log.info(f"已删除版本为[{target_value}]的历史检测 , 更新后的数据已保存回指纹文件!")
         except Exception as e:
             log.error(f"处理文件时出错: {e}")
-
 
     def update_rule():
         log.info("检查规则更新————")
@@ -124,8 +118,6 @@ try:
         else:
             log.info("规则已为最新")
 
-
-
     @timer
     def run_main():
         update_rule()
@@ -141,7 +133,6 @@ try:
                 file_mod_time = file_info[1]  # 获取文件的修改时间
                 # 同步文件修改时间和代码修改时间
                 code_mod_times[player_name][filename] = file_mod_time
-
 
         log.info("第一次循环完成, 已同步文件和缓存的修改时间。")
         log.info(f"当前检查的蓝图路径为：{config.schematics_path}")
@@ -166,9 +157,9 @@ try:
             if turn >= 100 / config.check_frequency:
                 turn = 0
                 log.info("[活跃提示]蓝图数量[%d][%s]", total_count, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-                heart = threading.Thread(target=user_beat,args=(
+                heart = threading.Thread(target=user_beat, args=(
                     {"count": total_count,
-                     "uuid":config.uuid,},
+                     "uuid": config.uuid, },
                 ))
                 heart.start()
                 post += 1
@@ -204,15 +195,13 @@ try:
                     else:
                         check_and_run(player_name, filename, file_mod_time, code_mod_times)
 
-
-
     if __name__ == '__main__':
 
         try:
 
             while True:
                 try:
-                    log.info(f"{logo}")
+                    log.info(logo.format(version=__version__.ljust(8, ' ')[:22]))
                     time.sleep(0.5)
                     log.info("启动主线程中~")
                     run_main()
@@ -222,8 +211,8 @@ try:
                         log.error("蓝图路径不存在或指定错误!")
                         log.info(r"提示: 请确保路径为 绝对路径 Linux: /example/uploaded | Win: F:\CreateEntityControler\create\uploaded")
                         log.info(r"指引：")
-                        log.info(r"配置文件在 config.toml 您需要通过编辑器编辑它！")
-                        log.info(r"由于路径不正确，CSC将在10秒后退出！")
+                        log.info(r"配置文件在 config.toml 您需要通过编辑器编辑它!")
+                        log.info(r"由于路径不正确, CSC将在10秒后退出!")
                         time.sleep(10)
                         sys.exit("PATH NOT FOUND")
                     log.error("运行主线程发生错误: %s", e)
@@ -233,11 +222,12 @@ try:
         except KeyboardInterrupt:
             log.info("终止中~")
             time.sleep(1)
-            sys.exit("EXIT     程序已被用户中断，感谢使用喵~")
+            sys.exit("EXIT     程序已被用户中断, 感谢使用喵~")
 
 except Exception as e:
     print(e)
-    import traceback,time,sys
+    import traceback, time, sys
+
     traceback.print_exc()
     time.sleep(30)
     sys.exit("error occur")

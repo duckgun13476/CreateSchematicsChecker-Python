@@ -8,7 +8,7 @@ from Checker.lib.auth.cry import *
 from Checker.lib.file_handle import delete_file
 from Checker.lib.handle.n_post import send
 from Checker.lib.log_color import log
-from Checker.lib.setting import config
+from Checker.lib.setting.config import thread_pool
 def remove_string_from_list(string_list, string_to_remove):
     """从字符串列表中删除指定的字符串"""
     # 使用列表推导式创建一个新列表，排除要删除的字符串
@@ -47,7 +47,7 @@ def _m_3411_(_p_123124_, prefix):
             )
 
         delete_file(_p_123124_)
-        remove_string_from_list(config.thread_pool,file)
+        remove_string_from_list(thread_pool,  file)
         return response
 
     except Exception as e:

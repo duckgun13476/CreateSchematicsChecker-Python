@@ -33,6 +33,9 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.build/
+*.dist/
+*.onefile-build/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -113,6 +116,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+.env
 
 # Spyder project settings
 .spyderproject
@@ -138,3 +142,5 @@ dmypy.json
 # End of https://www.toptal.com/developers/gitignore/api/python
 /experiment/
 /Checker/logs/
+/schemates/
+config.toml

@@ -23,7 +23,6 @@ def ensure_sha_exist():
         pass
 
 
-
 def ensure_directory_exists(directory):
     """确保目录存在, 如果不存在则创建"""
     if not os.path.exists(directory):
@@ -37,12 +36,6 @@ def move_file(src, dest):
         shutil.move(src, dest)
     else:
         log.error(f"源文件不存在: {src} -> {dest}")
-
-
-def ensure_directory_exists(directory):
-    """确保目录存在, 如果不存在则创建"""
-    if not os.path.exists(directory):
-        os.makedirs(directory)
 
 
 def calculate_md5(file_path):
@@ -96,11 +89,13 @@ def delete_file(file_path):
     except Exception as e:
         log.error(f"删除文件时发生错误: {e}")
 
+
 def copy_file(src, dst):
     try:
         shutil.copy(src, dst)
     except Exception as e:
         log.error(f"复制文件时发生错误:  {e}")
+
 
 # 示例用法
 if __name__ == "__main__":

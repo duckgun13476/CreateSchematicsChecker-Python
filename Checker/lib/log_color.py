@@ -2,7 +2,7 @@ from datetime import datetime
 
 import colorlog
 import logging
-from Checker.lib.setting.config import log_path
+from Checker.lib.setting.config import config
 import os
 
 console_handler = logging.StreamHandler()
@@ -14,10 +14,10 @@ formatter = colorlog.ColoredFormatter(
     datefmt=None,
     reset=True,
     log_colors={
-        'DEBUG':    'cyan',
-        'INFO':     'green',
-        'WARNING':  'yellow',
-        'ERROR':    'red',
+        'DEBUG': 'cyan',
+        'INFO': 'green',
+        'WARNING': 'yellow',
+        'ERROR': 'red',
         'CRITICAL': 'red,bg_white'
     },
     secondary_log_colors={},
@@ -25,8 +25,8 @@ formatter = colorlog.ColoredFormatter(
 )
 console_handler.setFormatter(formatter)
 
-os.makedirs(os.path.dirname(log_path), exist_ok=True)
-file_handler = logging.FileHandler(log_path, encoding='utf-8')
+os.makedirs(os.path.dirname(config.log_path), exist_ok=True)
+file_handler = logging.FileHandler(config.log_path, encoding='utf-8')
 file_handler.setLevel(logging.DEBUG)  # 设置文件处理器的日志级别
 file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))  # 设置文件格式
 log = colorlog.getLogger()
@@ -57,4 +57,3 @@ if __name__ == "__main__":
     log.warning("这是一条 WARNING 级别的日志")
     log.error("这是一条 ERROR 级别的日志")
     log.critical("这是一条 CRITICAL 级别的日志")
-

@@ -9,7 +9,7 @@ logo = r"""
 \__, |  \ |___ /~~\  |  |___    |__) |___ \__/ |___ |    |  \ | | \|  |     \__, |  | |___ \__, |  \ |___ |  \ 
 --------------------------------------------------------------------------------------------------------------
 
-版本：3.1.1    问题/反馈/寻求帮助  QQ群号：1061133894
+版本：{version}  问题/反馈/寻求帮助  QQ群号: 1061133894
 """
 
 
@@ -23,7 +23,9 @@ def handle_package():
         'nbt': 'nbt',
         'requests': 'requests',
         'dotenv': 'python-dotenv',
-        'yaml': 'pyyaml'  # 注意这里的 'yaml' 是 PyYAML 的导入名
+        'yaml': 'pyyaml',  # 注意这里的 'yaml' 是 PyYAML 的导入名
+        'cryptography': 'cryptography',
+        'pydantic': 'pydantic'
     }
 
     for import_name, package_name in package_mapping.items():

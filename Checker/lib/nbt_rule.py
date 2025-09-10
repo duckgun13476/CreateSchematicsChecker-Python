@@ -8,7 +8,8 @@ from Checker.lib.math.func import has_duplicates, remove_element, count_elements
 from Checker.lib.math.nbt_hook import safe_get_array, nbt_int
 from Checker.lib.nbt_matcher.nbt_str import str_check
 from Checker.lib.rule_handler import load_rule
-from Checker.lib.setting.config import *
+from Checker.lib.setting.config import config
+ban_block:list = config.ban_block
 
 
 # about to delete
@@ -163,8 +164,6 @@ def check_nbt_with_palette(rule, in_nbt):
                 write_log(f"根据规则 {rule['name']} 设置值为 {word}")
                 count_14 += 1
     return count_14
-
-
 
 
 def find_max_same_element_count(array):
@@ -509,8 +508,8 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                                     if str(value.get('BlockEntityTag').get("id")) == "create:clipboard":
                                         pass
                                     else:
-                                        log.error(f"检测到非法nbt, 后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}][{str(value.get('BlockEntityTag').get("id"))}]")
-                                        write_log(f"检测到非法nbt, 后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}][{str(value.get('BlockEntityTag').get("id"))}]")
+                                        log.error(f"检测到非法nbt, 后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}][{str(value.get('BlockEntityTag').get('id'))}]")
+                                        write_log(f"检测到非法nbt, 后续规则不会执行|位于[{source_nbt.get('blocks').index(block)}][{str(value.get('BlockEntityTag').get('id'))}]")
                                         return -1, ban_count
                                 else:
                                     pass

@@ -2,7 +2,7 @@ import os
 import sys
 import time
 from Checker.lib.log_color import log
-from Checker.lib.setting.config import schematics_packet_size
+from Checker.lib.setting.config import config
 
 
 def resource_path(relative_path):
@@ -14,7 +14,6 @@ def resource_path(relative_path):
         # 开发环境，直接使用当前路径
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
-
 
 
 def list_files_in_directory(directory):
@@ -45,7 +44,7 @@ def wait_for_file_transfer_complete(file_path, check_interval=0.1, max_duration=
     :return: 文件传输是否完成的布尔值
     """
     # log.debug("完整性校验")
-    if os.path.getsize(file_path) % schematics_packet_size != 0:
+    if os.path.getsize(file_path) % config.schematics_packet_size != 0:
         log.debug("文件已在本地~ 跳过上传检查")
         return True
     if not os.path.exists(file_path):
@@ -60,7 +59,7 @@ def wait_for_file_transfer_complete(file_path, check_interval=0.1, max_duration=
         if current_size > 0:
             if current_size != last_size:
                 pass
-            if current_size % schematics_packet_size != 0:
+            if current_size % config.schematics_packet_size != 0:
                 log.info(f"文件传输完毕: (文件大小: {current_size} 字节 用时{time.time() - start_time:.2f}秒)")
                 return True
             # 如果文件大小为数据包的整数倍, 检查稳定性
@@ -75,7 +74,7 @@ def wait_for_file_transfer_complete(file_path, check_interval=0.1, max_duration=
                 return True
         else:
             pass
-        
+
         # 检查是否超时
         if time.time() - start_time >= max_duration:
             log.error("超出最大等待时间, 文件传输未完成。")
@@ -89,4 +88,3 @@ if __name__ == '__main__':
     while True:
         result = wait_for_file_transfer_complete(r'uploaded/Pink_Candy_Cats/test.nbt')
         time.sleep(0.2)
-

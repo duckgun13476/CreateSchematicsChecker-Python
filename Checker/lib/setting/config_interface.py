@@ -9,11 +9,13 @@ def export_toml(data, filename):
         toml.dump(data, f)  # 使用 dump 直接写入文件
     print(f"INFO     配置文件已生成：{filename}")
 
+
 def import_toml(filename):
     """从 TOML 文件导入数据"""
     with open(filename, "r", encoding="utf-8") as f:  # 指定 UTF-8 编码
         config = toml.load(f)  # 使用 load 读取文件
     return config
+
 
 def add_comment_to_toml(filename, variable, comment):
     """在匹配的变量上方添加注释"""
@@ -27,6 +29,7 @@ def add_comment_to_toml(filename, variable, comment):
                 f.write(line)
     except Exception as e:
         print(f"添加注释发生错误：{e}")
+
 
 def add_comment_to_toml_r(filename, variable, comment):
     """在匹配的变量行的最右侧添加注释"""
@@ -42,6 +45,7 @@ def add_comment_to_toml_r(filename, variable, comment):
                 f.write(line)
     except Exception as e:
         print(f"添加注释发生错误：{e}")
+
 
 def format_toml(filename):
     """整理 TOML 文件格式，使数组元素换行并缩进"""
@@ -75,7 +79,7 @@ def generate_config(config_path):
         "path": {
             "schematics_path": r'experiment/schematics/uploaded',
             "log_path": r'logs/application.log',
-            "uuid":f"{generate_random_string(8)}-{generate_random_string(8)}-{generate_random_string(8)}-{generate_random_string(8)}",
+            "uuid": f"{generate_random_string(8)}-{generate_random_string(8)}-{generate_random_string(8)}-{generate_random_string(8)}",
         },
         "setting": {
             "schematics_packet_size": 1024,
@@ -86,11 +90,11 @@ def generate_config(config_path):
             "count_block": False,
             "kill_entity": True,
             "ban_entity": ['minecraft:armor_stand'],
-            "ban_tags": ["AttributeModifiers", "Enchantments", "using_converts_to", "bundle_contents","run_command"],
+            "ban_tags": ["AttributeModifiers", "Enchantments", "using_converts_to", "bundle_contents", "run_command"],
             "ban_block": [
                 "create:creative_crate",
                 "create:creative_fluid_tank",
-                "create_integrated_farming:chicken_roost", # 1.21特别添加 阻止gt机卡服
+                "create_integrated_farming:chicken_roost",  # 1.21特别添加 阻止gt机卡服
                 "create:creative_motor",
                 "create:creative_blaze_cake",
                 "create:handheld_worldshaper",
@@ -99,7 +103,7 @@ def generate_config(config_path):
             ]
         },
         "smtp": {
-            "enable": False,
+            "smtp_enable": False,
             "email_receive": "example@qq.com",
             "smtp_server": 'smtp.qq.com',
             "smtp_port": 587,
@@ -167,6 +171,7 @@ def generate_config(config_path):
     add_comment_to_toml(config_path, "smtp_port", "smtp的默认服务器端口，一般情况不需要改")
     add_comment_to_toml(config_path, "smtp_sender_email", "使用哪个邮箱进行发送，报警信息会从这个邮箱发出")
     add_comment_to_toml(config_path, "smtp_password", "这个邮箱的smtp密码，需要在qq邮箱网页版获取")
+
 
 if __name__ == "__main__":
     # 生成配置

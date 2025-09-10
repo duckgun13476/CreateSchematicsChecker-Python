@@ -1,5 +1,5 @@
 from Checker.lib.log_color import log
-from Checker.lib.setting.config import kill_entity, ban_entity
+from Checker.lib.setting.config import config
 
 
 def str_check(data, interest, tags, blocks):
@@ -9,7 +9,7 @@ def str_check(data, interest, tags, blocks):
     datas_str = str(data.pretty_tree())  # 将 NBT 数据转换为字符串
     item_count = 0
 
-    if kill_entity:
+    if config.kill_entity:
         if str(data.get('entities')) == '[]':
             pass
         else:
@@ -18,7 +18,7 @@ def str_check(data, interest, tags, blocks):
             log.info("提示: 根据规则清理了实体参数。")
             have_entity = True
     else:
-        for entity in ban_entity:
+        for entity in config.ban_entity:
             if entity in datas_str:
                 count_to_clear += datas_str.count(entity)
 
@@ -29,7 +29,6 @@ def str_check(data, interest, tags, blocks):
     all_to_clear = 0
     block_data = data['blocks']
     palette_data = data['palette']
-
 
     for data_item in block_data:
         block_count += 1
@@ -54,11 +53,9 @@ def str_check(data, interest, tags, blocks):
                     all_to_clear += count_to_clear
                     log.warning(f"警告: 在第[{block_count}]个方块 id [{block_id}]找到禁止 ID 物品, 包含{item}")
 
-
         for index in interest:
             if index in data_str:
                 item_count += 1
-
 
     for palette in palette_data:
         palette_count += 1
@@ -69,7 +66,6 @@ def str_check(data, interest, tags, blocks):
         if block_id in interest:
             item_count += 1
 
-
     if all_to_clear > 0:
         # log.info("写入nbt中。。")
         pass
@@ -77,4 +73,3 @@ def str_check(data, interest, tags, blocks):
     if item_count != 0:
         log.info(f"信息: 总共找到了{item_count}个需要检查的物品!")
     return item_count, all_to_clear, data, have_entity
-

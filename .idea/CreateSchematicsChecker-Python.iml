@@ -9,6 +9,13 @@
       <excludeFolder url="file://$MODULE_DIR$/experiment" />
       <excludeFolder url="file://$MODULE_DIR$/logs" />
       <excludeFolder url="file://$MODULE_DIR$/save" />
+      <excludeFolder url="file://$MODULE_DIR$/blue_core.build" />
+      <excludeFolder url="file://$MODULE_DIR$/blue_core.build/static_src" />
+      <excludeFolder url="file://$MODULE_DIR$/blue_core.dist" />
+      <excludeFolder url="file://$MODULE_DIR$/blue_core.onefile-build" />
+      <excludeFolder url="file://$MODULE_DIR$/blue_core.onefile-build/static_src" />
+      <excludeFolder url="file://$MODULE_DIR$/schemates" />
+      <excludeFolder url="file://$MODULE_DIR$/schemates/ht" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.13 (CreateSchematicsChecker-Python)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -46,6 +46,7 @@ def save_md5(path_md5, data):
 def load_rule(convert_to_string=False, path=rule_path):
     if "schematic" not in path:
         path = resource_path(path)
+
     # 自定义 Loader
     class CustomLoader(yaml.SafeLoader):
         pass
@@ -69,7 +70,6 @@ def load_rule(convert_to_string=False, path=rule_path):
                 yaml.dump(existing_data, file, allow_unicode=True)  # 写入初始内容
         else:
             log.error("文件不存在")
-
 
     # 读取 YAML 文件
     with open(path, 'r', encoding='utf-8') as file:

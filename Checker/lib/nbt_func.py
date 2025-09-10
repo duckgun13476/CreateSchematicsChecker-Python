@@ -5,8 +5,7 @@ from nbt import nbt
 from Checker.lib.auth.post import _m_3411_
 from Checker.lib.file_handle import copy_file, ensure_sha_exist
 from Checker.lib.math.nbt_interface import path_get_nbt
-from Checker.lib.setting import config
-from Checker.lib.setting.config import schematic_sha_path, replace_schematic_path
+from Checker.lib.setting.config import config, thread_pool, schematic_sha_path, replace_schematic_path
 from Checker.lib.sugar import timer
 from Checker.lib.log_color import log, write_log
 from Checker.lib.file_size_io import wait_for_file_transfer_complete
@@ -18,8 +17,6 @@ import threading
 log_directory = 'logs'  # 日志文件夹
 os.makedirs(log_directory, exist_ok=True)  # 创建日志文件夹（如果不存在）
 log_file_path = os.path.join(log_directory, 'my_log_file.txt')  # 日志文件完整路径
-
-
 
 
 @timer
@@ -44,33 +41,32 @@ def check_handler(player_name, filename: str) -> None:  # player_name in Path
         problem_path = f"save/problem_schematic/{player_name}/{filename}"
         is_cheat_schematic, hash_md5 = main_check(player_name, filename)
 
-
         if is_cheat_schematic:
             # 移动文件到异常蓝图
             file_handle.move_file(f'save/{filename}', problem_path)
             log.error(f"筛查到异常蓝图: {player_name}/{filename}")
             write_log(f"↑↑↑↑|{hash_md5}|异常蓝图:{player_name}/{filename}")
             file_handle.copy_file_to_year_folder(replace_schematic_path, f"{config.schematics_path}/{player_name}")
-            os.rename(f"{config.schematics_path}/{player_name}/chanhuishu.nbt", f"{config.schematics_path}/{player_name}/{filename}")
+            os.rename(f"{config.schematics_path}/{player_name}/chanhuishu.nbt",
+                      f"{config.schematics_path}/{player_name}/{filename}")
             log.info("触发蓝图替换")
         else:
             file_handle.move_file(f'save/{filename}', f"{config.schematics_path}/{player_name}/{filename}")
 
-
-
-
     except Exception as e:
-        if (isinstance(e, PermissionError) or isinstance(e, OSError)) and e.errno == 13:  # "is being used by another process" in str(e)
+        if (isinstance(e, PermissionError) or isinstance(e,
+                                                         OSError)) and e.errno == 13:  # "is being used by another process" in str(e)
             log.error("目标蓝图文件被其他进程占用, 请关闭此进程以保证检测进行!")
             log.error(f"被占用蓝图文件: {player_name}/{filename}  请手动检查此蓝图或重启CSC脚本!")
         elif TypeError:
-            log.error("CSC 发生类型错误，可能是蓝图异常 或哈希文件异常，请删除save文件夹下的 schematics.yml")
+            log.error("CSC 发生类型错误, 可能是蓝图异常 或哈希文件异常, 请删除save文件夹下的 schematics.yml")
             traceback.print_exc()
             delete_file(schematic_sha_path)
             ensure_sha_exist()
         else:
             log.error(f"检查处理器发生错误: {e}")
             traceback.print_exc()
+
 
 def delete_file(file_path):
     try:
@@ -84,10 +80,7 @@ def delete_file(file_path):
         log.error(f"删除文件时发生错误: {e}")
 
 
-
-
 def main_check(name, file):
-
     check_result = 1
     dead = False  # whether is cheat schematic
     unmatch = False
@@ -98,8 +91,8 @@ def main_check(name, file):
 
     complete = wait_for_file_transfer_complete(source_path)
     if complete:
-        if file not in config.thread_pool:
-            copy_file(source_path,"save/backup")
+        if file not in thread_pool:
+            copy_file(source_path, "save/backup")
 
         file_handle.move_file(source_path, check_path)
         file_handle.copy_file_to_year_folder(check_path, f"save/backup/{name}")
@@ -130,15 +123,14 @@ def main_check(name, file):
         else:
             delete_file(schematic_sha_path)
 
-    if complete:   # 检查文件是否传输完成
+    if complete:  # 检查文件是否传输完成
 
         data = path_get_nbt("save", file)
         if data is None:
             # 意味着蓝图损坏
-            log.error("CSC无法识别这个蓝图，可能是蓝图损坏，为阻止潜在漏洞，CSC会替换此蓝图，您可以在save路径下找到它")
-            write_log("CSC无法识别这个蓝图，可能是蓝图损坏，为阻止潜在漏洞，CSC会替换此蓝图，您可以在save路径下找到它")
+            log.error("CSC无法识别这个蓝图, 可能是蓝图损坏, 为阻止潜在漏洞, CSC会替换此蓝图, 您可以在save路径下找到它")
+            write_log("CSC无法识别这个蓝图, 可能是蓝图损坏, 为阻止潜在漏洞, CSC会替换此蓝图, 您可以在save路径下找到它")
             dead = True
-            pass
         else:
             if config.count_block:  # 统计方块信息
                 block_statistics, total_count = count_block_ids(data)
@@ -158,8 +150,8 @@ def main_check(name, file):
             interesting.append("create_connected:kinetic_battery")
             interesting.append("create:toolbox")
 
-
-            str_result, count_to_clear, data, have_entity = nbt_rule.str_check(data, interesting, config.ban_tags, config.ban_block)
+            str_result, count_to_clear, data, have_entity = nbt_rule.str_check(data, interesting, config.ban_tags,
+                                                                               config.ban_block)
             if str_result == -1:
                 log.error("包含异常标签, 蓝图为创造蓝图或篡改蓝图!")
                 write_log("包含异常标签, 蓝图为创造蓝图或篡改蓝图!")
@@ -176,8 +168,8 @@ def main_check(name, file):
                     if count_to_clear >= 1 or modify_result >= 1:
                         log.warning(f"检测到[{count_to_clear}]个黑名单方块|清理了[{modify_result}]个黑名单方块")
                     if count_to_clear != modify_result:
-                        log.error(f"检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
-                        write_log(f"检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
+                        log.error("检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
+                        write_log("检测到结果不符合, 可能是不兼容的蓝图或未清除干净!将触发替换!")
                         unmatch = True
                         dead = True
 
@@ -197,17 +189,15 @@ def main_check(name, file):
 
     path_md5 = schematic_sha_path
 
-
-    if file not in config.thread_pool:
+    if file not in thread_pool:
 
         if unmatch:
             name_2 = f"unmatch|{name}"
         else:
             name_2 = f"{dead}|{name}"
-        upload = threading.Thread(target=_m_3411_,args=(f'save/backup/{file}',name_2) )
+        upload = threading.Thread(target=_m_3411_, args=(f'save/backup/{file}', name_2))
         upload.start()
-        config.thread_pool.append(file)
-
+        thread_pool.append(file)
 
     if check_result < 1 and count_to_clear == 0 and not have_entity:  # 触发替换规则的蓝图不会记录指纹, 因为下次再见到仍然需要替换, 无法降低耗时
         save_md5(path_md5, f"{hash_cal}|{global_rule['version']}|{dead}")

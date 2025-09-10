@@ -4,7 +4,7 @@ from Checker.lib.log_color import log
 BASE_URL = "https://api.mcsls.xyz/nbt_filter"
 
 
-def get_latest_version():
+def get_latest_version() -> dict:
     """获取最新的文件版本信息"""
     response = requests.get(f"{BASE_URL}/get_latest_version", timeout=10)
     if response.status_code == 200:
@@ -13,7 +13,7 @@ def get_latest_version():
         return {"code": response.status_code, "msg": "请求失败"}
 
 
-def get_latest_rule():
+def get_latest_rule() -> dict:
     """获取最新的规则文件"""
     response = requests.get(f"{BASE_URL}/get_latest_rule", timeout=10)
     if response.status_code == 200:
@@ -22,7 +22,7 @@ def get_latest_rule():
         return {"code": response.status_code, "msg": "请求失败"}
 
 
-def update_latest_rule(data, secret=None):
+def update_latest_rule(data, secret=None) -> dict:
     """更新最新的规则文件"""
     params = {}
     if secret:
