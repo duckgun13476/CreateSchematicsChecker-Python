@@ -1,3 +1,4 @@
+import time
 import traceback
 import os
 from nbt import nbt
@@ -37,6 +38,7 @@ def count_block_ids(data):
 
 
 def check_handler(player_name, filename: str) -> None:  # player_name in Path
+    # start_time = time.time()
     try:
         problem_path = f"save/problem_schematic/{player_name}/{filename}"
         is_cheat_schematic, hash_md5 = main_check(player_name, filename)
@@ -66,6 +68,11 @@ def check_handler(player_name, filename: str) -> None:  # player_name in Path
         else:
             log.error(f"检查处理器发生错误: {e}")
             traceback.print_exc()
+
+
+    # elapsed_time = time.time() - start_time
+    # if elapsed_time < 1:
+      #   time.sleep(1 - elapsed_time)
 
 
 def delete_file(file_path):

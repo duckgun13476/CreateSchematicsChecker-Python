@@ -349,7 +349,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                                         log.error(f"伪装图层与包含物品不符! 伪装图层是[{str(material)}] 然而包含的物品是[{str(consumedItem_id)}]")
                                     if int(str(consumedItem_count)) not in [0,1]:
                                         log.error(f"包含物品数量异常！本应是0或1 但实际是[{str(consumedItem_count)}]")
-
+                                        return -1, ban_count
                                     write = True
                                 else:
                                     consume_id.append(str(consumedItem_id))
