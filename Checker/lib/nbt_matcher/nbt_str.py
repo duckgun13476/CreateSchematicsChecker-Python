@@ -1,9 +1,10 @@
 from Checker.lib.log_color import log
-from Checker.lib.setting.config import config
+from Checker.lib.setting.config_gen import config
 
 
 def str_check(data, interest, tags, blocks):
     count_to_clear = 0
+    change = False
     have_entity = False
 
     datas_str = str(data.pretty_tree())  # 将 NBT 数据转换为字符串
@@ -43,7 +44,12 @@ def str_check(data, interest, tags, blocks):
                     if data_str.count("Enchantments") == data_str.count("StoredEnchantments"):
                         continue
                 log.error(f"警告: 在第[{block_count}]个方块 id [{block_id}]找到异常 NBT 标签, 包含{tag}")
-                return -1, all_to_clear, data, have_entity
+                if config.clear_tag_instead_remove:
+                    data_item.clear()
+                    change = True
+                else:
+                    return -1, all_to_clear, data, have_entity,change
+
         for item in blocks:
             if item in data_str:
                 count_to_clear = data_str.count(item)
@@ -52,6 +58,7 @@ def str_check(data, interest, tags, blocks):
                 if count_to_clear > 0:
                     all_to_clear += count_to_clear
                     log.warning(f"警告: 在第[{block_count}]个方块 id [{block_id}]找到禁止 ID 物品, 包含{item}")
+
 
         for index in interest:
             if index in data_str:
@@ -72,4 +79,4 @@ def str_check(data, interest, tags, blocks):
         # data = nbt.NBTFile
     if item_count != 0:
         log.info(f"信息: 总共找到了{item_count}个需要检查的物品!")
-    return item_count, all_to_clear, data, have_entity
+    return item_count, all_to_clear, data, have_entity,change

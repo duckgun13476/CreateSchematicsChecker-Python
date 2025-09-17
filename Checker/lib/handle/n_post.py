@@ -5,7 +5,7 @@ from email.header import Header
 import os
 
 from Checker.lib.log_color import log
-from Checker.lib.setting.config import config
+from Checker.lib.setting.config_gen import config
 
 
 def read_last_n_lines(filename, n=20):
@@ -28,7 +28,7 @@ def send_email(subject, body, send_email, title="筛查到异常蓝图!!"):
     # 构建邮件
     msg = MIMEText(body, 'plain', 'utf-8')
     msg['Subject'] = Header(subject, 'utf-8')
-    msg['From'] = final_nickname + ' <1907284584@qq.com>'
+    msg['From'] = final_nickname + f' <{config.smtp_sender_email}@qq.com>'
     msg['To'] = send_email
 
     # 发送邮件

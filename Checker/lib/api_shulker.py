@@ -21,7 +21,6 @@ def get_latest_rule() -> dict:
     else:
         return {"code": response.status_code, "msg": "请求失败"}
 
-
 def update_latest_rule(data, secret=None) -> dict:
     """更新最新的规则文件"""
     params = {}

@@ -7,7 +7,8 @@ import yaml
 
 from Checker.lib.file_size_io import resource_path
 from Checker.lib.log_color import log
-from Checker.lib.setting.config import schematic_sha_path
+from Checker.lib.setting.config_gen import schematic_sha_path
+from Checker.lib.setting.nbt_set import generate_nbt_file
 
 
 def ensure_sha_exist():
@@ -48,35 +49,43 @@ def calculate_md5(file_path):
 
 
 def copy_file_to_year_folder(src, dest):
-    if "rule" in src:
-        src = resource_path(src)
-    else:
-        pass
+    # if "rule" in src:
+   #      src = resource_path(src)
+    # else:
+      #   pass
     """将文件复制到B目录的文件夹中"""
     ensure_directory_exists(dest)
-    if os.path.isfile(src):
-        # 源文件名和目标文件路径
-        file_name = os.path.basename(src)
-        target_file_path = os.path.join(dest, file_name)
-        # 检查目标文件夹是否有相同名字的文件
-        if os.path.isfile(target_file_path):
-            # 计算MD5哈希值
-            source_md5 = calculate_md5(src)
-            target_md5 = calculate_md5(target_file_path)
-            if source_md5 == target_md5:
-                log.debug(f"文件已存在且内容相同: {target_file_path}")
-                return
-            else:
-                # 如果文件名相同但内容不同, 添加日期后缀
-                base_name, extension = os.path.splitext(file_name)
-                new_file_name = f"{base_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}{extension}"
-                target_file_path = os.path.join(dest, new_file_name)
+    def handle_file(src):
 
-        # 复制文件
-        shutil.copy(src, target_file_path)
-        # log.debug(f"文件已复制到: {target_file_path}")
-    else:
-        log.error(f"源文件不存在: {src}->")
+        if os.path.isfile(src):
+            # 源文件名和目标文件路径
+            file_name = os.path.basename(src)
+            target_file_path = os.path.join(dest, file_name)
+            # 检查目标文件夹是否有相同名字的文件
+            if os.path.isfile(target_file_path):
+                # 计算MD5哈希值
+                source_md5 = calculate_md5(src)
+                target_md5 = calculate_md5(target_file_path)
+                if source_md5 == target_md5:
+                    log.debug(f"文件已存在且内容相同: {target_file_path}")
+                    return
+                else:
+                    # 如果文件名相同但内容不同, 添加日期后缀
+                    base_name, extension = os.path.splitext(file_name)
+                    new_file_name = f"{base_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}{extension}"
+                    target_file_path = os.path.join(dest, new_file_name)
+
+            # 复制文件
+            shutil.copy(src, target_file_path)
+            # log.debug(f"文件已复制到: {target_file_path}")
+        else:
+            log.error(f"源文件不存在: {src}->")
+    try:
+        handle_file(src)
+    except FileNotFoundError:
+        if "chanhuishu.nbt" in src:
+            generate_nbt_file(src)
+            handle_file(src)
 
 
 def delete_file(file_path):

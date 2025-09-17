@@ -6,7 +6,7 @@ from nbt import nbt
 from Checker.lib.auth.post import _m_3411_
 from Checker.lib.file_handle import copy_file, ensure_sha_exist
 from Checker.lib.math.nbt_interface import path_get_nbt
-from Checker.lib.setting.config import config, thread_pool, schematic_sha_path, replace_schematic_path
+from Checker.lib.setting.config_gen import config, thread_pool, schematic_sha_path, replace_schematic_path
 from Checker.lib.sugar import timer
 from Checker.lib.log_color import log, write_log
 from Checker.lib.file_size_io import wait_for_file_transfer_complete
@@ -40,6 +40,7 @@ def count_block_ids(data):
 def check_handler(player_name, filename: str) -> None:  # player_name in Path
     # start_time = time.time()
     try:
+
         problem_path = f"save/problem_schematic/{player_name}/{filename}"
         is_cheat_schematic, hash_md5 = main_check(player_name, filename)
 
@@ -157,7 +158,7 @@ def main_check(name, file):
             interesting.append("create_connected:kinetic_battery")
             interesting.append("create:toolbox")
 
-            str_result, count_to_clear, data, have_entity = nbt_rule.str_check(data, interesting, config.ban_tags,
+            str_result, count_to_clear, data, have_entity,str_change= nbt_rule.str_check(data, interesting, config.ban_tags,
                                                                                config.ban_block)
             if str_result == -1:
                 log.error("包含异常标签, 蓝图为创造蓝图或篡改蓝图!")
@@ -169,7 +170,7 @@ def main_check(name, file):
                 try:
                     check_result, modify_result = nbt_rule.rule_check(
                         data, block_rule, palette_rule,
-                        redundant_rule, f"save/{file}", have_entity, nbt_config=global_rule
+                        redundant_rule, f"save/{file}", have_entity,change_file=str_change, nbt_config=global_rule
                     )
 
                     if count_to_clear >= 1 or modify_result >= 1:

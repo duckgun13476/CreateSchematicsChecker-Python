@@ -2,7 +2,7 @@ import os
 import sys
 import time
 from Checker.lib.log_color import log
-from Checker.lib.setting.config import config
+from Checker.lib.setting.config_gen import config
 
 
 def resource_path(relative_path):
@@ -11,13 +11,13 @@ def resource_path(relative_path):
         # 如果是打包后的环境
         base_path = sys._MEIPASS
     else:
-        # 开发环境，直接使用当前路径
+        # 开发环境， 直接使用当前路径
         base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
 
 
 def list_files_in_directory(directory):
-    directory = resource_path(directory)
+    # directory = resource_path(directory)
     try:
         # 获取目录下的所有文件和子目录
         files = os.listdir(directory)

@@ -4,8 +4,8 @@ from pydantic import BaseModel, Field
 from typing import Optional
 import time
 from Checker.lib.setting.config_interface import import_toml, generate_config
+from Checker.lib.setting.para_set import config_path
 
-config_path = "config.toml"
 
 thread_pool = []
 
@@ -21,6 +21,8 @@ class ConfigModel(BaseModel):
     fast_handle: bool = Field(..., description="是否快速清除禁用方块")
     count_block: bool = Field(..., description="是否统计方块信息")
     kill_entity: bool = Field(..., description="是否清理蓝图的实体")
+    auto_update: bool = Field(..., description="是否自动更新规则")
+    clear_tag_instead_remove: bool = Field(..., description="清除方块而不是禁用蓝图")
     ban_tags: list = Field(..., description="禁止的NBT标签列表")
     ban_entity: list = Field(..., description="禁止的实体列表")
     ban_block: list = Field(..., description="禁止的方块列表")
@@ -37,6 +39,12 @@ class ConfigModel(BaseModel):
 
 try:
     config_toml = import_toml(config_path)
+
+    # generate_config('default.toml')
+    # check if legal
+
+
+
 except FileNotFoundError:
     generate_config(config_path)
     config_toml = import_toml(config_path)
@@ -51,6 +59,8 @@ except toml.TomlDecodeError as e:
     print("INFO     常见错误:  ")
     print(r"INFO     1.路径配置错误: windows内路径配置必须使用// 而不能使用反斜杠 ")
     print(r"INFO     因此 : C:\Users\123 是错误的 而 C://Users//123 是正确的")
+    print(r"INFO     如果参数缺失或者不知道哪里出错了, 可将现存文件删除并让CSC重新生成最新的配置文件")
+    print(r"INFO     配置文件在根目录下 config.toml")
     print("-----------------------")
     print(r"ERROR    因配置出现问题 CSC将在60秒后退出")
     time.sleep(60)
@@ -80,7 +90,7 @@ except ValidationError as e:
     print('INFO    如何看懂报错: ')
     print("INFO    检查配置文件中对应参数字段的值是否正确")
     print("INFO    如果报错中实际收到的参数为 None(NoneType) 则可能表示该参数缺失")
-    print("INFO    如果参数缺失, 可将现存文件删除并让CSC重新生成最新的配置文件")
+    print("INFO    如果参数缺失或者不知道哪里出错了, 可将现存文件删除并让CSC重新生成最新的配置文件")
     print("-----------------------")
     print("INFO    相关可能的参数类型有: ")
     print("INFO    str_type: 字符串")

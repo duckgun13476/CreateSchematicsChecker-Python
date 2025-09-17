@@ -1,4 +1,10 @@
-version: 0.2                  # 配置文件版本，如果您不是开发者千万不要修改它，会导致脚本异常，规则文件会定期自动同步！
+import os
+
+from Checker.lib.setting.para_set import config_rule_version
+
+def write_yml_from_string(file_path):
+    yml_content = f"""\
+version: {config_rule_version}                  # 配置文件版本，如果您不是开发者千万不要修改它，会导致脚本异常，规则文件会定期自动同步！
 check_belt: true              # 检查传送带是否被篡改（务必开启，否则会导致一些复制传动杆和传送带的蓝图被上传！！！）
 check_chain_conveyor: true    # 检查链式传动轮是否被篡改（务必开启，否则会导致铁链复制，虚空传动bug的蓝图被上传！！！）
 conveyor_max_connection: 4    # 链式传动轮的最大连接数，应与服务器配置一致（默认为4）
@@ -50,13 +56,21 @@ rules:
     block: create:lectern_controller
     Redundant:
       blocks.nbt.Controller.tag: BlockEntityTag
-
   - name: 机械动力：火炮
     block: create:fuze
     Redundant:
       blocks.nbt.Fuze.tag: BlockEntityTag
-
   - name: 创意传动：动力电池
     block: create_connected:kinetic_battery
     Univariate:
       palette.Properties.powered: false
+"""
+
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(yml_content)
+        # print(f"YML 配置文件已写入：{file_path}")
+
+
+if __name__ == "__main__":
+    pass
+    # write_yml_from_string("config.yml")

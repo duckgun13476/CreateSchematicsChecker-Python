@@ -8,8 +8,9 @@ from Checker.lib.math.func import has_duplicates, remove_element, count_elements
 from Checker.lib.math.nbt_hook import safe_get_array, nbt_int
 from Checker.lib.nbt_matcher.nbt_str import str_check
 from Checker.lib.rule_handler import load_rule
-from Checker.lib.setting.config import config
+from Checker.lib.setting.config_gen import config
 ban_block:list = config.ban_block
+ban_entity:list = config.ban_entity
 
 
 # about to delete
@@ -197,13 +198,46 @@ def handle_filter(ban_count, Filter_nbt):
     return 0, ban_count
 
 
-def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, entity_handle, nbt_config=load_rule(convert_to_string=True)):
+def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, entity_handle, change_file,nbt_config=load_rule(convert_to_string=True)):
     block_nbt = None
     source_nbt = data
     modify_count = 0
     write = False
     ban_count = 0
     pos  = 0
+    def handle_fanc_menu(in_data,ban_count_45,write_1):
+        # 内部有Filter
+        if in_data.get('Filter') is not None:
+            Filter = in_data['Filter']
+            filter_id = Filter.get('id')
+            if str(filter_id) == "create:filter":
+                is_cheat_1, ban_count_45 = handle_filter(ban_count_45, Filter)
+                if is_cheat_1:
+                    log.error("过深的过滤器")
+
+            if str(filter_id) in ban_block:
+                write_1 = True
+                Filter['id'] = nbt.TAG_String('minecraft:air')
+                ban_count_45 += 1
+
+        return write_1,ban_count_45
+
+    def handle_items_menu(in_data,ban_count_1,write_1):
+        # 内部有Items
+        if in_data.get('Items') is not None:
+            Items_23 = in_data['Items']
+            for item_43 in Items_23:
+                item_id = item_43.get('id')
+
+                if str(item_id) in ban_block:
+                    write_1 = True
+                    item_43['id'] = nbt.TAG_String('minecraft:air')
+                    ban_count_1 += 1
+
+        return write_1,ban_count_1
+
+
+
     if source_nbt:
         chain_parent_list = []
         chain_children_list = []
@@ -221,6 +255,59 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
 
             if block_nbt is not None:
                 block_id = block_nbt.get('id')
+
+                if str(block_id) in ban_block:
+                    block_nbt['id'] = nbt.TAG_String('minecraft:air')
+                    ban_count += 1
+
+
+                # 红石请求器6.0
+                if str(block_id) == "create:redstone_requester":
+                    EncodedAddress = block_nbt.get('EncodedRequest')
+                    if EncodedAddress is not None:
+                        try:
+                            address = block_nbt['EncodedRequest']
+                            stack = address['ordered_stacks']
+                            entries = stack['entries']
+                            for entry in entries:
+                                if str(entry['item_stack']['id']) in ban_block:
+                                    entry['item_stack']['id'] = nbt.TAG_String('minecraft:air')
+                                    ban_count += 1
+
+                        except Exception as e:
+                            log.error("红石请求器搜索错误")
+                            traceback.print_exc()
+
+
+                # 黄铜隧道
+                if str(block_id) == "create:brass_tunnel":
+                    write,ban_count = handle_fanc_menu(block_nbt,ban_count,write)
+                    Filters = block_nbt.get('Filters')
+                    if Filters is not None:
+                        for filter_item in Filters:
+                            write,ban_count = handle_fanc_menu(filter_item,ban_count,write)
+
+                # 工作盆
+                if str(block_id) == "create:basin":
+                    write,ban_count = handle_fanc_menu(block_nbt,ban_count,write)
+                    write,ban_count = handle_items_menu(block_nbt['InputItems'],ban_count,write)
+                    write,ban_count = handle_items_menu(block_nbt['OutputItems'],ban_count,write)
+
+
+                # 智能溜槽
+                if str(block_id) == "create:smart_chute":
+                    Filter_nbt = block_nbt['Filter']
+                    is_cheat, ban_count = handle_filter(ban_count, Filter_nbt)
+                    if is_cheat:
+                        return -1, ban_count
+                    write,ban_count = handle_fanc_menu(block_nbt,ban_count,write)
+
+                # 存量转信器
+                if "create:stockpile_switch" == str(block_id):
+                    write,ban_count = handle_fanc_menu(block_nbt,ban_count,write)
+
+                if "create:stockpile_switch" == str(block_id):
+                    write,ban_count = handle_fanc_menu(block_nbt,ban_count,write)
 
                 # 工具盒
                 if "create:toolbox" == str(block_id):
@@ -302,19 +389,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                 # 6.0机械动力工厂仪表的检查
                 if "create:factory_panel" == str(block_id):
                     data =  block_nbt
-                    def handle_fanc_menu(in_data,ban_count,write_1):
-                        if in_data.get('Filter') is not None:
-                            Filter = in_data['Filter']
-                            filter_id = Filter.get('id')
 
-                            if str(filter_id) in ban_block:
-                                write_1 = True
-                                Filter['id'] = nbt.TAG_String('minecraft:air')
-                                ban_count += 1
-
-                            # print(str(filter_id))
-                        # print("---------------------------")
-                        return write_1,ban_count
 
                     if data.get('top_right') is not None:
                         write,ban_count = handle_fanc_menu(data['top_right'],ban_count,write)
@@ -328,20 +403,18 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                     consume_id = []
                     if block_nbt.get('material_data') is not None:
                         for item in block_nbt['material_data']:
-                            # print(type(item))
-                            # print(type(block_nbt['material_data'][str(item)]))
                             item_c = block_nbt['material_data'][str(item)]
                             try:
                                 material = item_c['material']['Name']
                                 if material not in fake_id:
                                     fake_id.append(str(material))
-                                    # print(fake_i d  )
+
                                 elif material in fake_id:
                                     continue
 
                                 consumedItem_id = item_c['consumedItem']['id']
                                 consumedItem_count = item_c['consumedItem']['Count']
-                                # print(consumedItem_id, consumedItem_count)
+
                                 # 数量不能为0，1外的数字 id 必须在伪装列表里
                                 if str(consumedItem_id) not in fake_id or int(str(consumedItem_count)) not in [0,1]:
                                     item_c['consumedItem']['id'] = nbt.TAG_String('minecraft:air')
@@ -360,7 +433,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                                 traceback.print_exc()
 
                         consume_id = remove_element(consume_id, 'minecraft:air')
-                        # print(consume_id)
+
                         if has_duplicates(consume_id):
                             log.error("伪装图层的包含物品数量异常！有问题的物品：")
                             write_log("伪装图层的包含物品数量异常！有问题的物品：")
@@ -397,20 +470,11 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                             block_nbt['Filter']['id'] = nbt.TAG_String('minecraft:air')
                             ban_count += 1
                         elif str(block_nbt.get('Filter').get('id')) == "create:filter":
-                            Filter_nbt = block_nbt.get('Filter')
+                            Filter_nbt = block_nbt['Filter']
                             is_cheat, ban_count = handle_filter(ban_count, Filter_nbt)
                             if is_cheat:
                                 return -1, ban_count
 
-                if str(block_id) == "create:smart_chute":
-                    Filter_nbt = block_nbt.get('Filter')
-                    is_cheat, ban_count = handle_filter(ban_count, Filter_nbt)
-                    if is_cheat:
-                        return -1, ban_count
-
-                if str(block_id) in ban_block:
-                    block_nbt['id'] = nbt.TAG_String('minecraft:air')
-                    ban_count += 1
 
                 if str(block_id) == 'create:weighted_ejector':
                     ejector_distance = block_nbt.get('HorizontalDistance')
@@ -514,6 +578,12 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
                                 else:
                                     pass
 
+                block_nbt_str = str(block_nbt.pretty_tree())
+                for modify_ban_block in config.ban_block:
+                    if modify_ban_block in block_nbt_str:
+                        log.warning(f"第[{pos}]个方块没有清理干净，包含[{modify_ban_block}]")
+                        print(block_nbt_str)
+
         # print(chain_parent_list)
         # print(chain_children_list)
 
@@ -567,7 +637,7 @@ def rule_check(data, block_rule, palette_rule, redundant_rule, source_path_1, en
             else:
                 log.error("没有找到ID")
 
-        if modify_count != 0 or ban_count != 0 or entity_handle or write:
+        if modify_count != 0 or ban_count != 0 or entity_handle or write or change_file:
             log.info("文件被修改, 写入中。")
             source_nbt.write_file(source_path_1)
         return modify_count, ban_count
@@ -581,13 +651,13 @@ if __name__ == '__main__':
     ban_block = ["create:creative_crate", "create:creative_fluid_tank", "create:creative_motor"]
     nbt_rule = load_rule(convert_to_string=True)
     interesting = []
-    for rule in nbt_rule.get('rules', []):
-        interesting.append(rule.get('block'))
-    str_result = str_check(source_path, interesting, ban_tags, ban_block)
-    if str_result == -1:
-        print("dead")
-    elif str_result == 0:
-        print("nothing")
-    else:
-        print("in_check")
-        rule_check(source_path, nbt_config=nbt_rule)
+    # for rule in nbt_rule.get('rules', []):
+     #    interesting.append(rule.get('block'))
+    # str_result = str_check(source_path, interesting, ban_tags, ban_block)
+    # if str_result == -1:
+       #  print("dead")
+    # elif str_result == 0:
+       #  print("nothing")
+    # else:
+    #     print("in_check")
+     #    rule_check(source_path, nbt_config=nbt_rule)

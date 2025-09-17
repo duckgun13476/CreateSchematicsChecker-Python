@@ -2,7 +2,7 @@ from datetime import datetime
 
 import colorlog
 import logging
-from Checker.lib.setting.config import config
+from Checker.lib.setting.config_gen import config
 import os
 
 console_handler = logging.StreamHandler()
@@ -27,7 +27,7 @@ console_handler.setFormatter(formatter)
 
 os.makedirs(os.path.dirname(config.log_path), exist_ok=True)
 file_handler = logging.FileHandler(config.log_path, encoding='utf-8')
-file_handler.setLevel(logging.DEBUG)  # 设置文件处理器的日志级别
+file_handler.setLevel(logging.INFO)  # 设置文件处理器的日志级别
 file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))  # 设置文件格式
 log = colorlog.getLogger()
 

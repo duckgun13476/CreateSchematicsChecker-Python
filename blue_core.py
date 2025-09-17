@@ -1,21 +1,28 @@
-import yaml
-
+from packaging import version
 from Checker.lib.file_handle import ensure_directory_exists, ensure_sha_exist
 from Checker.lib.package_handler import logo
+from Checker.lib.setting.config_attach import update_config
+from Checker.lib.setting.nbt_set import generate_nbt_file
+from Checker.lib.setting.para_set import config_rule_version
 
-__version__ = '3.1.1.dev1'
+__version__ = config_rule_version
+
+from run import update_configure_rule
 
 try:
 
     import os
     import sys
 
-    from Checker.lib.auth.hook import user_beat
-    from Checker.lib.setting.config import config
+    from Checker.lib.auth.hook import user_beat, get_config_schematic_version, download_config, get_information
+    from Checker.lib.setting.config_gen import config, replace_schematic_path
 
     ensure_directory_exists('save/backup')
     ensure_directory_exists('save/problem_schematic')
     ensure_sha_exist()
+    ensure_directory_exists('rule')
+    if not os.path.isfile(replace_schematic_path):
+        generate_nbt_file( replace_schematic_path)
 
     # Dynamically add the parent directory to sys.path if running directly
     if __name__ == "__main__" and __package__ is None:
@@ -96,27 +103,36 @@ try:
             filtered_lines = [line for line in lines if f"|{target_value}|" not in line]
             with open(file_path, 'w', encoding='utf-8') as file:
                 file.writelines(filtered_lines)
-            log.info(f"已删除版本为[{target_value}]的历史检测 , 更新后的数据已保存回指纹文件!")
+            log.info(f"已删除版本为[{target_value}]的历史检测 , 更新后的数据已保存在backup!")
         except Exception as e:
             log.error(f"处理文件时出错: {e}")
 
     def update_rule():
-        log.info("检查规则更新————")
-        update_version = float(version_handler_in())
-        local_version = float(load_rule().get('version', '0.0'))
-        if update_version > local_version:
-            log.info(f"检测到规则更新!!本地配置版本: [{local_version}]最新版本: [{update_version}]")
-            log.info("准备下载规则文件。。。")
-            rule_info = get_latest_rule().get('data')
-            log.info(f"最新规则文件版本:{update_version}")
-            file_handle.copy_file_to_year_folder("rule/standard.yml", "save/rule_backup")
-            file_handle.delete_file("rule/standard.yml")
-            save_data_to_yaml(rule_info, "rule/standard.yml")
-            log.warning("由于规则更新, 旧版检测可能失效或过时, 旧版的检测结果将被移除!!")
-            remove_lines_with_value("save/schematics.yml", str(local_version))
-            log.info("处理完毕!")
-        else:
-            log.info("规则已为最新")
+        try:
+            if config.auto_update:
+                log.info("检查规则更新————")
+                update_version = version.parse(str(get_config_schematic_version()))
+                local_version = version.parse(str(load_rule().get('version', '0.0')))
+                if update_version > local_version:
+                    log.info(f"检测到规则更新!!本地配置版本: [{local_version}]最新版本: [{update_version}]")
+                    log.info("准备下载规则文件。。。")
+                    download_config()
+                    log.info(f"最新规则文件版本:{update_version}")
+                    file_handle.copy_file_to_year_folder("rule/standard.yml", "rule/rule_backup")
+                    file_handle.delete_file("rule/standard.yml")
+                    file_handle.copy_file_to_year_folder("rule/download/standard.yml", "rule")
+
+                    # save_data_to_yaml(rule_info, "rule/standard.yml")
+                    log.warning("由于规则更新, 旧版检测可能失效或过时, 旧版的检测结果将被移除!!")
+                    remove_lines_with_value("save/schematics.yml", str(local_version))
+                    file_handle.copy_file_to_year_folder('config.toml', "rule/rule_backup")
+                    update_config( 'config.toml','rule/download/config.toml')
+                    log.info("处理完毕!")
+                else:
+                    log.info(f"规则已为最新 版本： [ {update_version} ] ]")
+        except Exception as e:
+            log.error(f"<UNK>: {e}")
+            traceback.print_exc()
 
     @timer
     def run_main():
@@ -167,20 +183,15 @@ try:
                     post = 0
                     update_rule()
 
-            # 第二次循环: 进行比较
             for player_name, files in nbt_files_dict.items():
                 for file_info in files:
                     filename = file_info[0]  # 获取文件名
                     file_mod_time = file_info[1]  # 获取文件的修改时间
-                    # 获取对应的代码修改时间
                     if player_name not in code_mod_times:
                         code_mod_times[player_name] = {}
                         current_time = datetime.now().strftime('%a %b %d %H:%M:%S %Y')
                         code_mod_times[player_name][filename] = current_time
-                        # main_check(player_name, filename)
                     code_mod_time = code_mod_times[player_name].get(filename)
-                    # log.info(f"{code_mod_time}, {file_mod_time}")
-                    # 比较文件修改时间和代码修改时间
                     if file_mod_time is None:
                         file_mod_time = 'Fri Nov  8 22:36:21 2024'
                     if code_mod_time is None:
@@ -191,19 +202,23 @@ try:
 
                     if abs((file_mod_time_1 - code_mod_time_1).total_seconds()) < 0.5:
                         pass
-                        # log.info(f"{filename} 的修改时间相同, 跳过检查。")
                     else:
                         check_and_run(player_name, filename, file_mod_time, code_mod_times)
 
     if __name__ == '__main__':
 
         try:
-
             while True:
                 try:
-                    log.info(logo.format(version=__version__.ljust(8, ' ')[:22]))
-                    time.sleep(0.5)
+                    log.info(logo.format(information = get_information(),version=__version__.ljust(8, ' ')[:22]))
                     log.info("启动主线程中~")
+
+
+                    time.sleep(0.5)
+
+
+
+
                     run_main()
                 except Exception as e:
                     if isinstance(e, FileNotFoundError):
@@ -212,8 +227,8 @@ try:
                         log.info(r"提示: 请确保路径为 绝对路径 Linux: /example/uploaded | Win: F:\CreateEntityControler\create\uploaded")
                         log.info(r"指引：")
                         log.info(r"配置文件在 config.toml 您需要通过编辑器编辑它!")
-                        log.info(r"由于路径不正确, CSC将在10秒后退出!")
-                        time.sleep(10)
+                        log.info(r"由于路径不正确, CSC将在600秒后退出!")
+                        time.sleep(600)
                         sys.exit("PATH NOT FOUND")
                     log.error("运行主线程发生错误: %s", e)
                     traceback.print_exc()
@@ -230,4 +245,4 @@ except Exception as e:
 
     traceback.print_exc()
     time.sleep(30)
-    sys.exit("error occur")
+    sys.exit("EXIT     由于发生错误而退出！")

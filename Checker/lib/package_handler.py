@@ -10,6 +10,8 @@ logo = r"""
 --------------------------------------------------------------------------------------------------------------
 
 版本：{version}  问题/反馈/寻求帮助  QQ群号: 1061133894
+信息：{information}
+————————————————————————————————————————————————————
 """
 
 
@@ -40,3 +42,21 @@ def handle_package():
     log.info(f"{logo}")
     # log.info(f"3秒后开始运行。。。。")
     time.sleep(0.5)
+
+from packaging import version
+
+
+
+if __name__ == '__main__':
+    v1 = version.parse("3.11")
+    v2 = version.parse("3.2.5")
+    v3 = version.parse("3.1.7")
+
+    # 比较大小
+    print(v1 > v2)  # True
+    print(v2 > v3)  # True
+
+    # 排序版本列表
+    versions = ["3.11", "3.2.5", "3.1.7"]
+    sorted_versions = sorted(versions, key=version.parse)
+    print(sorted_versions)  # ['3.1.7', '3.2.5', '3.11']

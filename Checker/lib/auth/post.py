@@ -8,11 +8,13 @@ from Checker.lib.auth.cry import *
 from Checker.lib.file_handle import delete_file
 from Checker.lib.handle.n_post import send
 from Checker.lib.log_color import log
-from Checker.lib.setting.config import thread_pool
+from Checker.lib.setting.config_gen import thread_pool
 def remove_string_from_list(string_list, string_to_remove):
     """从字符串列表中删除指定的字符串"""
     # 使用列表推导式创建一个新列表，排除要删除的字符串
     return [s for s in string_list if s != string_to_remove]
+
+
 
 
 def _m_3411_(_p_123124_, prefix):
@@ -54,4 +56,5 @@ def _m_3411_(_p_123124_, prefix):
         log.info(f"发生推送错误: {e}")
 
 if __name__ == "__main__":
+
     sys.exit("耶耶！")

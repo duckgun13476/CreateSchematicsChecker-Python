@@ -2,8 +2,10 @@ import yaml
 
 from Checker.lib.file_size_io import list_files_in_directory, resource_path
 from Checker.lib.log_color import log
-from Checker.lib.setting.config import rule_path, schematic_sha_path
+from Checker.lib.setting.config_gen import rule_path, schematic_sha_path
 import os
+
+from Checker.lib.setting.standard import write_yml_from_string
 
 
 def save_md5(path_md5, data):
@@ -44,8 +46,7 @@ def save_md5(path_md5, data):
 
 
 def load_rule(convert_to_string=False, path=rule_path):
-    if "schematic" not in path:
-        path = resource_path(path)
+
 
     # 自定义 Loader
     class CustomLoader(yaml.SafeLoader):
@@ -69,12 +70,17 @@ def load_rule(convert_to_string=False, path=rule_path):
             with open(path, 'w', encoding='utf-8') as file:
                 yaml.dump(existing_data, file, allow_unicode=True)  # 写入初始内容
         else:
-            log.error("文件不存在")
+            pass
+            # log.error("文件不存在")
 
     # 读取 YAML 文件
-    with open(path, 'r', encoding='utf-8') as file:
-        return yaml.load(file, Loader=CustomLoader)
-
+    try:
+        with open(path, 'r', encoding='utf-8') as file:
+            return yaml.load(file, Loader=CustomLoader)
+    except FileNotFoundError:
+        write_yml_from_string('rule/standard.yml')
+        with open(path, 'r', encoding='utf-8') as file:
+            return yaml.load(file, Loader=CustomLoader)
 
 def extract_rules(config):
     try:
