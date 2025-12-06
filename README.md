@@ -4,6 +4,7 @@
 
 ### ~~玩bug蓝图的熊孩子的对策杀手（bushi~~
 
+### 蓝图校验模组已发布，更快，更稳，更细微：modrinth/curseforge 搜索 Create:SchematicChecker
 
 
 ![python](https://github.com/user-attachments/assets/eb746af3-f0f4-4710-86b4-a4ad7f176369)
